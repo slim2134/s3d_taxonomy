@@ -1,0 +1,32 @@
+name: Privacy Aware Infrastructure (PAI)
+developer: Meta
+status: deployed
+analysis_status: complete
+date: August 27, 2024
+source: https://engineering.fb.com/2024/08/27/security/privacy-aware-infrastructure-purpose-limitation-meta/
+description: >-
+  An infrastructure-level privacy system that embeds Policy Zones across Meta's systems to enforce restrictions
+  ensuring data is used only for explicitly allowed purposes, with constraints propagating automatically
+  via a continuous data lineage layer.
+hoepman:
+- strategy: enforce
+  rationale: >-
+    Commits a data-use policy and checks data flows in real time to block impermissible flows from occurring.
+- strategy: separate
+  rationale: Policy Zones maintain data separation when data for different purposes is processed by shared
+    code.
+oecd:
+- principle: purpose-specification
+  rationale: Every annotated asset carries its explicitly stated allowed purposes.
+- principle: use-limitation
+  rationale: Ensures data is processed only for those explicitly stated purposes.
+technologies:
+- information-flow-control
+- zoncolan-static-analysis
+- data-lineage
+- ml-based-data-classification
+- presto-spark-integration
+techniques:
+- data-annotation
+- policy-lattice-of-data-flow-rules
+- deep-framework-integration

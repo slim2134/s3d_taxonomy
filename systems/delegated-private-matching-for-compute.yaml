@@ -1,0 +1,30 @@
+name: Delegated Private Matching for Compute
+developer: null
+status: research
+analysis_status: complete
+date: '2024.0'
+source: https://petsymposium.org/popets/2024/popets-2024-0040.php
+description: >-
+  Delegates private record matching across organizations to helper parties that facilitate the match without
+  learning identities, so matched records can feed downstream computation without any party seeing the
+  other side's identifiers.
+hoepman:
+- strategy: hide
+  rationale: >-
+    identifiers are encrypted end to end, so matched records can feed downstream computation (e.g. measurement)
+    without any party seeing the other side's identifiers
+- strategy: separate
+  rationale: >-
+    the matching of records across organizations is delegated to helper parties that are structurally
+    separated from the data — they facilitate the match without learning identities
+oecd:
+- principle: collection-limitation
+  rationale: no party collects the counterpart's raw identifiers
+- principle: use-limitation
+  rationale: the matched dataset exists only to enable the agreed downstream computation
+technologies:
+- delegated-private-record-matching-private-id-lineage
+- open-source-implementation-facebookresearch-private-id
+techniques:
+- oblivious-delegated-matching
+- multi-identifier-record-linkage-without-identifier-disclosure

@@ -1,0 +1,29 @@
+name: Policy Zones
+developer: Meta
+status: deployed
+analysis_status: complete
+date: July 23, 2025
+source: >-
+  https://engineering.fb.com/2025/07/23/security/policy-zones-meta-purpose-limitation-batch-processing-systems/
+description: >-
+  Data carrying privacy obligations is tagged with a policy zone declaring its allowed purposes; zone
+  tags propagate automatically to downstream derived data through SQL queries, batch jobs, and joins,
+  and the system blocks any operation that would use the data for an unpermitted purpose.
+hoepman:
+- strategy: enforce
+  rationale: >-
+    Operations that would use zoned data for an unpermitted purpose are blocked at runtime rather than
+    merely flagged.
+oecd:
+- principle: use-limitation
+  rationale: >-
+    Zone tags propagate to all derived data, so downstream use remains bound by the source data's declared
+    purposes.
+technologies:
+- scribe-message-queue
+- dataswarm-job-scheduler
+- presto
+techniques:
+- governable-data-annotations
+- downstream-restrictiveness-invariant
+notes: Follow-up component of Privacy Aware Infrastructure.

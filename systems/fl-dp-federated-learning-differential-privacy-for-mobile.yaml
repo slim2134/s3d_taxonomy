@@ -1,0 +1,34 @@
+name: FL-DP (Federated Learning + Differential Privacy for Mobile)
+developer: Meta
+status: research
+analysis_status: complete
+date: June 14, 2022
+source: >-
+  https://engineering.fb.com/2022/06/14/production-engineering/federated-learning-differential-privacy/
+description: >-
+  Trains ML models directly on users' phones so raw data never leaves the device, then adds differential-privacy
+  noise before updating the global model to prevent it from memorizing individual data. Combines mobile
+  devices, trusted execution environments, and back-end servers, validated on an in-house library scalable
+  to millions of devices across Facebook/Instagram.
+hoepman:
+- strategy: minimise
+  rationale: >-
+    models are trained directly on users' phones, so raw data never leaves the device — only model updates
+    are sent
+- strategy: hide
+  rationale: >-
+    differential-privacy noise is added before updates reach the global model, preventing it from memorizing
+    any individual's data
+oecd:
+- principle: collection-limitation
+  rationale: the back end receives only noised model updates, never the underlying user data
+- principle: security-safeguards
+  rationale: DP places a formal bound on what the global model can reveal about any contributor
+technologies:
+- on-device-training-runtime-across-facebook-instagram-mobile-apps
+- trusted-execution-environments
+- back-end-aggregation-servers-in-house-fl-library-scalable-to-millions-of-devices
+techniques:
+- local-training-with-update-only-transmission
+- dp-noise-injection-on-aggregated-updates
+- tee-protected-aggregation

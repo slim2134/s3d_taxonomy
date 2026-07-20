@@ -1,0 +1,34 @@
+name: 'Lox: Protecting the Social Graph in Bridge Distribution'
+developer: Tulloch & Goldberg (University of Waterloo)
+status: research
+analysis_status: complete
+date: 2023 (PoPETs)
+source: https://petsymposium.org/popets/2023/popets-2023-0029.php
+description: >-
+  A new anti-censorship bridge distribution system that prioritizes protecting the privacy of users and
+  their social graphs, incorporating enumeration resistance mechanisms and a trust level scheme based
+  on anonymous credentials that limits malicious behavior while maintaining user anonymity, with an open-sourced
+  Rust implementation and performance evaluation.
+hoepman:
+- strategy: hide
+  rationale: >-
+    protects censorship-circumvention users' social graphs during bridge distribution — the distributor
+    cannot map who invited whom, and enumeration resistance keeps bridges hidden from censors
+- strategy: minimise
+  rationale: >-
+    anonymous credentials with trust levels disclose only what is needed (a user's trust standing), never
+    identity or social connections
+oecd:
+- principle: collection-limitation
+  rationale: >-
+    the bridge authority never collects the user social graph that invitation-based distribution would
+    normally expose
+- principle: security-safeguards
+  rationale: trust levels limit malicious behavior (bridge enumeration) while preserving anonymity
+technologies:
+- anonymous-credentials
+- open-source-rust-implementation
+techniques:
+- trust-level-escalation-scheme
+- enumeration-resistant-bridge-distribution
+- social-graph-protecting-invitation-flow

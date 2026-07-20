@@ -1,0 +1,15 @@
+name: Practical Considerations for Differential Privacy
+developer: Google (Alex Kulesza)
+status: talk
+analysis_status: needs-analysis
+date: '2025.0'
+source: https://www.usenix.org/conference/pepr25/presentation/kulesza
+description: >-
+  A practitioner talk reflecting on how worst-case epsilon framing in differential privacy both enables
+  and obscures honest accounting of real-world privacy risk, drawing on seven years of deployment experience
+  at Google.
+hoepman: []
+oecd: []
+technologies: []
+techniques: []
+notes: Practitioner reflection talk, not a deployed system.

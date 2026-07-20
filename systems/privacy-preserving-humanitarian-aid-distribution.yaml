@@ -1,0 +1,34 @@
+name: Privacy-Preserving Humanitarian Aid Distribution
+developer: ICRC / EPFL
+status: research
+analysis_status: complete
+date: 2026 (PoPETs)
+source: https://petsymposium.org/popets/2026/popets-2026-0051.php
+description: >-
+  Lets aid organizations measure how their aid is being distributed (e.g. what share reached a minority
+  group) without exposing individual recipients' data. Built with the Red Cross, it adds aggregate statistics
+  to existing private aid systems using functional encryption, and is designed to keep protecting people
+  even when the situation on the ground suddenly changes (like a conflict escalating).
+hoepman:
+- strategy: hide
+  rationale: >-
+    functional encryption reveals only the value of the agreed statistical function, keeping everything
+    else about recipients concealed
+- strategy: abstract
+  rationale: >-
+    aid organizations learn aggregate distribution statistics (e.g. what share of aid reached a minority
+    group) — never individual recipients' records
+oecd:
+- principle: use-limitation
+  rationale: only pre-agreed aggregate functions can be evaluated over recipient data
+- principle: security-safeguards
+  rationale: >-
+    the design explicitly keeps protecting recipients when the threat model suddenly worsens, such as
+    a conflict escalating
+technologies:
+- functional-encryption
+- integration-with-existing-privacy-preserving-aid-distribution-systems-built-with-the-red-cross
+techniques:
+- aggregate-only-statistical-release-over-aid-records
+- threat-model-adaptive-protection-for-volatile-field-conditions
+- co-design-with-humanitarian-operations

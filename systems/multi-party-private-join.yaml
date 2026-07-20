@@ -1,0 +1,32 @@
+name: Multi-Party Private Join
+developer: Hasso Plattner Institute
+status: research
+analysis_status: complete
+date: 2026 (PoPETs)
+source: https://petsymposium.org/popets/2026/popets-2026-0035.php
+description: >-
+  Lets several parties combine their datasets and give one recipient the matching rows (a database "join")
+  without revealing the rest of their data. It's the first protocol built specifically for this across
+  many parties, using an oblivious helper that speeds things up without learning anything, making it far
+  cheaper than existing general-purpose approaches.
+hoepman:
+- strategy: hide
+  rationale: >-
+    each party's non-matching rows stay hidden — the recipient learns only the joined rows, and the oblivious
+    helper that accelerates the protocol learns nothing at all
+- strategy: separate
+  rationale: >-
+    the helper role is structurally separated from the data-holding and receiving roles, so speedup does
+    not require trusting anyone with data
+oecd:
+- principle: collection-limitation
+  rationale: no party collects another party's non-matching records
+- principle: use-limitation
+  rationale: only the agreed join result flows to the single designated recipient
+technologies:
+- secure-multi-party-computation
+- oblivious-helper-architecture
+techniques:
+- first-protocol-purpose-built-for-many-party-private-joins
+- helper-accelerated-oblivious-computation
+- far-cheaper-than-general-purpose-mpc

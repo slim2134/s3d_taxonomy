@@ -1,0 +1,30 @@
+name: TraCS
+developer: Rochester Institute of Technology
+status: research
+analysis_status: complete
+date: 2026 (PoPETs)
+source: https://petsymposium.org/popets/2026/popets-2026-0074.php
+description: >-
+  A way to collect users' movement paths for location services without an untrusted collector learning
+  where anyone actually went. Each location is scrambled on the user's device (by perturbing direction/distance
+  or coordinates) before sending. Unlike earlier methods limited to fixed grids, it works in continuous
+  space — useful for things like flight paths or wearable-sensor traces — while keeping the data useful.
+hoepman:
+- strategy: hide
+  rationale: >-
+    each location is scrambled on the user's device — by perturbing direction/distance or coordinates
+    — before the collector ever sees it, so an untrusted collector cannot learn where anyone actually
+    went
+- strategy: abstract
+  rationale: >-
+    collected trajectories remain useful for location services at the population level while individual
+    paths are obscured
+oecd:
+- principle: collection-limitation
+  rationale: the collector only ever receives perturbed movement data, never true paths
+technologies:
+- local-differential-privacy-for-trajectory-data
+techniques:
+- on-device-direction-distance-perturbation
+- coordinate-perturbation-variant
+- continuous-trajectory-collection-under-ldp

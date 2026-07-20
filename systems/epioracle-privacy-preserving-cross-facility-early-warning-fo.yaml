@@ -1,0 +1,32 @@
+name: 'EpiOracle: Privacy-Preserving Cross-Facility Early Warning for Unknown Epidemics'
+developer: Li et al.
+status: research
+analysis_status: complete
+date: 2025 (PoPETs)
+source: https://petsymposium.org/popets/2025/popets-2025-0020.php
+description: >-
+  A cross-facility early warning scheme for unknown epidemics that ensures the contents and frequencies
+  of syndromes will not be leaked to any unrelated parties, using only symmetric-key encryption and cryptographic
+  hash functions, with formal security proofs and a prototype evaluated on real-world symptom lists.
+hoepman:
+- strategy: hide
+  rationale: >-
+    syndrome contents and their frequencies are encrypted so no unrelated party — including other facilities
+    — can learn what any facility is observing
+- strategy: abstract
+  rationale: >-
+    the system's output is an early-warning signal that an unknown epidemic pattern exists, not the underlying
+    record-level syndrome data
+oecd:
+- principle: security-safeguards
+  rationale: the scheme carries formal security proofs while using only symmetric-key primitives
+- principle: collection-limitation
+  rationale: no central party collects raw cross-facility syndrome reports
+technologies:
+- symmetric-key-encryption
+- cryptographic-hash-functions
+- prototype-evaluated-on-real-world-symptom-lists
+techniques:
+- encrypted-cross-facility-syndrome-matching
+- lightweight-primitive-only-design-no-public-key-crypto
+- formal-security-proofs

@@ -1,0 +1,25 @@
+name: Hawk
+developer: USC
+status: research
+analysis_status: complete
+date: '2024.0'
+source: https://petsymposium.org/popets/2024/popets-2024-0066.php
+description: (fast privacy-preserving ML via secure lookup tables)
+hoepman:
+- strategy: hide
+  rationale: >-
+    secure lookup-table computation lets parties evaluate ML operations (including hard-to-compute nonlinear
+    functions) without revealing their inputs, keeping training/inference data concealed
+- strategy: separate
+  rationale: the computation is split among MPC parties so no single party reconstructs the data
+oecd:
+- principle: collection-limitation
+  rationale: no party collects the plaintext training or inference data
+- principle: security-safeguards
+  rationale: table-based evaluation preserves accuracy that approximation-based secure ML gives up
+technologies:
+- secure-multi-party-computation
+- secure-lookup-table-computation
+techniques:
+- table-based-evaluation-of-nonlinear-activation-functions
+- accuracy-preserving-privacy-preserving-ml-training-and-inference

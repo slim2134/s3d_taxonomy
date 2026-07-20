@@ -1,0 +1,36 @@
+name: SPRINT
+developer: SAP SE
+status: research
+analysis_status: complete
+date: 2026 (PoPETs)
+source: https://petsymposium.org/popets/2026/popets-2026-0008.php
+description: >-
+  Runs transformer inference in the cloud without exposing the user's query, the model's parameters, or
+  the training data. It uses multi-party computation to split the computation across providers (so no
+  single server sees the query or weights) and differential privacy during fine-tuning (so the model can't
+  leak training data), with optimizations that keep both fast and accurate — under 1 point of accuracy
+  loss versus cleartext.
+hoepman:
+- strategy: separate
+  rationale: >-
+    multi-party computation splits transformer inference across providers, so no single server ever holds
+    the user's query or the model weights
+- strategy: hide
+  rationale: differential privacy during fine-tuning prevents the model itself from leaking its training
+    data
+oecd:
+- principle: collection-limitation
+  rationale: no provider collects the plaintext query, and training data cannot be extracted from the
+    model
+- principle: security-safeguards
+  rationale: >-
+    protection covers all three assets at once — query, weights, and training data — with under 1 point
+    of accuracy loss
+technologies:
+- secure-multi-party-computation-across-providers
+- differentially-private-fine-tuning
+- cloud-transformer-inference
+techniques:
+- mpc-friendly-transformer-optimizations-for-speed-and-accuracy
+- split-trust-deployment-across-non-colluding-providers
+- dp-fine-tuning-bounding-training-data-leakage

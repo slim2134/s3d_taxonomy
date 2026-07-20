@@ -1,0 +1,32 @@
+name: 'PrePaMS: Privacy-Preserving Participant Management System'
+developer: Meissner et al.
+status: research
+analysis_status: complete
+date: 2025 (PoPETs)
+source: https://petsymposium.org/popets/2025/popets-2025-0034.php
+description: >-
+  An efficient participation management system that supports prerequisite checks and participation rewards
+  in a privacy-preserving way, enabling secure reward payoffs by leveraging anonymous credentials and
+  zero-knowledge proofs so that service providers cannot derive the identity of participants even within
+  the reward process.
+hoepman:
+- strategy: hide
+  rationale: >-
+    anonymous credentials and zero-knowledge proofs keep participants' identities hidden from the service
+    provider, even during the reward payoff step where deanonymization is usually easiest
+- strategy: minimise
+  rationale: >-
+    only the fact of eligibility (prerequisites met, participation completed) is disclosed — never the
+    identity or attributes behind it
+oecd:
+- principle: collection-limitation
+  rationale: the provider never collects participant identities linked to studies or rewards
+- principle: security-safeguards
+  rationale: cryptographic unlinkability protects participants even from the operator itself
+technologies:
+- anonymous-credentials
+- zero-knowledge-proofs
+techniques:
+- prerequisite-checks-proven-as-zk-predicates
+- unlinkable-participation-records-across-studies
+- privacy-preserving-reward-payoff

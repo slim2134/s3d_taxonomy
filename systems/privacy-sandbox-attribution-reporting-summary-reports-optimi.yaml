@@ -1,0 +1,26 @@
+name: 'Privacy Sandbox Attribution Reporting: Summary Reports Optimization'
+developer: Google
+status: research
+analysis_status: complete
+date: '2024.0'
+source: https://petsymposium.org/popets/2024/popets-2024-0132.php
+description: >-
+  Optimizes how the Attribution Reporting API's aggregated, DP-noised summary reports are configured,
+  maximizing measurement utility within a fixed per-user privacy budget.
+hoepman:
+- strategy: abstract
+  rationale: >-
+    the work optimizes how the Attribution Reporting API's aggregated, DP-noised summary reports are configured,
+    so advertisers extract maximum utility from population-level histograms while the per-user privacy
+    budget is fixed
+oecd:
+- principle: data-quality
+  rationale: the entire contribution is squeezing more measurement accuracy out of the same privacy guarantee
+- principle: security-safeguards
+  rationale: optimization operates strictly within the API's differential privacy budget
+technologies:
+- privacy-sandbox-attribution-reporting-api-summary-reports
+- differential-privacy-budgeting
+techniques:
+- contribution-budget-allocation-optimization
+- histogram-configuration-tuning-for-error-minimization-under-fixed-epsilon

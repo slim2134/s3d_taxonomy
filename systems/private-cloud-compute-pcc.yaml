@@ -1,0 +1,33 @@
+name: Private Cloud Compute (PCC)
+developer: Apple
+status: deployed
+analysis_status: complete
+date: June 10, 2024
+source: https://security.apple.com/blog/private-cloud-compute/
+description: >-
+  A confidential-computing system that processes requests inside hardware-secured server enclaves built
+  on Apple silicon, so user data sent to the cloud is never stored or accessible to the operator; clients
+  use remote attestation to verify the server's software before sending data, and independent researchers
+  can inspect the running code.
+hoepman:
+- strategy: separate
+  rationale: >-
+    The architecture isolates user data inside individual compute nodes so compromising one node reveals
+    nothing about others, and targeting a specific user would require a broad, detectable attack.
+- strategy: demonstrate
+  rationale: >-
+    The verifiable transparency program logs all software measurements, providing compliance evidence
+    to outside parties.
+oecd:
+- principle: use-limitation
+  rationale: Data is used for the sole purpose of fulfilling the user's request and is never persisted.
+technologies:
+- apple-silicon-server-chips
+- secure-enclave
+- secure-boot
+- trusted-execution-environment
+techniques:
+- hardware-attested-trusted-execution
+- code-signing
+- stateless-processing-via-ephemeral-keys
+- target-diffusion

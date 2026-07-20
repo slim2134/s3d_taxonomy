@@ -1,0 +1,35 @@
+name: Secure Vertical Federated Learning
+developer: Visa Research
+status: research
+analysis_status: complete
+date: 2026 (PoPETs)
+source: https://petsymposium.org/popets/2026/popets-2026-0099.php
+description: >-
+  Lets multiple organizations that each hold different features about the same people jointly train a
+  model without sharing their raw data or labels. It splits the aggregator role across several servers
+  running secure multiparty computation, and adds differential privacy to the final model — protecting
+  both the inputs and the output, while cutting the heavy compute costs of a naive approach.
+hoepman:
+- strategy: hide
+  rationale: raw data and labels are never shared between the participating organizations
+- strategy: abstract
+  rationale: differential privacy on the final model protects the output, not just the inputs
+- strategy: separate
+  rationale: >-
+    the aggregator role is split across several servers running secure multiparty computation, so no single
+    server reconstructs inputs; each organization's features never leave its control in the clear
+oecd:
+- principle: collection-limitation
+  rationale: no party collects another organization's features or labels
+- principle: security-safeguards
+  rationale: >-
+    both inputs (via MPC) and the trained model (via DP) carry formal protection, while cutting the compute
+    cost of a naive approach
+technologies:
+- secure-multiparty-computation
+- vertical-federated-learning
+- differential-privacy-on-the-final-model
+techniques:
+- multi-server-aggregator-splitting
+- joint-training-over-vertically-partitioned-features-without-raw-data-exchange
+- input-and-output-dual-protection

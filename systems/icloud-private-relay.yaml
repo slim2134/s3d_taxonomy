@@ -1,0 +1,38 @@
+name: iCloud Private Relay
+developer: Apple
+status: research
+analysis_status: complete
+date: September 2021
+source: https://www.apple.com/privacy/docs/iCloud_Private_Relay_Overview_Dec2021.PDF
+description: >-
+  A two-hop anonymization proxy for all Safari and unencrypted HTTP traffic on iCloud+ subscriptions.
+  Your ISP and Apple's ingress proxy only knows your IP, not the website you're visiting. The third-party
+  egress proxy only knows the website you're going to, not the IP address you come from. Neither has the
+  complete, end-to-end knowledge necessary to profile you.
+hoepman:
+- strategy: separate
+  rationale: >-
+    the two-hop architecture splits knowledge — the ingress proxy sees the user's IP but not the destination,
+    and the third-party egress proxy sees the destination but not the IP, so no single party holds the
+    complete picture
+- strategy: hide
+  rationale: >-
+    traffic is encrypted through both hops, so neither proxy nor the ISP can link the user to the sites
+    they visit
+oecd:
+- principle: collection-limitation
+  rationale: >-
+    no single party is able to collect a complete browsing profile, because identity and destination are
+    never co-located
+- principle: security-safeguards
+  rationale: >-
+    dual-operator design means profiling requires collusion between Apple and the independent egress operator
+technologies:
+- two-hop-proxy-architecture-apple-ingress-independent-third-party-egress
+- masque-quic-based-encrypted-proxying
+- oblivious-dns-over-https
+techniques:
+- dual-hop-knowledge-separation
+- blinded-authentication-tokens
+- coarse
+- geo-preserving-egress-ip-assignment

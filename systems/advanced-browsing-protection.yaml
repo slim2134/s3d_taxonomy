@@ -1,0 +1,30 @@
+name: Advanced Browsing Protection
+developer: Meta
+status: deployed
+analysis_status: complete
+date: March 9, 2026
+source: https://engineering.fb.com/2026/03/09/security/how-advanced-browsing-protection-works-in-messenger/
+description: >-
+  A privacy-preserving URL-safety lookup that checks clicked links against a malicious-site blocklist
+  without revealing the link to the server, layering OPRF-based private information retrieval, a confidential-computing
+  TEE with remote attestation, Path ORAM to hide memory access patterns, and Oblivious HTTP to strip client
+  identifiers.
+hoepman:
+- strategy: hide
+  rationale: >-
+    The client's query is unobservable to the server, which learns as little as possible about the lookup.
+- strategy: separate
+  rationale: A third-party proxy separates the user's identity from the request, so no single party holds
+    both.
+oecd:
+- principle: use-limitation
+  rationale: The lookup result is used only to warn the user, and the server cannot learn the query.
+technologies:
+- private-information-retrieval
+- trusted-execution-environment
+- path-oram
+- oblivious-http
+techniques:
+- oprf-bucketed-membership
+- remote-attestation
+- memory-access-pattern-hiding

@@ -1,0 +1,29 @@
+name: PLAN (Variance-Aware Private Mean Estimation)
+developer: IT University of Copenhagen
+status: research
+analysis_status: complete
+date: '2024.0'
+source: https://petsymposium.org/popets/2024/popets-2024-0095.php
+description: >-
+  Releases differentially private mean estimates with the privacy budget allocated per coordinate based
+  on variance, yielding tighter error than uniform allocation on skewed data.
+hoepman:
+- strategy: hide
+  rationale: >-
+    calibrated noise prevents any individual's value from being inferred, with budget allocated where
+    it matters most
+- strategy: abstract
+  rationale: releases differentially private mean estimates — population-level statistics rather than
+    records
+oecd:
+- principle: security-safeguards
+  rationale: formal DP guarantee on the released means
+- principle: data-quality
+  rationale: >-
+    variance-aware budget allocation across coordinates yields tighter error than uniform allocation,
+    especially on skewed data
+technologies:
+- differentially-private-mean-estimation-framework
+techniques:
+- variance-aware-privacy-budget-allocation-per-coordinate
+- error-optimized-estimation-for-heterogeneous-variance-data

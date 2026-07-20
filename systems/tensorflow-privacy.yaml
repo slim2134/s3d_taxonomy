@@ -1,0 +1,33 @@
+name: TensorFlow Privacy
+developer: Google Brain
+status: deployed
+analysis_status: complete
+date: '2019.0'
+source: https://www.usenix.org/conference/pepr19/presentation/papernot
+description: >-
+  An open-source library that trains machine learning models with differential privacy by injecting calibrated
+  noise into gradient updates during training, preventing the model from memorizing individual data points
+  while still learning population-level patterns.
+hoepman:
+- strategy: hide
+  rationale: >-
+    Clips each gradient so no single person's data can cause a significant model update, then adds Gaussian
+    noise so an adversary with full access to the trained weights cannot determine whether a specific
+    person's data was in the training set.
+- strategy: abstract
+  rationale: >-
+    The published model encodes only statistical patterns learned across the whole training population;
+    individual-level details are washed out by the noise.
+oecd:
+- principle: security-safeguards
+  rationale: Guarantees a mathematical bound on information leakage from training data.
+- principle: collection-limitation
+  rationale: >-
+    By preventing memorization, the effective retention of personal information in the model is limited
+    to population-level patterns that survive clipping and noise.
+technologies:
+- differentially-private-sgd
+techniques:
+- per-example-gradient-clipping
+- gaussian-noise-injection
+- privacy-budget-accounting

@@ -1,0 +1,32 @@
+name: PLASMA
+developer: University of Delaware
+status: research
+analysis_status: complete
+date: 2024 (PoPETs)
+source: https://petsymposium.org/popets/2024/popets-2024-0064.php
+description: >-
+  Lets servers find the most popular strings across many users (like the most-typed words or most-visited
+  sites) without learning any individual's input. It splits data across three servers and adds checks
+  so the result stays correct even if some clients and one server are actively malicious — while using
+  much less communication than earlier systems.
+hoepman:
+- strategy: hide
+  rationale: >-
+    servers jointly compute the most popular strings (heavy hitters) while individual inputs stay concealed,
+    with checks that keep the result correct even when some clients and one server are actively malicious
+- strategy: separate
+  rationale: each user's input is split across three servers, so no single server holds any individual's
+    value
+oecd:
+- principle: collection-limitation
+  rationale: no individual's string is ever collected in the clear by any party
+- principle: data-quality
+  rationale: >-
+    malicious-security checks ensure the published popular-strings result is correct despite adversarial
+    participants
+technologies:
+- three-server-secure-computation-architecture
+techniques:
+- secret-shared-heavy-hitters-computation
+- malicious-client-and-malicious-server-robustness-checks
+- communication-efficient-protocol-design

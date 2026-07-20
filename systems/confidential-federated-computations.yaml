@@ -1,0 +1,32 @@
+name: Confidential Federated Computations
+developer: Google
+status: research
+analysis_status: complete
+date: April 2024
+source: https://arxiv.org/abs/2404.10764
+description: >-
+  A federated learning/analytics architecture that runs server-side aggregation inside trusted execution
+  environments with open-sourced code, so the service provider can't see individual device updates and
+  the privacy properties are externally verifiable. Improves DP tradeoffs over prior approaches and resists
+  a malicious provider.
+hoepman:
+- strategy: hide
+  rationale: >-
+    individual device updates are decrypted and aggregated only inside a trusted execution environment,
+    so the service provider never sees them
+- strategy: demonstrate
+  rationale: >-
+    the aggregation code is open-sourced and remotely attested, so the privacy properties are externally
+    verifiable rather than taken on trust
+oecd:
+- principle: security-safeguards
+  rationale: TEE isolation plus DP protects updates even against a malicious service provider
+- principle: accountability
+  rationale: external verifiability of the running code holds the provider to its published pipeline
+technologies:
+- server-side-trusted-execution-environments
+- remote-attestation
+- open-sourced-confidential-computing-stack
+techniques:
+- attested-aggregation-pipelines
+- dp-noise-added-inside-the-trusted-boundary

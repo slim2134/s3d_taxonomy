@@ -1,0 +1,2302 @@
+[
+ {
+  "name": "Advanced Browsing Protection",
+  "developer": "Meta",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "March 9, 2026",
+  "source": "https://engineering.fb.com/2026/03/09/security/how-advanced-browsing-protection-works-in-messenger/",
+  "description": "A privacy-preserving URL-safety lookup that checks clicked links against a malicious-site blocklist without revealing the link to the server, layering OPRF-based private information retrieval, a confidential-computing TEE with remote attestation, Path ORAM to hide memory access patterns, and Oblivious HTTP to strip client identifiers.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "The client's query is unobservable to the server, which learns as little as possible about the lookup."
+   },
+   {
+    "strategy": "separate",
+    "rationale": "A third-party proxy separates the user's identity from the request, so no single party holds both."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "use-limitation",
+    "rationale": "The lookup result is used only to warn the user, and the server cannot learn the query."
+   }
+  ],
+  "technologies": [
+   "private-information-retrieval",
+   "trusted-execution-environment",
+   "path-oram",
+   "oblivious-http"
+  ],
+  "techniques": [
+   "oprf-bucketed-membership",
+   "remote-attestation",
+   "memory-access-pattern-hiding"
+  ],
+  "id": "advanced-browsing-protection"
+ },
+ {
+  "name": "Anonymous Complaint Aggregation",
+  "developer": "UNC Chapel Hill",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2024.0",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0078.php",
+  "description": "Lets users of end-to-end encrypted messaging file complaints about abusive messages anonymously, with individual complaints unlinkable to complainants; the platform learns only aggregate tallies, such as that a message crossed a complaint threshold.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "users can file complaints about abusive messages while remaining anonymous, with individual complaints unlinkable to complainants and to each other"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "the platform learns only aggregate tallies — that a message crossed a complaint threshold — not who complained"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "the messaging provider never collects complainant identities or linkable complaint records"
+   },
+   {
+    "principle": "accountability",
+    "rationale": "enables abuse moderation in end-to-end encrypted messaging without breaking its privacy model"
+   }
+  ],
+  "technologies": [
+   "cryptographic-tallying-integrated-with-secure-messaging"
+  ],
+  "techniques": [
+   "anonymous-complaint-submission",
+   "threshold-revealed-tallies",
+   "complaint-unlinkability"
+  ],
+  "id": "anonymous-complaint-aggregation"
+ },
+ {
+  "name": "Apple Differential Privacy",
+  "developer": "Apple",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "December 2017",
+  "source": "https://machinelearning.apple.com/research/learning-with-privacy-at-scale",
+  "description": "A local differential privacy system that masks a user's data with calibrated noise on-device before transmission, so that when many users submit data the noise averages out and population-level information emerges.",
+  "hoepman": [
+   {
+    "strategy": "abstract",
+    "rationale": "On-device randomization coarsens each value before it leaves the device."
+   },
+   {
+    "strategy": "minimise",
+    "rationale": "A daily cap limits the number of privatized records transmitted per use case."
+   },
+   {
+    "strategy": "control",
+    "rationale": "The system is opt-in, the user explicitly chooses to share data, and submitted records are inspectable in settings."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "Data is randomized on-device, so the server never receives raw values."
+   },
+   {
+    "principle": "openness",
+    "rationale": "No data is recorded or transmitted before the user explicitly opts in."
+   }
+  ],
+  "technologies": [
+   "local-differential-privacy",
+   "client-side-ios-deployment"
+  ],
+  "techniques": [
+   "count-mean-sketch",
+   "delayed-sampled-transmission",
+   "ip-stripping",
+   "identifier-and-timestamp-removal"
+  ],
+  "id": "apple-differential-privacy"
+ },
+ {
+  "name": "Confidential Federated Computations",
+  "developer": "Google",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "April 2024",
+  "source": "https://arxiv.org/abs/2404.10764",
+  "description": "A federated learning/analytics architecture that runs server-side aggregation inside trusted execution environments with open-sourced code, so the service provider can't see individual device updates and the privacy properties are externally verifiable. Improves DP tradeoffs over prior approaches and resists a malicious provider.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "individual device updates are decrypted and aggregated only inside a trusted execution environment, so the service provider never sees them"
+   },
+   {
+    "strategy": "demonstrate",
+    "rationale": "the aggregation code is open-sourced and remotely attested, so the privacy properties are externally verifiable rather than taken on trust"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "TEE isolation plus DP protects updates even against a malicious service provider"
+   },
+   {
+    "principle": "accountability",
+    "rationale": "external verifiability of the running code holds the provider to its published pipeline"
+   }
+  ],
+  "technologies": [
+   "server-side-trusted-execution-environments",
+   "remote-attestation",
+   "open-sourced-confidential-computing-stack"
+  ],
+  "techniques": [
+   "attested-aggregation-pipelines",
+   "dp-noise-added-inside-the-trusted-boundary"
+  ],
+  "id": "confidential-federated-computations"
+ },
+ {
+  "name": "CURE",
+  "developer": "Koc University / Bilkent University",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2026 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2026/popets-2026-0047.php",
+  "description": "Lets a client train a neural network with a cloud server without exposing its private data. The model is split between client and server, and CURE encrypts the server's side (and optionally the data) so the server never sees anything usable — while running up to 210× faster than earlier encrypted approaches, with accuracy matching normal training.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "the server's share of the model (and optionally the data) is encrypted, so the server never sees anything usable — while running up to 210x faster than earlier encrypted approaches"
+   },
+   {
+    "strategy": "separate",
+    "rationale": "the neural network is split between client and server, so training is distributed across the trust boundary by construction"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "the cloud never collects the client's training data in usable form"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "encryption protects the computation itself with accuracy matching normal training"
+   }
+  ],
+  "technologies": [
+   "homomorphic-encryption",
+   "split-learning-between-client-and-cloud-server"
+  ],
+  "techniques": [
+   "encrypted-server-side-layer-computation",
+   "split-network-architecture-tuned-for-encrypted-execution",
+   "performance-optimizations-delivering-up-to-210x-speedup"
+  ],
+  "id": "cure"
+ },
+ {
+  "name": "Delegated Private Matching for Compute",
+  "developer": null,
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2024.0",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0040.php",
+  "description": "Delegates private record matching across organizations to helper parties that facilitate the match without learning identities, so matched records can feed downstream computation without any party seeing the other side's identifiers.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "identifiers are encrypted end to end, so matched records can feed downstream computation (e.g. measurement) without any party seeing the other side's identifiers"
+   },
+   {
+    "strategy": "separate",
+    "rationale": "the matching of records across organizations is delegated to helper parties that are structurally separated from the data — they facilitate the match without learning identities"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "no party collects the counterpart's raw identifiers"
+   },
+   {
+    "principle": "use-limitation",
+    "rationale": "the matched dataset exists only to enable the agreed downstream computation"
+   }
+  ],
+  "technologies": [
+   "delegated-private-record-matching-private-id-lineage",
+   "open-source-implementation-facebookresearch-private-id"
+  ],
+  "techniques": [
+   "oblivious-delegated-matching",
+   "multi-identifier-record-linkage-without-identifier-disclosure"
+  ],
+  "id": "delegated-private-matching-for-compute"
+ },
+ {
+  "name": "Differential Privacy Library",
+  "developer": "Google",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "June 2020",
+  "source": "https://opensource.googleblog.com/2020/06/expanding-our-differential-privacy.html",
+  "description": "An open-source library that lets organizations derive insights from data while ensuring results do not allow any individual's data to be distinguished or re-identified, supporting counts, sums, and averages across C++, Java, Go, and Python.",
+  "hoepman": [
+   {
+    "strategy": "abstract",
+    "rationale": "Adds calibrated noise so organizations can derive aggregate insights while no individual's data can be distinguished or identified in the output."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "use-limitation",
+    "rationale": "Organizations can publish results without exposing individuals, keeping data use from leaking beyond its intended purpose."
+   }
+  ],
+  "technologies": [
+   "central-differential-privacy",
+   "privacy-on-beam-pipeline-framework"
+  ],
+  "techniques": [
+   "laplace-mechanism",
+   "gaussian-mechanism"
+  ],
+  "id": "differential-privacy-library"
+ },
+ {
+  "name": "Differentially Private Ad Conversion",
+  "developer": "Google",
+  "status": "research",
+  "analysis_status": "needs-analysis",
+  "date": "2024.0",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0044.php",
+  "description": "Formalizes ad conversion measurement under differential privacy, with attribution rules and per-user contribution bounding so advertisers receive noise-protected reports rather than individual conversion trails.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "per-user contribution bounding plus calibrated noise prevents any individual's conversions from being identifiable in reports"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "ad conversion measurement is formalized under differential privacy, so advertisers receive noise-protected measurement rather than individual conversion trails"
+   }
+  ],
+  "oecd": [],
+  "technologies": [
+   "central-differential-privacy-applied-to-conversion-measurement"
+  ],
+  "techniques": [
+   "formalization-of-attribution-rules-under-dp",
+   "per-user-contribution-bounding-across-conversions",
+   "noise-calibration-for-measurement-accuracy"
+  ],
+  "id": "differentially-private-ad-conversion"
+ },
+ {
+  "name": "Differentially Private Data Release",
+  "developer": "Mozilla",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "2019.0",
+  "source": "https://www.usenix.org/conference/pepr19/presentation/zeber",
+  "description": "A methodology for selecting and tuning differential privacy mechanisms to release aggregate statistics about user behavior in Firefox when only partial information about the underlying dataset is available.",
+  "hoepman": [
+   {
+    "strategy": "abstract",
+    "rationale": "Usage data is released only as a frequency distribution across all users, a population-level picture that cannot be traced back to a specific Firefox user."
+   },
+   {
+    "strategy": "hide",
+    "rationale": "Noise is added to the frequency distribution before release, so even the aggregate output does not precisely reveal true counts."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "Only privacy-protected aggregate outputs are released instead of raw user data."
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "Differential privacy guarantees a formal bound on information exposure."
+   }
+  ],
+  "technologies": [
+   "central-differential-privacy",
+   "firefox-telemetry"
+  ],
+  "techniques": [
+   "mechanism-selection-and-tuning",
+   "partial-information-methodology",
+   "item-frequency-distribution-reporting"
+  ],
+  "id": "differentially-private-data-release"
+ },
+ {
+  "name": "Differentially Private Speaker Anonymization",
+  "developer": "Shamsabadi et al. (Alan Turing Institute, INRIA, Vector Institute)",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2023 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2023/popets-2023-0007.php",
+  "description": "A speaker anonymization system that removes speaker identity from speech by introducing differentially private feature extractors based on an autoencoder and an automatic speech recognizer, providing provable privacy guarantees that prior state-of-the-art anonymization pipelines lack while maintaining high linguistic utility.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "removes speaker identity from speech so the voice cannot be linked back to the person"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "differentially private feature extractors bound how much identity information survives in the extracted features at all, giving provable guarantees prior anonymization pipelines lack"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "the DP bound on identity leakage is formal, not empirical, while linguistic utility stays high"
+   }
+  ],
+  "technologies": [
+   "differentially-private-feature-extractors",
+   "autoencoder-automatic-speech-recognizer-pipeline"
+  ],
+  "techniques": [
+   "dp-feature-extraction-over-speech",
+   "identity-linguistic-content-separation",
+   "utility-preserving-anonymized-speech-synthesis"
+  ],
+  "id": "differentially-private-speaker-anonymization"
+ },
+ {
+  "name": "DP-FedNew: Communication-Efficient Differentially Private Federated Learning",
+  "developer": "Krouka et al. (University of Oulu, Nokia Bell Labs)",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2025 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2025/popets-2025-0032.php",
+  "description": "A differentially private federated learning method that uses second-order optimization information to achieve faster convergence than standard DP-SGD while maintaining per-iteration communication cost comparable to first-order methods, addressing the excessive communication overhead that makes existing second-order DP methods impractical for federated settings.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "client updates in federated learning are protected by differential privacy, using second-order optimization information to converge faster than DP-SGD — so the privacy guarantee costs fewer rounds — while keeping per-iteration communication comparable to first-order methods"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "formal DP protection on the federated training process, made practical by removing the communication overhead that made prior second-order DP methods unusable"
+   }
+  ],
+  "technologies": [
+   "differentially-private-federated-learning",
+   "second-order-optimization"
+  ],
+  "techniques": [
+   "second-order-curvature-informed-private-updates",
+   "communication-efficient-dp-convergence"
+  ],
+  "id": "dp-fednew-communication-efficient-differentially-private-fed"
+ },
+ {
+  "name": "Elastic Sensitivity / CHORUS (SQL Differential Privacy)",
+  "developer": "Uber",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "July 2017",
+  "source": "https://medium.com/uber-security-privacy/uber-open-source-differential-privacy-57f31e85c57a",
+  "description": "A query-rewriting framework that embeds a differential privacy mechanism directly into SQL queries before execution, so queries enforce differential privacy on their own output without modifications to the underlying database engine.",
+  "hoepman": [
+   {
+    "strategy": "abstract",
+    "rationale": "Calibrated noise added to query outputs means analysts see population-level results in which individuals cannot be distinguished."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "use-limitation",
+    "rationale": "Internal analysts can use data without leaking individuals, protecting user privacy throughout the business."
+   }
+  ],
+  "technologies": [
+   "central-differential-privacy",
+   "chorus-query-rewriting",
+   "dbms-agnostic-design"
+  ],
+  "techniques": [
+   "elastic-sensitivity-bounding-from-query-structure",
+   "pre-execution-query-rewriting-with-inline-noise"
+  ],
+  "id": "elastic-sensitivity-chorus-sql-differential-privacy"
+ },
+ {
+  "name": "EpiOracle: Privacy-Preserving Cross-Facility Early Warning for Unknown Epidemics",
+  "developer": "Li et al.",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2025 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2025/popets-2025-0020.php",
+  "description": "A cross-facility early warning scheme for unknown epidemics that ensures the contents and frequencies of syndromes will not be leaked to any unrelated parties, using only symmetric-key encryption and cryptographic hash functions, with formal security proofs and a prototype evaluated on real-world symptom lists.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "syndrome contents and their frequencies are encrypted so no unrelated party — including other facilities — can learn what any facility is observing"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "the system's output is an early-warning signal that an unknown epidemic pattern exists, not the underlying record-level syndrome data"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "the scheme carries formal security proofs while using only symmetric-key primitives"
+   },
+   {
+    "principle": "collection-limitation",
+    "rationale": "no central party collects raw cross-facility syndrome reports"
+   }
+  ],
+  "technologies": [
+   "symmetric-key-encryption",
+   "cryptographic-hash-functions",
+   "prototype-evaluated-on-real-world-symptom-lists"
+  ],
+  "techniques": [
+   "encrypted-cross-facility-syndrome-matching",
+   "lightweight-primitive-only-design-no-public-key-crypto",
+   "formal-security-proofs"
+  ],
+  "id": "epioracle-privacy-preserving-cross-facility-early-warning-fo"
+ },
+ {
+  "name": "FL-DP (Federated Learning + Differential Privacy for Mobile)",
+  "developer": "Meta",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "June 14, 2022",
+  "source": "https://engineering.fb.com/2022/06/14/production-engineering/federated-learning-differential-privacy/",
+  "description": "Trains ML models directly on users' phones so raw data never leaves the device, then adds differential-privacy noise before updating the global model to prevent it from memorizing individual data. Combines mobile devices, trusted execution environments, and back-end servers, validated on an in-house library scalable to millions of devices across Facebook/Instagram.",
+  "hoepman": [
+   {
+    "strategy": "minimise",
+    "rationale": "models are trained directly on users' phones, so raw data never leaves the device — only model updates are sent"
+   },
+   {
+    "strategy": "hide",
+    "rationale": "differential-privacy noise is added before updates reach the global model, preventing it from memorizing any individual's data"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "the back end receives only noised model updates, never the underlying user data"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "DP places a formal bound on what the global model can reveal about any contributor"
+   }
+  ],
+  "technologies": [
+   "on-device-training-runtime-across-facebook-instagram-mobile-apps",
+   "trusted-execution-environments",
+   "back-end-aggregation-servers-in-house-fl-library-scalable-to-millions-of-devices"
+  ],
+  "techniques": [
+   "local-training-with-update-only-transmission",
+   "dp-noise-injection-on-aggregated-updates",
+   "tee-protected-aggregation"
+  ],
+  "id": "fl-dp-federated-learning-differential-privacy-for-mobile"
+ },
+ {
+  "name": "FrodoPIR: Simple, Scalable, Single-Server Private Information Retrieval",
+  "developer": "Davidson et al.",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2023 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2023/popets-2023-0022.php",
+  "description": "A highly configurable, stateful, single-server Private Information Retrieval scheme with a client-independent offline phase that achieves under one second response time on a database of one million elements, with amortized server costs of approximately one dollar per 100,000 queries, demonstrated via a non-optimized Rust prototype.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "single-server private information retrieval — the server cannot learn which database element the client fetched, with a client-independent offline phase making it practical (sub-second responses on a million-element database, ~$1 per 100,000 queries)"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "query patterns are never observable to the server, so no interest profile can be collected"
+   }
+  ],
+  "technologies": [
+   "single-server-private-information-retrieval-lattice-lwe-based",
+   "rust-prototype-implementation"
+  ],
+  "techniques": [
+   "client-independent-offline-preprocessing-phase",
+   "amortized-server-cost-optimization",
+   "stateful-query-design"
+  ],
+  "id": "frodopir-simple-scalable-single-server-private-information-r"
+ },
+ {
+  "name": "Gboard Federated Learning with DP (FL + DP-FTRL)",
+  "developer": "Google",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "May 2023",
+  "source": "https://arxiv.org/abs/2305.18465",
+  "description": "Traiins next-word prediction models",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "model updates are clipped and DP-FTRL noise is added before they shape the global model, so no individual's typing history can be recovered from the trained model"
+   },
+   {
+    "strategy": "minimise",
+    "rationale": "raw keystrokes never leave the device; only ephemeral model updates are transmitted for aggregation"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "the server never collects raw typing data, only noised aggregate model updates"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "the DP-FTRL guarantee places a formal bound on what the model can leak about any user"
+   }
+  ],
+  "technologies": [
+   "cross-device-federated-learning-deployed-in-gboard",
+   "dp-ftrl-tree-aggregation-based-differentially-private-follow-the-regularized-leader"
+  ],
+  "techniques": [
+   "gboard",
+   "dp-ftrl-tree-aggregation-based-differentially-private-follow-the-regularized-leader-per-user-update-clipping",
+   "correlated-noise-via-tree-aggregation",
+   "on-device-next-word-prediction-training"
+  ],
+  "id": "gboard-federated-learning-with-dp-fl-dp-ftrl"
+ },
+ {
+  "name": "Gboard Federated OOV Word Discovery",
+  "developer": "Google",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "April 2024",
+  "source": "https://arxiv.org/abs/2404.11607",
+  "description": "Discovers frequently typed words missing from Gboard's vocabulary without exposing individual input: words are collected under local differential privacy, then anonymously aggregated so the released result meets central DP (ε=0.315).",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "each typed word is randomized under local differential privacy on-device, so the server cannot attribute any submitted word to a user"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "only anonymously aggregated word frequencies satisfying central DP (epsilon = 0.315) are released, a population-level vocabulary rather than anyone's typing"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "identifiable input never leaves the device; the collector receives only LDP-randomized reports"
+   }
+  ],
+  "technologies": [
+   "local-differential-privacy-collection-in-gboard",
+   "anonymous-aggregation-infrastructure"
+  ],
+  "techniques": [
+   "on-device-ldp-randomization-of-candidate-words",
+   "anonymization-based-privacy-amplification-from-local-to-central-dp",
+   "federated-discovery-of-out-of-vocabulary-words"
+  ],
+  "id": "gboard-federated-oov-word-discovery"
+ },
+ {
+  "name": "Hawk",
+  "developer": "USC",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2024.0",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0066.php",
+  "description": "(fast privacy-preserving ML via secure lookup tables)",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "secure lookup-table computation lets parties evaluate ML operations (including hard-to-compute nonlinear functions) without revealing their inputs, keeping training/inference data concealed"
+   },
+   {
+    "strategy": "separate",
+    "rationale": "the computation is split among MPC parties so no single party reconstructs the data"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "no party collects the plaintext training or inference data"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "table-based evaluation preserves accuracy that approximation-based secure ML gives up"
+   }
+  ],
+  "technologies": [
+   "secure-multi-party-computation",
+   "secure-lookup-table-computation"
+  ],
+  "techniques": [
+   "table-based-evaluation-of-nonlinear-activation-functions",
+   "accuracy-preserving-privacy-preserving-ml-training-and-inference"
+  ],
+  "id": "hawk"
+ },
+ {
+  "name": "HeLayers: A Tile Tensors Framework for Large Neural Networks on Encrypted Data",
+  "developer": "Aharoni et al.",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2023 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2023/popets-2023-0020.php",
+  "description": "A framework that abstracts homomorphic encryption data packing decisions for the user via an automated optimizer, used to implement inference over an encrypted AlexNet neural network that runs in approximately five minutes, several orders of magnitude faster than prior non-interactive homomorphic encryption solutions.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "neural network inference runs entirely over homomorphically encrypted data, so the server computing the inference never sees the input — with an automated optimizer making the packing decisions that previously required experts"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "the inference provider never collects plaintext inputs"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "encrypted AlexNet inference in ~5 minutes, orders of magnitude faster than prior non-interactive HE, makes the guarantee deployable"
+   }
+  ],
+  "technologies": [
+   "homomorphic-encryption",
+   "tile-tensors-data-packing-framework"
+  ],
+  "techniques": [
+   "automated-packing-layout-optimization",
+   "encrypted-large-network-inference"
+  ],
+  "id": "helayers-a-tile-tensors-framework-for-large-neural-networks"
+ },
+ {
+  "name": "I-GWAS: Privacy-Preserving Interdependent Genome-Wide Association Studies",
+  "developer": "Pascoal et al.",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2023 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2023/popets-2023-0026.php",
+  "description": "A novel framework that securely computes and releases the results of multiple possibly interdependent genome-wide association studies, addressing a gap in prior work where overlapping study populations allowed an adversary to reconstruct the genomic variations of up to 28.6% of participants even using state-of-the-art privacy techniques.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "protects participants' genomic variations even when multiple genome-wide association studies with overlapping populations are released — closing an attack that reconstructed up to 28.6% of participants' variations from interdependent releases"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "study results are released as safeguarded aggregate statistics whose interdependencies are accounted for"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "release conditions are computed across studies jointly, so guarantees hold against adversaries combining multiple published results"
+   }
+  ],
+  "technologies": [
+   "secure-computation-framework-for-interdependent-gwas-releases"
+  ],
+  "techniques": [
+   "interdependence-aware-release-conditions",
+   "overlapping-population-reconstruction-attack-mitigation"
+  ],
+  "id": "i-gwas-privacy-preserving-interdependent-genome-wide-associa"
+ },
+ {
+  "name": "iCloud Private Relay",
+  "developer": "Apple",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "September 2021",
+  "source": "https://www.apple.com/privacy/docs/iCloud_Private_Relay_Overview_Dec2021.PDF",
+  "description": "A two-hop anonymization proxy for all Safari and unencrypted HTTP traffic on iCloud+ subscriptions. Your ISP and Apple's ingress proxy only knows your IP, not the website you're visiting. The third-party egress proxy only knows the website you're going to, not the IP address you come from. Neither has the complete, end-to-end knowledge necessary to profile you.",
+  "hoepman": [
+   {
+    "strategy": "separate",
+    "rationale": "the two-hop architecture splits knowledge — the ingress proxy sees the user's IP but not the destination, and the third-party egress proxy sees the destination but not the IP, so no single party holds the complete picture"
+   },
+   {
+    "strategy": "hide",
+    "rationale": "traffic is encrypted through both hops, so neither proxy nor the ISP can link the user to the sites they visit"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "no single party is able to collect a complete browsing profile, because identity and destination are never co-located"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "dual-operator design means profiling requires collusion between Apple and the independent egress operator"
+   }
+  ],
+  "technologies": [
+   "two-hop-proxy-architecture-apple-ingress-independent-third-party-egress",
+   "masque-quic-based-encrypted-proxying",
+   "oblivious-dns-over-https"
+  ],
+  "techniques": [
+   "dual-hop-knowledge-separation",
+   "blinded-authentication-tokens",
+   "coarse",
+   "geo-preserving-egress-ip-assignment"
+  ],
+  "id": "icloud-private-relay"
+ },
+ {
+  "name": "Janus: Fast Privacy-Preserving Data Provenance for TLS",
+  "developer": "Lauinger et al.",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2025 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2025/popets-2025-0028.php",
+  "description": "A new TLS oracle protocol that reaches new scales in selectively verifying the provenance of confidential web data, deploying an honest verifier zero-knowledge proof system in the asymmetric privacy setting while retaining security against malicious adversaries.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "honest-verifier zero-knowledge proofs let a client prove facts about confidential TLS data without revealing the data itself, in the asymmetric-privacy setting"
+   },
+   {
+    "strategy": "demonstrate",
+    "rationale": "the protocol's purpose is verifiable provenance — proving to a third party that data genuinely came from a given TLS server"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "data-quality",
+    "rationale": "cryptographically verified provenance guarantees the authenticity and origin of the data being attested"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "the protocol retains security against malicious adversaries while reaching new performance scales"
+   }
+  ],
+  "technologies": [
+   "tls-oracle-protocol",
+   "honest-verifier-zero-knowledge-proof-system"
+  ],
+  "techniques": [
+   "selective-disclosure-over-tls-session-contents",
+   "asymmetric-privacy-proof-optimization",
+   "malicious-adversary-secure-design"
+  ],
+  "id": "janus-fast-privacy-preserving-data-provenance-for-tls"
+ },
+ {
+  "name": "Joint Randomized Response (JRR)",
+  "developer": "University of Rochester (Zheng et al.)",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2025.0",
+  "source": "https://petsymposium.org/popets/2025/popets-2025-0097.php",
+  "description": "A Joint Randomized Response mechanism that divides data contributors into disjoint pairs who jointly perturb their binary data, improving frequency-estimation accuracy while achieving the same privacy level as classical randomized response by hiding group membership information.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "Data is perturbed on the contributor's device before transmission, with correlated perturbations between paired contributors improving the mechanism."
+   },
+   {
+    "strategy": "separate",
+    "rationale": "Contributors are split into disjoint pairs independent of all other pairs, preserving the local model's structural separation between contributor and collector."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "Addresses the poor privacy-utility tradeoff of classical LDP while achieving the same formal guarantee."
+   },
+   {
+    "principle": "collection-limitation",
+    "rationale": "The collector only ever receives perturbed values, never raw ones."
+   }
+  ],
+  "technologies": [
+   "local-differential-privacy"
+  ],
+  "techniques": [
+   "joint-randomized-response",
+   "correlated-data-perturbation",
+   "common-coin-group-coordination",
+   "frequency-estimation-under-ldp"
+  ],
+  "id": "joint-randomized-response-jrr"
+ },
+ {
+  "name": "Lox: Protecting the Social Graph in Bridge Distribution",
+  "developer": "Tulloch & Goldberg (University of Waterloo)",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2023 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2023/popets-2023-0029.php",
+  "description": "A new anti-censorship bridge distribution system that prioritizes protecting the privacy of users and their social graphs, incorporating enumeration resistance mechanisms and a trust level scheme based on anonymous credentials that limits malicious behavior while maintaining user anonymity, with an open-sourced Rust implementation and performance evaluation.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "protects censorship-circumvention users' social graphs during bridge distribution — the distributor cannot map who invited whom, and enumeration resistance keeps bridges hidden from censors"
+   },
+   {
+    "strategy": "minimise",
+    "rationale": "anonymous credentials with trust levels disclose only what is needed (a user's trust standing), never identity or social connections"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "the bridge authority never collects the user social graph that invitation-based distribution would normally expose"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "trust levels limit malicious behavior (bridge enumeration) while preserving anonymity"
+   }
+  ],
+  "technologies": [
+   "anonymous-credentials",
+   "open-source-rust-implementation"
+  ],
+  "techniques": [
+   "trust-level-escalation-scheme",
+   "enumeration-resistant-bridge-distribution",
+   "social-graph-protecting-invitation-flow"
+  ],
+  "id": "lox-protecting-the-social-graph-in-bridge-distribution"
+ },
+ {
+  "name": "MicroSecAgg",
+  "developer": "J.P. Morgan AI Research",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2024 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0077.php",
+  "description": "Lets a single server add up values from many users (e.g. to combine model updates in federated learning) without seeing any individual's value. Unlike earlier methods that needed multiple non-colluding servers, it works with just one, handles users dropping out mid-way, and cuts the communication and computation costs substantially.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "a single server sums values from many users (e.g. federated learning updates) without ever seeing any individual's value — removing the multiple-non-colluding-server requirement of earlier secure aggregation"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "only the aggregate sum is ever revealed"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "individual contributions are never collected in usable form, even by the sole aggregating server"
+   }
+  ],
+  "technologies": [
+   "single-server-secure-aggregation"
+  ],
+  "techniques": [
+   "reusable-one-time-setup-with-lightweight-per-round-masking",
+   "masked-value-summation",
+   "dropout-resilience-across-aggregation-rounds"
+  ],
+  "id": "microsecagg"
+ },
+ {
+  "name": "Multi-Party Private Join",
+  "developer": "Hasso Plattner Institute",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2026 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2026/popets-2026-0035.php",
+  "description": "Lets several parties combine their datasets and give one recipient the matching rows (a database \"join\") without revealing the rest of their data. It's the first protocol built specifically for this across many parties, using an oblivious helper that speeds things up without learning anything, making it far cheaper than existing general-purpose approaches.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "each party's non-matching rows stay hidden — the recipient learns only the joined rows, and the oblivious helper that accelerates the protocol learns nothing at all"
+   },
+   {
+    "strategy": "separate",
+    "rationale": "the helper role is structurally separated from the data-holding and receiving roles, so speedup does not require trusting anyone with data"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "no party collects another party's non-matching records"
+   },
+   {
+    "principle": "use-limitation",
+    "rationale": "only the agreed join result flows to the single designated recipient"
+   }
+  ],
+  "technologies": [
+   "secure-multi-party-computation",
+   "oblivious-helper-architecture"
+  ],
+  "techniques": [
+   "first-protocol-purpose-built-for-many-party-private-joins",
+   "helper-accelerated-oblivious-computation",
+   "far-cheaper-than-general-purpose-mpc"
+  ],
+  "id": "multi-party-private-join"
+ },
+ {
+  "name": "Multi-Party Private Set Union",
+  "developer": "Arizona State",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2024 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0133.php",
+  "description": "Lets multiple parties jointly compute the union of their sets without revealing which party contributed which element or anything about non-contributed items.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "parties jointly compute the union of their sets without revealing which party contributed which element or anything about non-contributed items"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "the output is the combined union only — contributor attribution and multiplicities stay concealed"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "no party collects another's set beyond what the union itself discloses"
+   }
+  ],
+  "technologies": [
+   "multi-party-secure-computation-for-set-union"
+  ],
+  "techniques": [
+   "oblivious-element-mixing-shuffling",
+   "contribution-hiding-union-assembly",
+   "practicality-focused-protocol-engineering"
+  ],
+  "id": "multi-party-private-set-union"
+ },
+ {
+  "name": "Multiparty PSI Cardinality",
+  "developer": "Arizona State",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2024 (PoPets)",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0041.php",
+  "description": "Lets n parties compute the size of their datasets' intersection without revealing any elements or other information, using symmetric-key techniques under a non-collusion assumption (16 parties with 2^20-item sets in 7-71 seconds).",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "n parties learn the size of their datasets' intersection without revealing any elements or any other information to each other"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "the protocol's only output is a single coarse statistic — the cardinality — rather than the intersection contents"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "no party collects any other party's set elements; avoiding public-key operations, the protocol runs on symmetric-key techniques under a non-collusion assumption"
+   }
+  ],
+  "technologies": [
+   "symmetric-key-multi-party-psi-ca-protocols",
+   "optional-server-aided-deployment-variant"
+  ],
+  "techniques": [
+   "secure-dot-product-based-cardinality-computation",
+   "non-collusion-assumption-design-avoiding-expensive-public-key-operations",
+   "demonstrated-at-16-parties-with-2-20-item-sets-7-71-s"
+  ],
+  "id": "multiparty-psi-cardinality"
+ },
+ {
+  "name": "Password Monitoring / iCloud Keychain (Private Set Intersection)",
+  "developer": "Apple",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "September 2020",
+  "source": "https://support.apple.com/guide/security/icloud-keychain-security-overview-sec1c89c6f3b/web",
+  "description": "Syncs passwords and passkeys across a user's Apple devices without exposing them to Apple. Keychain items travel through Apple's servers but are end-to-end encrypted, so neither Apple nor an attacker who compromises iCloud can read them; the design also lets users recover their keychain even if all devices are lost.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "private set intersection lets the device check the user's passwords against Apple's breached-credential list without Apple ever learning the passwords"
+   },
+   {
+    "strategy": "minimise",
+    "rationale": "only blinded cryptographic representations are exchanged, and keychain material syncing through iCloud is end-to-end encrypted, so Apple holds nothing readable"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "neither queried passwords nor keychain contents are ever collected in usable form"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "E2EE means even an attacker who compromises iCloud cannot read keychain items"
+   }
+  ],
+  "technologies": [
+   "private-set-intersection-protocol",
+   "end-to-end-encrypted-icloud-keychain"
+  ],
+  "techniques": [
+   "oprf-style-blinding-of-password-derived-values",
+   "bucketized-breach-corpus-lookup",
+   "on-device-match-determination"
+  ],
+  "id": "password-monitoring-icloud-keychain-private-set-intersection"
+ },
+ {
+  "name": "Per-Record Differential Privacy",
+  "developer": "U.S. Census Bureau / Tumult Labs",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "2023.0",
+  "source": "https://www.usenix.org/conference/pepr23/presentation/sexton",
+  "description": "A formal privacy framework for the Census Bureau's economic data products that provides sliding-scale privacy guarantees, giving small establishments stronger protection and large establishments weaker protection to handle highly skewed economic data.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "Tunes hiding strength per record rather than uniformly, since standard DP either over- or under-protects each record in skewed data."
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "Released aggregates are calibrated so a huge outlier neither destroys data utility nor leaks its individual contribution."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "data-quality",
+    "rationale": "Fundamentally about preserving statistical accuracy and utility of published economic statistics."
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "Small establishments, which are more re-identifiable, still receive a strong formal guarantee."
+   }
+  ],
+  "technologies": [
+   "per-record-differential-privacy"
+  ],
+  "techniques": [
+   "sliding-scale-privacy-guarantees",
+   "heavy-tailed-data-calibration"
+  ],
+  "id": "per-record-differential-privacy"
+ },
+ {
+  "name": "PIrouette",
+  "developer": "KU Leuven",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2026 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2026/popets-2026-0045.php",
+  "description": "Lets a client look up a record from a public database without the server learning which one it asked for. Its trick is shrinking the query to just 36 bytes — hundreds of times smaller than before — so it works well on low-bandwidth devices.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "private information retrieval guarantees the server learns nothing about which record the client looked up, and the query is compressed to just 36 bytes — hundreds of times smaller than prior schemes — so the guarantee is practical even on low-bandwidth devices"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "the server cannot collect query patterns or interest profiles, because queries are information-theoretically uninformative to it"
+   }
+  ],
+  "technologies": [
+   "private-information-retrieval-over-public-databases"
+  ],
+  "techniques": [
+   "extreme-query-compression-36-byte-queries",
+   "low-bandwidth-device-friendly-protocol-design"
+  ],
+  "id": "pirouette"
+ },
+ {
+  "name": "PLAN (Variance-Aware Private Mean Estimation)",
+  "developer": "IT University of Copenhagen",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2024.0",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0095.php",
+  "description": "Releases differentially private mean estimates with the privacy budget allocated per coordinate based on variance, yielding tighter error than uniform allocation on skewed data.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "calibrated noise prevents any individual's value from being inferred, with budget allocated where it matters most"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "releases differentially private mean estimates — population-level statistics rather than records"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "formal DP guarantee on the released means"
+   },
+   {
+    "principle": "data-quality",
+    "rationale": "variance-aware budget allocation across coordinates yields tighter error than uniform allocation, especially on skewed data"
+   }
+  ],
+  "technologies": [
+   "differentially-private-mean-estimation-framework"
+  ],
+  "techniques": [
+   "variance-aware-privacy-budget-allocation-per-coordinate",
+   "error-optimized-estimation-for-heterogeneous-variance-data"
+  ],
+  "id": "plan-variance-aware-private-mean-estimation"
+ },
+ {
+  "name": "PLASMA",
+  "developer": "University of Delaware",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2024 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0064.php",
+  "description": "Lets servers find the most popular strings across many users (like the most-typed words or most-visited sites) without learning any individual's input. It splits data across three servers and adds checks so the result stays correct even if some clients and one server are actively malicious — while using much less communication than earlier systems.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "servers jointly compute the most popular strings (heavy hitters) while individual inputs stay concealed, with checks that keep the result correct even when some clients and one server are actively malicious"
+   },
+   {
+    "strategy": "separate",
+    "rationale": "each user's input is split across three servers, so no single server holds any individual's value"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "no individual's string is ever collected in the clear by any party"
+   },
+   {
+    "principle": "data-quality",
+    "rationale": "malicious-security checks ensure the published popular-strings result is correct despite adversarial participants"
+   }
+  ],
+  "technologies": [
+   "three-server-secure-computation-architecture"
+  ],
+  "techniques": [
+   "secret-shared-heavy-hitters-computation",
+   "malicious-client-and-malicious-server-robustness-checks",
+   "communication-efficient-protocol-design"
+  ],
+  "id": "plasma"
+ },
+ {
+  "name": "Plume",
+  "developer": "Google",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "2023.0",
+  "source": "https://www.usenix.org/conference/pepr23/presentation/kulesza",
+  "description": "A system addressing the practical engineering challenges of translating differential privacy algorithms into production, including users contributing multiple records and unknown record domains, deployed at Google on datasets with trillions of records.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "Guarantees that no single user's contributed records can be isolated from the aggregate output at industrial scale."
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "Solves the unknown-domain problem, producing population-level aggregates even when the full range of records is not known in advance."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "Makes formal DP guarantees hold under real constraints: multiple contributions per user, unbounded domains, and massive scale."
+   }
+  ],
+  "technologies": [
+   "distributed-data-processing-pipelines",
+   "central-differential-privacy"
+  ],
+  "techniques": [
+   "multi-record-user-contribution-bounding",
+   "unknown-domain-differential-privacy",
+   "large-scale-dp-algorithm-engineering"
+  ],
+  "id": "plume"
+ },
+ {
+  "name": "Policy Zones",
+  "developer": "Meta",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "July 23, 2025",
+  "source": "https://engineering.fb.com/2025/07/23/security/policy-zones-meta-purpose-limitation-batch-processing-systems/",
+  "description": "Data carrying privacy obligations is tagged with a policy zone declaring its allowed purposes; zone tags propagate automatically to downstream derived data through SQL queries, batch jobs, and joins, and the system blocks any operation that would use the data for an unpermitted purpose.",
+  "hoepman": [
+   {
+    "strategy": "enforce",
+    "rationale": "Operations that would use zoned data for an unpermitted purpose are blocked at runtime rather than merely flagged."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "use-limitation",
+    "rationale": "Zone tags propagate to all derived data, so downstream use remains bound by the source data's declared purposes."
+   }
+  ],
+  "technologies": [
+   "scribe-message-queue",
+   "dataswarm-job-scheduler",
+   "presto"
+  ],
+  "techniques": [
+   "governable-data-annotations",
+   "downstream-restrictiveness-invariant"
+  ],
+  "notes": "Follow-up component of Privacy Aware Infrastructure.",
+  "id": "policy-zones"
+ },
+ {
+  "name": "Practical Considerations for Differential Privacy",
+  "developer": "Google (Alex Kulesza)",
+  "status": "talk",
+  "analysis_status": "needs-analysis",
+  "date": "2025.0",
+  "source": "https://www.usenix.org/conference/pepr25/presentation/kulesza",
+  "description": "A practitioner talk reflecting on how worst-case epsilon framing in differential privacy both enables and obscures honest accounting of real-world privacy risk, drawing on seven years of deployment experience at Google.",
+  "hoepman": [],
+  "oecd": [],
+  "technologies": [],
+  "techniques": [],
+  "notes": "Practitioner reflection talk, not a deployed system.",
+  "id": "practical-considerations-for-differential-privacy"
+ },
+ {
+  "name": "PrePaMS: Privacy-Preserving Participant Management System",
+  "developer": "Meissner et al.",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2025 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2025/popets-2025-0034.php",
+  "description": "An efficient participation management system that supports prerequisite checks and participation rewards in a privacy-preserving way, enabling secure reward payoffs by leveraging anonymous credentials and zero-knowledge proofs so that service providers cannot derive the identity of participants even within the reward process.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "anonymous credentials and zero-knowledge proofs keep participants' identities hidden from the service provider, even during the reward payoff step where deanonymization is usually easiest"
+   },
+   {
+    "strategy": "minimise",
+    "rationale": "only the fact of eligibility (prerequisites met, participation completed) is disclosed — never the identity or attributes behind it"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "the provider never collects participant identities linked to studies or rewards"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "cryptographic unlinkability protects participants even from the operator itself"
+   }
+  ],
+  "technologies": [
+   "anonymous-credentials",
+   "zero-knowledge-proofs"
+  ],
+  "techniques": [
+   "prerequisite-checks-proven-as-zk-predicates",
+   "unlinkable-participation-records-across-studies",
+   "privacy-preserving-reward-payoff"
+  ],
+  "id": "prepams-privacy-preserving-participant-management-system"
+ },
+ {
+  "name": "Prio",
+  "developer": "Stanford",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "March 2017",
+  "source": "https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/corrigan-gibbs",
+  "description": "A private-aggregation system where clients secret-share their data across a small set of servers that compute aggregate statistics without learning any individual value as long as one server is honest, using secret-shared non-interactive proofs (SNIPs) to reject malformed inputs; the basis for Mozilla, Apple, and Google telemetry.",
+  "hoepman": [
+   {
+    "strategy": "separate",
+    "rationale": "Each client's value is split across non-colluding servers, so no single party ever sees any individual value."
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "Servers learn only the combined aggregate statistics, so only coarse population-level output is revealed."
+   },
+   {
+    "strategy": "hide",
+    "rationale": "Secret sharing makes each individual value unobservable to any single server."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "No individual value is ever collected in the clear by any party."
+   },
+   {
+    "principle": "use-limitation",
+    "rationale": "Only the agreed aggregate function is computed."
+   }
+  ],
+  "technologies": [
+   "additive-secret-sharing",
+   "multi-server-architecture",
+   "open-source-implementation"
+  ],
+  "techniques": [
+   "secret-shared-non-interactive-proofs",
+   "input-validity-verification-without-learning-values"
+  ],
+  "notes": "SNIPs yield roughly hundred-fold performance improvement over zero-knowledge approaches, making deployment practical; supports Mozilla's deployment and the Privacy Preserving Measurement standard.",
+  "id": "prio"
+ },
+ {
+  "name": "Privacy Aware Infrastructure (PAI)",
+  "developer": "Meta",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "August 27, 2024",
+  "source": "https://engineering.fb.com/2024/08/27/security/privacy-aware-infrastructure-purpose-limitation-meta/",
+  "description": "An infrastructure-level privacy system that embeds Policy Zones across Meta's systems to enforce restrictions ensuring data is used only for explicitly allowed purposes, with constraints propagating automatically via a continuous data lineage layer.",
+  "hoepman": [
+   {
+    "strategy": "enforce",
+    "rationale": "Commits a data-use policy and checks data flows in real time to block impermissible flows from occurring."
+   },
+   {
+    "strategy": "separate",
+    "rationale": "Policy Zones maintain data separation when data for different purposes is processed by shared code."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "purpose-specification",
+    "rationale": "Every annotated asset carries its explicitly stated allowed purposes."
+   },
+   {
+    "principle": "use-limitation",
+    "rationale": "Ensures data is processed only for those explicitly stated purposes."
+   }
+  ],
+  "technologies": [
+   "information-flow-control",
+   "zoncolan-static-analysis",
+   "data-lineage",
+   "ml-based-data-classification",
+   "presto-spark-integration"
+  ],
+  "techniques": [
+   "data-annotation",
+   "policy-lattice-of-data-flow-rules",
+   "deep-framework-integration"
+  ],
+  "id": "privacy-aware-infrastructure-pai"
+ },
+ {
+  "name": "Privacy Lens",
+  "developer": "University of Michigan",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2024.0",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0146.php",
+  "description": "Removes personally identifiable information from RGB images on-device at capture time, using thermal sensing to reliably locate people so identifying regions can be removed before images are stored or transmitted.",
+  "hoepman": [
+   {
+    "strategy": "minimise",
+    "rationale": "personally identifiable information is removed from RGB images on-device, at capture time, before images are ever stored or transmitted"
+   },
+   {
+    "strategy": "hide",
+    "rationale": "thermal sensing reliably locates people in frame so their identifying regions can be removed even in conditions where RGB-only detection fails"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "downstream systems only ever receive PII-scrubbed imagery; identifiable data is eliminated at the sensor boundary"
+   }
+  ],
+  "technologies": [
+   "hybrid-rgb-thermal-camera-sensing",
+   "on-device-image-processing"
+  ],
+  "techniques": [
+   "thermally-guided-person-detection",
+   "at-capture-pii-removal-from-images"
+  ],
+  "id": "privacy-lens"
+ },
+ {
+  "name": "Privacy Nutrition Label",
+  "developer": "Apple",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "December 2020",
+  "source": "https://www.apple.com/privacy/labels/",
+  "description": "A standardized, glanceable summary on each App Store listing showing what data an app collects, whether it is linked to the user's identity, and whether it is used to track them across apps and websites; generated from developer self-declarations and not audited by Apple.",
+  "hoepman": [
+   {
+    "strategy": "inform",
+    "rationale": "The label surfaces declared data practices in a consistent visual format before install, lowering the comprehension barrier of privacy policies."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "openness",
+    "rationale": "Provides transparency about data practices and the data controller's identity on every listing."
+   },
+   {
+    "principle": "individual-participation",
+    "rationale": "Supports the user's ability to know what is collected before engaging with the app."
+   }
+  ],
+  "technologies": [
+   "standardized-disclosure-schema",
+   "app-store-questionnaire",
+   "platform-level-policy-mandate"
+  ],
+  "techniques": [
+   "glanceable-visual-standardization",
+   "structured-self-attestation"
+  ],
+  "notes": "Self-declared by developers and not verifiable; informs the install decision rather than enforcing a technical guarantee.",
+  "id": "privacy-nutrition-label"
+ },
+ {
+  "name": "Privacy-Preserving Humanitarian Aid Distribution",
+  "developer": "ICRC / EPFL",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2026 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2026/popets-2026-0051.php",
+  "description": "Lets aid organizations measure how their aid is being distributed (e.g. what share reached a minority group) without exposing individual recipients' data. Built with the Red Cross, it adds aggregate statistics to existing private aid systems using functional encryption, and is designed to keep protecting people even when the situation on the ground suddenly changes (like a conflict escalating).",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "functional encryption reveals only the value of the agreed statistical function, keeping everything else about recipients concealed"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "aid organizations learn aggregate distribution statistics (e.g. what share of aid reached a minority group) — never individual recipients' records"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "use-limitation",
+    "rationale": "only pre-agreed aggregate functions can be evaluated over recipient data"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "the design explicitly keeps protecting recipients when the threat model suddenly worsens, such as a conflict escalating"
+   }
+  ],
+  "technologies": [
+   "functional-encryption",
+   "integration-with-existing-privacy-preserving-aid-distribution-systems-built-with-the-red-cross"
+  ],
+  "techniques": [
+   "aggregate-only-statistical-release-over-aid-records",
+   "threat-model-adaptive-protection-for-volatile-field-conditions",
+   "co-design-with-humanitarian-operations"
+  ],
+  "id": "privacy-preserving-humanitarian-aid-distribution"
+ },
+ {
+  "name": "Privacy Sandbox / Attribution Reporting API",
+  "developer": "Google",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "July 2023",
+  "source": "https://privacysandbox.com",
+  "description": "A set of browser/Android APIs meant to support advertising use cases (measuring conversions, showing relevant ads) without third-party cookies or cross-site identifiers. The Attribution Reporting API specifically lets advertisers measure ad conversions through aggregated, noise-added (differentially private) reports rather than by tracking individuals across sites.",
+  "hoepman": [
+   {
+    "strategy": "abstract",
+    "rationale": "ad conversions are measured through aggregated, noise-added (differentially private) reports rather than individual-level tracking"
+   },
+   {
+    "strategy": "minimise",
+    "rationale": "the API model removes the need for third-party cookies and cross-site identifiers entirely, eliminating that data flow rather than protecting it"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "advertisers receive noisy aggregates, not per-user browsing or conversion trails"
+   },
+   {
+    "principle": "use-limitation",
+    "rationale": "the APIs expose only what is needed for measurement and relevance use cases, not general-purpose tracking"
+   }
+  ],
+  "technologies": [
+   "browser-and-android-apis-attribution-reporting-api",
+   "tee-based-aggregation-service",
+   "differential-privacy"
+  ],
+  "techniques": [
+   "event-level-and-aggregate-level-reporting-with-calibrated-noise",
+   "per-user-contribution-budgeting",
+   "randomized",
+   "delayed-report-scheduling-to-break-timing-correlation"
+  ],
+  "id": "privacy-sandbox-attribution-reporting-api"
+ },
+ {
+  "name": "Privacy Sandbox Attribution Reporting: Summary Reports Optimization",
+  "developer": "Google",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2024.0",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0132.php",
+  "description": "Optimizes how the Attribution Reporting API's aggregated, DP-noised summary reports are configured, maximizing measurement utility within a fixed per-user privacy budget.",
+  "hoepman": [
+   {
+    "strategy": "abstract",
+    "rationale": "the work optimizes how the Attribution Reporting API's aggregated, DP-noised summary reports are configured, so advertisers extract maximum utility from population-level histograms while the per-user privacy budget is fixed"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "data-quality",
+    "rationale": "the entire contribution is squeezing more measurement accuracy out of the same privacy guarantee"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "optimization operates strictly within the API's differential privacy budget"
+   }
+  ],
+  "technologies": [
+   "privacy-sandbox-attribution-reporting-api-summary-reports",
+   "differential-privacy-budgeting"
+  ],
+  "techniques": [
+   "contribution-budget-allocation-optimization",
+   "histogram-configuration-tuning-for-error-minimization-under-fixed-epsilon"
+  ],
+  "id": "privacy-sandbox-attribution-reporting-summary-reports-optimi"
+ },
+ {
+  "name": "Private Analytics via Zero-Trust Aggregation (Willow)",
+  "developer": "Google",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2025.0",
+  "source": "https://research.google/blog/private-analytics-via-zero-trust-aggregation/",
+  "description": "Confidentiality no longer relies entirely on hardware protection; the cryptographic layer ensures that individual raw data is never exposed or reconstructed in any server memory — not even within hardware-protected perimeters. The only time unencrypted data is ever processed off-device is at the final stage, when the data has already been aggregated and anonymized",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "a lattice-based cryptographic layer ensures individual raw data is never exposed or reconstructed in any server memory — not even inside hardware-protected perimeters"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "unencrypted data is only ever processed after it has been aggregated and anonymized, so servers touch population-level data only"
+   },
+   {
+    "strategy": "demonstrate",
+    "rationale": "a TEE with attestation proves the aggregation code ran as published"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "confidentiality is layered — cryptography protects data even if the hardware perimeter fails"
+   },
+   {
+    "principle": "collection-limitation",
+    "rationale": "the provider never collects reconstructable individual submissions"
+   }
+  ],
+  "technologies": [
+   "lattice-based-single-message-aggregation-protocol",
+   "trusted-execution-environment-with-remote-attestation",
+   "first-deployed-in-android-safetycore"
+  ],
+  "techniques": [
+   "one-shot-encrypted-client-submissions-single-message-per-device",
+   "dp-noise-added-during-aggregation",
+   "zero-trust-layering"
+  ],
+  "notes": "The source sheet listed this system twice ('Willow' and 'Zero-Trust Aggregation for Private Analytics (multi-layer TEE + crypto)'); both rows reference the same Google blog post. Second row's description: Federated on-device analytics that layers crypto and hardware: a lattice-based protocol lets each device submit data in one message, aggregated (with DP noise) so raw data is never reconstructed server-side, while a TEE with attestation proves the code ran as published. First deployed in Android SafetyCore.",
+  "id": "private-analytics-via-zero-trust-aggregation-willow"
+ },
+ {
+  "name": "Private Cloud Compute (PCC)",
+  "developer": "Apple",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "June 10, 2024",
+  "source": "https://security.apple.com/blog/private-cloud-compute/",
+  "description": "A confidential-computing system that processes requests inside hardware-secured server enclaves built on Apple silicon, so user data sent to the cloud is never stored or accessible to the operator; clients use remote attestation to verify the server's software before sending data, and independent researchers can inspect the running code.",
+  "hoepman": [
+   {
+    "strategy": "separate",
+    "rationale": "The architecture isolates user data inside individual compute nodes so compromising one node reveals nothing about others, and targeting a specific user would require a broad, detectable attack."
+   },
+   {
+    "strategy": "demonstrate",
+    "rationale": "The verifiable transparency program logs all software measurements, providing compliance evidence to outside parties."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "use-limitation",
+    "rationale": "Data is used for the sole purpose of fulfilling the user's request and is never persisted."
+   }
+  ],
+  "technologies": [
+   "apple-silicon-server-chips",
+   "secure-enclave",
+   "secure-boot",
+   "trusted-execution-environment"
+  ],
+  "techniques": [
+   "hardware-attested-trusted-execution",
+   "code-signing",
+   "stateless-processing-via-ephemeral-keys",
+   "target-diffusion"
+  ],
+  "id": "private-cloud-compute-pcc"
+ },
+ {
+  "name": "Private Segmented Membership Test (Threshold-FHE)",
+  "developer": "Notre Dame",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2024.0",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0114.php",
+  "description": "Lets a client learn whether its value is in a server-held segmented set without the server learning the query, using summation over threshold fully homomorphic encryption.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "a client learns whether its value is in a server-held segmented set without the server learning the query, using summation over threshold fully homomorphic encryption — applicable to lookups like compromised-credential checks"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "the server cannot collect or profile client queries, which never appear to it in the clear"
+   }
+  ],
+  "technologies": [
+   "threshold-fully-homomorphic-encryption"
+  ],
+  "techniques": [
+   "summation-based-membership-testing",
+   "segmented-set-partitioning-for-scalability",
+   "encrypted-query-evaluation-end-to-end"
+  ],
+  "id": "private-segmented-membership-test-threshold-fhe"
+ },
+ {
+  "name": "PVC (Private and Verifiable Computing)",
+  "developer": "TikTok",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "2026.0",
+  "source": "https://www.usenix.org/conference/pepr26/presentation/sun",
+  "description": "A confidential-computing environment for context-aware AI processing that lets a user route requests with sensitive data into a private, verifiable enclave that the service provider cannot access.",
+  "hoepman": [
+   {
+    "strategy": "separate",
+    "rationale": "Isolates user data inside an environment the operator cannot see, similar to Apple PCC."
+   },
+   {
+    "strategy": "demonstrate",
+    "rationale": "Clients can cryptographically verify what code is running before trusting the environment."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "use-limitation",
+    "rationale": "Data is used only for the user's request, and the operator cannot access it."
+   }
+  ],
+  "technologies": [
+   "trusted-execution-environment",
+   "remote-attestation"
+  ],
+  "techniques": [
+   "attested-confidential-ai-inference",
+   "verifiable-transparency"
+  ],
+  "notes": "Limited public information; analysis based primarily on the abstract.",
+  "id": "pvc-private-and-verifiable-computing"
+ },
+ {
+  "name": "PySyft",
+  "developer": "OpenMined",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "2018.0",
+  "source": "https://openmined.org/blog/remote-data-science-part-2-introduction-to-pysyft-and-pygrid/",
+  "description": "An open-source library that decouples private data from model training using federated learning, differential privacy, and encrypted computation such as secure multi-party computation and homomorphic encryption. **Composite toolkit with multiplle primitives**",
+  "hoepman": [
+   {
+    "strategy": "separate",
+    "rationale": "data stays with its owner while computation is dispatched to it — pointer-based remote execution decouples the data scientist from the raw data"
+   },
+   {
+    "strategy": "hide",
+    "rationale": "differential privacy, secure multi-party computation, and homomorphic encryption keep individual data concealed during training and inference"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "the data scientist never collects raw data — only permitted computation results leave the owner's boundary"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "layered cryptographic protections plus DP protect data even during joint computation"
+   }
+  ],
+  "technologies": [
+   "federated-learning",
+   "differential-privacy",
+   "secure-multi-party-computation",
+   "homomorphic-encryption",
+   "open-source-python-library"
+  ],
+  "techniques": [
+   "remote-data-science-via-pointer-abstraction-compute-sent-to-data-not-data-to-compute",
+   "privacy-budget-limited-queries",
+   "encrypted-computation-over-distributed-datasets"
+  ],
+  "notes": "Composite toolkit with multiple primitives; per-strategy analysis pending.",
+  "id": "pysyft"
+ },
+ {
+  "name": "RAPPOR (Randomized Aggregatable Privacy-Preserving Ordinal Response)",
+  "developer": "Google",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "November 2014",
+  "source": "https://dl.acm.org/doi/10.1145/2660267.2660348",
+  "description": "A local differential privacy system in Chrome that uses randomized response to collect client-side string statistics, giving each individual report plausible deniability while letting the server recover population-level aggregates.",
+  "hoepman": [
+   {
+    "strategy": "abstract",
+    "rationale": "The Chrome client applies randomized response to its own values so individual outputs cannot be reliably recovered, only population aggregates."
+   },
+   {
+    "strategy": "hide",
+    "rationale": "Plausible deniability breaks the link between a person and their reported value, preventing linkability."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "Noise is applied before data leaves the device, so identifiable values are never collected."
+   }
+  ],
+  "technologies": [
+   "local-differential-privacy",
+   "client-side-chrome-deployment"
+  ],
+  "techniques": [
+   "randomized-response",
+   "bloom-filter-encoding",
+   "server-side-statistical-decoding"
+  ],
+  "id": "rappor-randomized-aggregatable-privacy-preserving-ordinal-re"
+ },
+ {
+  "name": "Scalable Metadata-Hiding for Privacy-Preserving IoT",
+  "developer": "UW-Madison / UCSD",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2024.0",
+  "source": "https://petsymposium.org/popets/2024/popets-2024-0135.php",
+  "description": "Conceals communication metadata in IoT systems, hiding which device is talking to which service, with protocols that scale to high-volume event streams.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "conceals communication metadata in IoT systems — which device is talking to which service and when — from network observers and infrastructure"
+   },
+   {
+    "strategy": "separate",
+    "rationale": "routing infrastructure unlinks device identity from service endpoint so no intermediary holds both"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "observers cannot collect device-to-service communication patterns, which are often as sensitive as content in smart homes"
+   }
+  ],
+  "technologies": [
+   "metadata-protecting-communication-infrastructure-for-iot"
+  ],
+  "techniques": [
+   "scalable-metadata-hiding-protocol-design-for-high-volume-event-streams",
+   "device-endpoint-unlinkability"
+  ],
+  "id": "scalable-metadata-hiding-for-privacy-preserving-iot"
+ },
+ {
+  "name": "Secure Vertical Federated Learning",
+  "developer": "Visa Research",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2026 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2026/popets-2026-0099.php",
+  "description": "Lets multiple organizations that each hold different features about the same people jointly train a model without sharing their raw data or labels. It splits the aggregator role across several servers running secure multiparty computation, and adds differential privacy to the final model — protecting both the inputs and the output, while cutting the heavy compute costs of a naive approach.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "raw data and labels are never shared between the participating organizations"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "differential privacy on the final model protects the output, not just the inputs"
+   },
+   {
+    "strategy": "separate",
+    "rationale": "the aggregator role is split across several servers running secure multiparty computation, so no single server reconstructs inputs; each organization's features never leave its control in the clear"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "no party collects another organization's features or labels"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "both inputs (via MPC) and the trained model (via DP) carry formal protection, while cutting the compute cost of a naive approach"
+   }
+  ],
+  "technologies": [
+   "secure-multiparty-computation",
+   "vertical-federated-learning",
+   "differential-privacy-on-the-final-model"
+  ],
+  "techniques": [
+   "multi-server-aggregator-splitting",
+   "joint-training-over-vertically-partitioned-features-without-raw-data-exchange",
+   "input-and-output-dual-protection"
+  ],
+  "id": "secure-vertical-federated-learning"
+ },
+ {
+  "name": "SEED",
+  "developer": "University of Queensland",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2026 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2026/popets-2026-0021.php",
+  "description": "A framework for deploying containerized microservices in the cloud while keeping user code, data, and models secret and results verifiably correct. Unlike prior TEE designs, it runs the whole container stack inside the trusted enclave (on AMD SEV-SNP) yet shrinks the trusted footprint ~30× (22 MB vs ~690 MB), using continuous in-enclave attestation to block cloud attacks and even hide workload identity. Runs real workloads (TensorFlow, PyTorch, Redis, NGINX) within ~5% of native speed.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "the entire container stack runs inside an AMD SEV-SNP enclave, keeping user code, data, and models secret — even the identity of the workload is hidden from the cloud"
+   },
+   {
+    "strategy": "demonstrate",
+    "rationale": "continuous in-enclave attestation proves, throughout execution, that the workload is running untampered, and results are verifiably correct"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "enclave isolation plus a trusted footprint shrunk ~30x (22 MB vs ~690 MB) reduces the attack surface against cloud-level adversaries"
+   }
+  ],
+  "technologies": [
+   "amd-sev-snp-trusted-enclaves",
+   "containerized-microservices-running-real-workloads-tensorflow-pytorch-redis-nginx-within-5-of-native-speed"
+  ],
+  "techniques": [
+   "full-stack-in-enclave-execution-with-a-minimized-22-mb-trusted-computing-base",
+   "continuous-in-enclave-attestation",
+   "workload-identity-hiding"
+  ],
+  "id": "seed"
+ },
+ {
+  "name": "SPRINT",
+  "developer": "SAP SE",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2026 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2026/popets-2026-0008.php",
+  "description": "Runs transformer inference in the cloud without exposing the user's query, the model's parameters, or the training data. It uses multi-party computation to split the computation across providers (so no single server sees the query or weights) and differential privacy during fine-tuning (so the model can't leak training data), with optimizations that keep both fast and accurate — under 1 point of accuracy loss versus cleartext.",
+  "hoepman": [
+   {
+    "strategy": "separate",
+    "rationale": "multi-party computation splits transformer inference across providers, so no single server ever holds the user's query or the model weights"
+   },
+   {
+    "strategy": "hide",
+    "rationale": "differential privacy during fine-tuning prevents the model itself from leaking its training data"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "no provider collects the plaintext query, and training data cannot be extracted from the model"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "protection covers all three assets at once — query, weights, and training data — with under 1 point of accuracy loss"
+   }
+  ],
+  "technologies": [
+   "secure-multi-party-computation-across-providers",
+   "differentially-private-fine-tuning",
+   "cloud-transformer-inference"
+  ],
+  "techniques": [
+   "mpc-friendly-transformer-optimizations-for-speed-and-accuracy",
+   "split-trust-deployment-across-non-colluding-providers",
+   "dp-fine-tuning-bounding-training-data-leakage"
+  ],
+  "id": "sprint"
+ },
+ {
+  "name": "STAR (Secret Sharing for Private Threshold Aggregation Reporting)",
+  "developer": "Brave",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "September 2021",
+  "source": "https://arxiv.org/abs/2109.10074",
+  "description": "A threshold-aggregation system that reveals a client's report only when at least K other clients submit the identical value, using secret sharing and oblivious pseudorandom functions, so rare and potentially identifying responses are never decryptable.",
+  "hoepman": [
+   {
+    "strategy": "abstract",
+    "rationale": "A cryptographically enforced threshold means a value is only ever revealed in aggregate, providing k-anonymity on collected data."
+   },
+   {
+    "strategy": "separate",
+    "rationale": "The secret-sharing construction keeps any individual report concealed until the threshold is met."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "Rare or identifying values are never decryptable, so they are effectively never collected."
+   }
+  ],
+  "technologies": [
+   "threshold-aggregation-via-secret-sharing",
+   "oblivious-pseudorandom-functions",
+   "single-server-architecture"
+  ],
+  "techniques": [
+   "shamir-secret-sharing",
+   "deterministic-key-derivation-from-data-value",
+   "k-anonymity-threshold"
+  ],
+  "notes": "Deployed in Brave and Mozilla telemetry; reported 1773x faster, 62x less communication, and 24x cheaper than prior multi-server systems.",
+  "id": "star-secret-sharing-for-private-threshold-aggregation-report"
+ },
+ {
+  "name": "Statistics-Friendly Confidentiality Protection for Establishment Data",
+  "developer": "Penn State / NISS",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2026 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2026/popets-2026-0100.php",
+  "description": "A privacy method for published business statistics, where standard differential privacy works poorly because big companies are rare outliers that matter a lot. Instead of hiding whether a business is in the data, it blurs each business's values within an uncertainty band so no attribute can be pinned down too precisely — giving every business the same guarantee. Tested on real U.S. Bureau of Labor Statistics wage data.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "instead of hiding whether a business is in the data (which fails for skewed economic data), the method blurs each business's contribution to published statistics"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "released business statistics are calibrated so rare, dominant outliers neither destroy utility nor stand out identifiably"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "data-quality",
+    "rationale": "the framework exists to keep published economic statistics accurate despite privacy protection"
+   },
+   {
+    "principle": "security-safeguards",
+    "rationale": "contribution-level protection gives a meaningful formal guarantee where membership-hiding DP semantics break down"
+   }
+  ],
+  "technologies": [
+   "formal-confidentiality-framework-for-establishment-statistics"
+  ],
+  "techniques": [
+   "contribution-blurring-in-place-of-membership-hiding",
+   "calibration-for-heavy-tailed",
+   "outlier-dominated-data"
+  ],
+  "id": "statistics-friendly-confidentiality-protection-for-establish"
+ },
+ {
+  "name": "StyleID: Identity Disentanglement for Anonymizing Faces",
+  "developer": "Le & Carlsson (Linkoping University)",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2023 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2023/popets-2023-0016.php",
+  "description": "A feature-preserving anonymization framework that projects facial images into the latent space of a pre-trained StyleGAN model and manipulates identity-specific features while preserving non-identity attributes, providing tunable privacy with low computational complexity and outperforming prior state-of-the-art face anonymization solutions.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "facial images are projected into a pre-trained StyleGAN's latent space where identity-specific features are manipulated away, anonymizing the face while non-identity attributes (expression, pose, lighting) are preserved — with tunable privacy strength"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "feature-level disentanglement provides anonymization that outperforms prior state of the art at low computational cost"
+   },
+   {
+    "principle": "data-quality",
+    "rationale": "preserving non-identity attributes keeps anonymized images useful for downstream tasks"
+   }
+  ],
+  "technologies": [
+   "pre-trained-stylegan-generative-model",
+   "latent-space-identity-disentanglement"
+  ],
+  "techniques": [
+   "latent-space-projection-of-face-images",
+   "identity-feature-manipulation-with-attribute-preservation",
+   "tunable-privacy-utility-control"
+  ],
+  "id": "styleid-identity-disentanglement-for-anonymizing-faces"
+ },
+ {
+  "name": "TEE-Based Private Federated Learning with Client Auditing",
+  "developer": "LY Corporation",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2026 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2026/popets-2026-0025.php",
+  "description": "Makes differentially private federated learning (DP-FTRL) secure even against a malicious server, not just an honest-but-curious one. A small ephemeral TEE on the server produces verifiable proofs of its actions, and a subset of selected clients audit those proofs with only minor added cost — keeping the trusted base small while preserving scalability and handling client dropouts. Backed by formal privacy proofs and shown to add only small constant overhead.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "DP-FTRL protects individual client updates, with guarantees that now hold even against a malicious server rather than only an honest-but-curious one"
+   },
+   {
+    "strategy": "demonstrate",
+    "rationale": "a small ephemeral TEE produces verifiable proofs of the server's actions, and a rotating subset of clients audits those proofs"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "formal privacy proofs cover the malicious-server threat model with only small constant overhead"
+   },
+   {
+    "principle": "accountability",
+    "rationale": "client auditing makes the server's correct behavior checkable by the participants themselves"
+   }
+  ],
+  "technologies": [
+   "small-ephemeral-server-side-tee",
+   "dp-ftrl-differentially-private-federated-learning"
+  ],
+  "techniques": [
+   "verifiable-proofs-of-tee-actions",
+   "client-subset-auditing-at-minor-added-cost",
+   "client-dropout-handling-with-a-minimal-trusted-base"
+  ],
+  "id": "tee-based-private-federated-learning-with-client-auditing"
+ },
+ {
+  "name": "TensorFlow Privacy",
+  "developer": "Google Brain",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "2019.0",
+  "source": "https://www.usenix.org/conference/pepr19/presentation/papernot",
+  "description": "An open-source library that trains machine learning models with differential privacy by injecting calibrated noise into gradient updates during training, preventing the model from memorizing individual data points while still learning population-level patterns.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "Clips each gradient so no single person's data can cause a significant model update, then adds Gaussian noise so an adversary with full access to the trained weights cannot determine whether a specific person's data was in the training set."
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "The published model encodes only statistical patterns learned across the whole training population; individual-level details are washed out by the noise."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "Guarantees a mathematical bound on information leakage from training data."
+   },
+   {
+    "principle": "collection-limitation",
+    "rationale": "By preventing memorization, the effective retention of personal information in the model is limited to population-level patterns that survive clipping and noise."
+   }
+  ],
+  "technologies": [
+   "differentially-private-sgd"
+  ],
+  "techniques": [
+   "per-example-gradient-clipping",
+   "gaussian-noise-injection",
+   "privacy-budget-accounting"
+  ],
+  "id": "tensorflow-privacy"
+ },
+ {
+  "name": "TraCS",
+  "developer": "Rochester Institute of Technology",
+  "status": "research",
+  "analysis_status": "complete",
+  "date": "2026 (PoPETs)",
+  "source": "https://petsymposium.org/popets/2026/popets-2026-0074.php",
+  "description": "A way to collect users' movement paths for location services without an untrusted collector learning where anyone actually went. Each location is scrambled on the user's device (by perturbing direction/distance or coordinates) before sending. Unlike earlier methods limited to fixed grids, it works in continuous space — useful for things like flight paths or wearable-sensor traces — while keeping the data useful.",
+  "hoepman": [
+   {
+    "strategy": "hide",
+    "rationale": "each location is scrambled on the user's device — by perturbing direction/distance or coordinates — before the collector ever sees it, so an untrusted collector cannot learn where anyone actually went"
+   },
+   {
+    "strategy": "abstract",
+    "rationale": "collected trajectories remain useful for location services at the population level while individual paths are obscured"
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "collection-limitation",
+    "rationale": "the collector only ever receives perturbed movement data, never true paths"
+   }
+  ],
+  "technologies": [
+   "local-differential-privacy-for-trajectory-data"
+  ],
+  "techniques": [
+   "on-device-direction-distance-perturbation",
+   "coordinate-perturbation-variant",
+   "continuous-trajectory-collection-under-ldp"
+  ],
+  "id": "tracs"
+ },
+ {
+  "name": "VaultGemma",
+  "developer": "Google",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "September 2025",
+  "source": "https://research.google/blog/vaultgemma-the-worlds-most-capable-differentially-private-llm/",
+  "description": "A 1B-parameter Gemma-architecture LLM trained end-to-end under a differential privacy guarantee so that no single training example meaningfully shapes the final weights, mathematically bounding how much anyone can recover about any individual in the training set.",
+  "hoepman": [
+   {
+    "strategy": "abstract",
+    "rationale": "Differential privacy applied to gradients during training bounds any single training sequence's influence on the final model."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "use-limitation",
+    "rationale": "The trained weights cannot be repurposed to expose individuals because DP prevents the model from memorizing and regurgitating training data."
+   }
+  ],
+  "technologies": [
+   "dp-sgd-model-training",
+   "dp-scaling-laws",
+   "open-weight-release"
+  ],
+  "techniques": [
+   "gradient-clipping",
+   "calibrated-gaussian-noise-on-aggregated-gradients",
+   "noise-batch-ratio-optimization"
+  ],
+  "id": "vaultgemma"
+ },
+ {
+  "name": "WhatsApp Key Transparency (Auditable Key Directory)",
+  "developer": "Meta (WhatsApp)",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "April 2023",
+  "source": "https://www.usenix.org/conference/pepr23/presentation/lewi",
+  "description": "An open-source library that strengthens end-to-end encryption for WhatsApp by allowing users to transparently and automatically verify their contacts' public keys, deployed at WhatsApp scale.",
+  "hoepman": [
+   {
+    "strategy": "demonstrate",
+    "rationale": "Makes WhatsApp's key management auditable and verifiable, so anyone can check that distributed keys match what is publicly logged."
+   },
+   {
+    "strategy": "enforce",
+    "rationale": "The Merkle-tree-based directory prevents the server from silently swapping out a user's key."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "Protects the integrity of the cryptographic key material that underpins message confidentiality."
+   },
+   {
+    "principle": "accountability",
+    "rationale": "The auditable key directory holds Meta to a verifiable standard."
+   }
+  ],
+  "technologies": [
+   "open-source-rust-library",
+   "merkle-tree-directory"
+  ],
+  "techniques": [
+   "cryptographic-key-transparency",
+   "public-auditability-of-key-distribution-logs",
+   "verifiable-key-history-proofs"
+  ],
+  "id": "whatsapp-key-transparency-auditable-key-directory"
+ },
+ {
+  "name": "xray (Cloud IAM Access Auditing)",
+  "developer": "Cruise",
+  "status": "deployed",
+  "analysis_status": "complete",
+  "date": "2023.0",
+  "source": "https://www.usenix.org/conference/pepr23/presentation/thakur",
+  "description": "An internal tool that audits cloud Identity and Access Management in BigQuery, answering who has read access to a given data resource and how they obtained it, used to remediate overprovisioned access and enforce need-based access policies.",
+  "hoepman": [
+   {
+    "strategy": "control",
+    "rationale": "Gives the privacy team visibility and control over who can reach sensitive data."
+   },
+   {
+    "strategy": "minimise",
+    "rationale": "Directly drives the number of people and roles that can touch sensitive data down to the minimum needed."
+   }
+  ],
+  "oecd": [
+   {
+    "principle": "security-safeguards",
+    "rationale": "Auditing and tightening access control acts as a safeguard against unauthorized exposure of personal data."
+   },
+   {
+    "principle": "accountability",
+    "rationale": "Creates a traceable record of access provenance by tracing how each principal obtained access."
+   }
+  ],
+  "technologies": [
+   "bigquery",
+   "cloud-iam"
+  ],
+  "techniques": [
+   "nested-role-and-inherited-permission-analysis",
+   "access-path-tracing",
+   "overprovisioned-access-remediation"
+  ],
+  "id": "xray-cloud-iam-access-auditing"
+ }
+]

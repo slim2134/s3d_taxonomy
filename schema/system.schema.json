@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "S3D System Entry",
+  "type": "object",
+  "required": ["name", "developer", "status", "analysis_status", "description"],
+  "additionalProperties": false,
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "developer": { "type": ["string", "null"] },
+    "status": {
+      "type": "string",
+      "enum": ["deployed", "research", "talk", "deprecated"],
+      "description": "deployed = in production use; research = paper/prototype; talk = practitioner reflection; deprecated = no longer active"
+    },
+    "analysis_status": {
+      "type": "string",
+      "enum": ["complete", "needs-analysis"],
+      "description": "complete entries must have at least one Hoepman strategy and one OECD principle"
+    },
+    "date": { "type": ["string", "null"] },
+    "source": {
+      "type": ["string", "null"],
+      "pattern": "^https?://",
+      "description": "Canonical URL: paper, engineering blog post, or documentation"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 20,
+      "description": "One-sentence objective description of how the system functions"
+    },
+    "hoepman": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["strategy", "rationale"],
+        "additionalProperties": false,
+        "properties": {
+          "strategy": {
+            "type": "string",
+            "enum": ["minimise", "hide", "separate", "abstract", "inform", "control", "enforce", "demonstrate"]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 20,
+            "description": "Must explain how the strategy applies to this system's specific mechanics, not define the strategy in general terms"
+          }
+        }
+      }
+    },
+    "oecd": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["principle", "rationale"],
+        "additionalProperties": false,
+        "properties": {
+          "principle": {
+            "type": "string",
+            "enum": ["collection-limitation", "data-quality", "purpose-specification", "use-limitation", "security-safeguards", "openness", "individual-participation", "accountability"]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 20,
+            "description": "Must explain how the principle applies to this system's specific mechanics, not define the principle in general terms"
+          }
+        }
+      }
+    },
+    "technologies": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+      "description": "Infrastructure and deployed components, kebab-case"
+    },
+    "techniques": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+      "description": "Algorithmic/methodological mechanisms, kebab-case"
+    },
+    "notes": { "type": "string" }
+  }
+}

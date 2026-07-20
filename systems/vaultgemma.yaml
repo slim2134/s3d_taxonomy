@@ -1,0 +1,28 @@
+name: VaultGemma
+developer: Google
+status: deployed
+analysis_status: complete
+date: September 2025
+source: https://research.google/blog/vaultgemma-the-worlds-most-capable-differentially-private-llm/
+description: >-
+  A 1B-parameter Gemma-architecture LLM trained end-to-end under a differential privacy guarantee so that
+  no single training example meaningfully shapes the final weights, mathematically bounding how much anyone
+  can recover about any individual in the training set.
+hoepman:
+- strategy: abstract
+  rationale: >-
+    Differential privacy applied to gradients during training bounds any single training sequence's influence
+    on the final model.
+oecd:
+- principle: use-limitation
+  rationale: >-
+    The trained weights cannot be repurposed to expose individuals because DP prevents the model from
+    memorizing and regurgitating training data.
+technologies:
+- dp-sgd-model-training
+- dp-scaling-laws
+- open-weight-release
+techniques:
+- gradient-clipping
+- calibrated-gaussian-noise-on-aggregated-gradients
+- noise-batch-ratio-optimization

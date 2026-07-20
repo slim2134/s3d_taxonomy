@@ -1,0 +1,28 @@
+name: Gboard Federated Learning with DP (FL + DP-FTRL)
+developer: Google
+status: research
+analysis_status: complete
+date: May 2023
+source: https://arxiv.org/abs/2305.18465
+description: Traiins next-word prediction models
+hoepman:
+- strategy: hide
+  rationale: >-
+    model updates are clipped and DP-FTRL noise is added before they shape the global model, so no individual's
+    typing history can be recovered from the trained model
+- strategy: minimise
+  rationale: raw keystrokes never leave the device; only ephemeral model updates are transmitted for aggregation
+oecd:
+- principle: collection-limitation
+  rationale: the server never collects raw typing data, only noised aggregate model updates
+- principle: security-safeguards
+  rationale: the DP-FTRL guarantee places a formal bound on what the model can leak about any user
+technologies:
+- cross-device-federated-learning-deployed-in-gboard
+- dp-ftrl-tree-aggregation-based-differentially-private-follow-the-regularized-leader
+techniques:
+- gboard
+- >-
+  dp-ftrl-tree-aggregation-based-differentially-private-follow-the-regularized-leader-per-user-update-clipping
+- correlated-noise-via-tree-aggregation
+- on-device-next-word-prediction-training

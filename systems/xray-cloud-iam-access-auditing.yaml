@@ -1,0 +1,30 @@
+name: xray (Cloud IAM Access Auditing)
+developer: Cruise
+status: deployed
+analysis_status: complete
+date: '2023.0'
+source: https://www.usenix.org/conference/pepr23/presentation/thakur
+description: >-
+  An internal tool that audits cloud Identity and Access Management in BigQuery, answering who has read
+  access to a given data resource and how they obtained it, used to remediate overprovisioned access and
+  enforce need-based access policies.
+hoepman:
+- strategy: control
+  rationale: Gives the privacy team visibility and control over who can reach sensitive data.
+- strategy: minimise
+  rationale: >-
+    Directly drives the number of people and roles that can touch sensitive data down to the minimum needed.
+oecd:
+- principle: security-safeguards
+  rationale: >-
+    Auditing and tightening access control acts as a safeguard against unauthorized exposure of personal
+    data.
+- principle: accountability
+  rationale: Creates a traceable record of access provenance by tracing how each principal obtained access.
+technologies:
+- bigquery
+- cloud-iam
+techniques:
+- nested-role-and-inherited-permission-analysis
+- access-path-tracing
+- overprovisioned-access-remediation

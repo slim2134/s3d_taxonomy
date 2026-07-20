@@ -1,0 +1,30 @@
+name: Privacy Nutrition Label
+developer: Apple
+status: deployed
+analysis_status: complete
+date: December 2020
+source: https://www.apple.com/privacy/labels/
+description: >-
+  A standardized, glanceable summary on each App Store listing showing what data an app collects, whether
+  it is linked to the user's identity, and whether it is used to track them across apps and websites;
+  generated from developer self-declarations and not audited by Apple.
+hoepman:
+- strategy: inform
+  rationale: >-
+    The label surfaces declared data practices in a consistent visual format before install, lowering
+    the comprehension barrier of privacy policies.
+oecd:
+- principle: openness
+  rationale: Provides transparency about data practices and the data controller's identity on every listing.
+- principle: individual-participation
+  rationale: Supports the user's ability to know what is collected before engaging with the app.
+technologies:
+- standardized-disclosure-schema
+- app-store-questionnaire
+- platform-level-policy-mandate
+techniques:
+- glanceable-visual-standardization
+- structured-self-attestation
+notes: >-
+  Self-declared by developers and not verifiable; informs the install decision rather than enforcing a
+  technical guarantee.

@@ -1,0 +1,28 @@
+name: RAPPOR (Randomized Aggregatable Privacy-Preserving Ordinal Response)
+developer: Google
+status: deployed
+analysis_status: complete
+date: November 2014
+source: https://dl.acm.org/doi/10.1145/2660267.2660348
+description: >-
+  A local differential privacy system in Chrome that uses randomized response to collect client-side string
+  statistics, giving each individual report plausible deniability while letting the server recover population-level
+  aggregates.
+hoepman:
+- strategy: abstract
+  rationale: >-
+    The Chrome client applies randomized response to its own values so individual outputs cannot be reliably
+    recovered, only population aggregates.
+- strategy: hide
+  rationale: >-
+    Plausible deniability breaks the link between a person and their reported value, preventing linkability.
+oecd:
+- principle: collection-limitation
+  rationale: Noise is applied before data leaves the device, so identifiable values are never collected.
+technologies:
+- local-differential-privacy
+- client-side-chrome-deployment
+techniques:
+- randomized-response
+- bloom-filter-encoding
+- server-side-statistical-decoding

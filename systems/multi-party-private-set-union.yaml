@@ -1,0 +1,25 @@
+name: Multi-Party Private Set Union
+developer: Arizona State
+status: research
+analysis_status: complete
+date: 2024 (PoPETs)
+source: https://petsymposium.org/popets/2024/popets-2024-0133.php
+description: >-
+  Lets multiple parties jointly compute the union of their sets without revealing which party contributed
+  which element or anything about non-contributed items.
+hoepman:
+- strategy: hide
+  rationale: >-
+    parties jointly compute the union of their sets without revealing which party contributed which element
+    or anything about non-contributed items
+- strategy: abstract
+  rationale: the output is the combined union only — contributor attribution and multiplicities stay concealed
+oecd:
+- principle: collection-limitation
+  rationale: no party collects another's set beyond what the union itself discloses
+technologies:
+- multi-party-secure-computation-for-set-union
+techniques:
+- oblivious-element-mixing-shuffling
+- contribution-hiding-union-assembly
+- practicality-focused-protocol-engineering

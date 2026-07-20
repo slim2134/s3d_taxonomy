@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use the S3D Taxonomy in your research, please cite it as below."
+title: "S3D Taxonomy"
+type: dataset
+authors:
+  - family-names: Lim
+    given-names: Sean
+    affiliation: Carnegie Mellon University
+  - family-names: Li
+    given-names: Eva
+  - family-names: Habib
+    given-names: Hana
+    affiliation: Carnegie Mellon University
+repository-code: "https://github.com/OWNER/s3d-taxonomy"
+abstract: >-
+  A community-maintained taxonomy of deployed and research security and
+  privacy systems, mapped to Hoepman's eight privacy design strategies and
+  the OECD Fair Information Practice Principles.
+license: CC-BY-4.0

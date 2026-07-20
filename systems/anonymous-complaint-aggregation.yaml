@@ -1,0 +1,30 @@
+name: Anonymous Complaint Aggregation
+developer: UNC Chapel Hill
+status: research
+analysis_status: complete
+date: '2024.0'
+source: https://petsymposium.org/popets/2024/popets-2024-0078.php
+description: >-
+  Lets users of end-to-end encrypted messaging file complaints about abusive messages anonymously, with
+  individual complaints unlinkable to complainants; the platform learns only aggregate tallies, such as
+  that a message crossed a complaint threshold.
+hoepman:
+- strategy: hide
+  rationale: >-
+    users can file complaints about abusive messages while remaining anonymous, with individual complaints
+    unlinkable to complainants and to each other
+- strategy: abstract
+  rationale: >-
+    the platform learns only aggregate tallies — that a message crossed a complaint threshold — not who
+    complained
+oecd:
+- principle: collection-limitation
+  rationale: the messaging provider never collects complainant identities or linkable complaint records
+- principle: accountability
+  rationale: enables abuse moderation in end-to-end encrypted messaging without breaking its privacy model
+technologies:
+- cryptographic-tallying-integrated-with-secure-messaging
+techniques:
+- anonymous-complaint-submission
+- threshold-revealed-tallies
+- complaint-unlinkability

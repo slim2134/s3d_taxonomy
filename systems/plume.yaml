@@ -1,0 +1,31 @@
+name: Plume
+developer: Google
+status: deployed
+analysis_status: complete
+date: '2023.0'
+source: https://www.usenix.org/conference/pepr23/presentation/kulesza
+description: >-
+  A system addressing the practical engineering challenges of translating differential privacy algorithms
+  into production, including users contributing multiple records and unknown record domains, deployed
+  at Google on datasets with trillions of records.
+hoepman:
+- strategy: hide
+  rationale: >-
+    Guarantees that no single user's contributed records can be isolated from the aggregate output at
+    industrial scale.
+- strategy: abstract
+  rationale: >-
+    Solves the unknown-domain problem, producing population-level aggregates even when the full range
+    of records is not known in advance.
+oecd:
+- principle: security-safeguards
+  rationale: >-
+    Makes formal DP guarantees hold under real constraints: multiple contributions per user, unbounded
+    domains, and massive scale.
+technologies:
+- distributed-data-processing-pipelines
+- central-differential-privacy
+techniques:
+- multi-record-user-contribution-bounding
+- unknown-domain-differential-privacy
+- large-scale-dp-algorithm-engineering

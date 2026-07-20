@@ -1,0 +1,33 @@
+name: 'Janus: Fast Privacy-Preserving Data Provenance for TLS'
+developer: Lauinger et al.
+status: research
+analysis_status: complete
+date: 2025 (PoPETs)
+source: https://petsymposium.org/popets/2025/popets-2025-0028.php
+description: >-
+  A new TLS oracle protocol that reaches new scales in selectively verifying the provenance of confidential
+  web data, deploying an honest verifier zero-knowledge proof system in the asymmetric privacy setting
+  while retaining security against malicious adversaries.
+hoepman:
+- strategy: hide
+  rationale: >-
+    honest-verifier zero-knowledge proofs let a client prove facts about confidential TLS data without
+    revealing the data itself, in the asymmetric-privacy setting
+- strategy: demonstrate
+  rationale: >-
+    the protocol's purpose is verifiable provenance — proving to a third party that data genuinely came
+    from a given TLS server
+oecd:
+- principle: data-quality
+  rationale: >-
+    cryptographically verified provenance guarantees the authenticity and origin of the data being attested
+- principle: security-safeguards
+  rationale: the protocol retains security against malicious adversaries while reaching new performance
+    scales
+technologies:
+- tls-oracle-protocol
+- honest-verifier-zero-knowledge-proof-system
+techniques:
+- selective-disclosure-over-tls-session-contents
+- asymmetric-privacy-proof-optimization
+- malicious-adversary-secure-design

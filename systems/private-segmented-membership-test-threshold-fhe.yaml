@@ -1,0 +1,24 @@
+name: Private Segmented Membership Test (Threshold-FHE)
+developer: Notre Dame
+status: research
+analysis_status: complete
+date: '2024.0'
+source: https://petsymposium.org/popets/2024/popets-2024-0114.php
+description: >-
+  Lets a client learn whether its value is in a server-held segmented set without the server learning
+  the query, using summation over threshold fully homomorphic encryption.
+hoepman:
+- strategy: hide
+  rationale: >-
+    a client learns whether its value is in a server-held segmented set without the server learning the
+    query, using summation over threshold fully homomorphic encryption — applicable to lookups like compromised-credential
+    checks
+oecd:
+- principle: collection-limitation
+  rationale: the server cannot collect or profile client queries, which never appear to it in the clear
+technologies:
+- threshold-fully-homomorphic-encryption
+techniques:
+- summation-based-membership-testing
+- segmented-set-partitioning-for-scalability
+- encrypted-query-evaluation-end-to-end

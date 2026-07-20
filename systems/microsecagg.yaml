@@ -1,0 +1,29 @@
+name: MicroSecAgg
+developer: J.P. Morgan AI Research
+status: research
+analysis_status: complete
+date: 2024 (PoPETs)
+source: https://petsymposium.org/popets/2024/popets-2024-0077.php
+description: >-
+  Lets a single server add up values from many users (e.g. to combine model updates in federated learning)
+  without seeing any individual's value. Unlike earlier methods that needed multiple non-colluding servers,
+  it works with just one, handles users dropping out mid-way, and cuts the communication and computation
+  costs substantially.
+hoepman:
+- strategy: hide
+  rationale: >-
+    a single server sums values from many users (e.g. federated learning updates) without ever seeing
+    any individual's value — removing the multiple-non-colluding-server requirement of earlier secure
+    aggregation
+- strategy: abstract
+  rationale: only the aggregate sum is ever revealed
+oecd:
+- principle: collection-limitation
+  rationale: individual contributions are never collected in usable form, even by the sole aggregating
+    server
+technologies:
+- single-server-secure-aggregation
+techniques:
+- reusable-one-time-setup-with-lightweight-per-round-masking
+- masked-value-summation
+- dropout-resilience-across-aggregation-rounds

@@ -1,0 +1,34 @@
+name: Statistics-Friendly Confidentiality Protection for Establishment Data
+developer: Penn State / NISS
+status: research
+analysis_status: complete
+date: 2026 (PoPETs)
+source: https://petsymposium.org/popets/2026/popets-2026-0100.php
+description: >-
+  A privacy method for published business statistics, where standard differential privacy works poorly
+  because big companies are rare outliers that matter a lot. Instead of hiding whether a business is in
+  the data, it blurs each business's values within an uncertainty band so no attribute can be pinned down
+  too precisely — giving every business the same guarantee. Tested on real U.S. Bureau of Labor Statistics
+  wage data.
+hoepman:
+- strategy: hide
+  rationale: >-
+    instead of hiding whether a business is in the data (which fails for skewed economic data), the method
+    blurs each business's contribution to published statistics
+- strategy: abstract
+  rationale: >-
+    released business statistics are calibrated so rare, dominant outliers neither destroy utility nor
+    stand out identifiably
+oecd:
+- principle: data-quality
+  rationale: the framework exists to keep published economic statistics accurate despite privacy protection
+- principle: security-safeguards
+  rationale: >-
+    contribution-level protection gives a meaningful formal guarantee where membership-hiding DP semantics
+    break down
+technologies:
+- formal-confidentiality-framework-for-establishment-statistics
+techniques:
+- contribution-blurring-in-place-of-membership-hiding
+- calibration-for-heavy-tailed
+- outlier-dominated-data

@@ -1,0 +1,35 @@
+name: Privacy Sandbox / Attribution Reporting API
+developer: Google
+status: research
+analysis_status: complete
+date: July 2023
+source: https://privacysandbox.com
+description: >-
+  A set of browser/Android APIs meant to support advertising use cases (measuring conversions, showing
+  relevant ads) without third-party cookies or cross-site identifiers. The Attribution Reporting API specifically
+  lets advertisers measure ad conversions through aggregated, noise-added (differentially private) reports
+  rather than by tracking individuals across sites.
+hoepman:
+- strategy: abstract
+  rationale: >-
+    ad conversions are measured through aggregated, noise-added (differentially private) reports rather
+    than individual-level tracking
+- strategy: minimise
+  rationale: >-
+    the API model removes the need for third-party cookies and cross-site identifiers entirely, eliminating
+    that data flow rather than protecting it
+oecd:
+- principle: collection-limitation
+  rationale: advertisers receive noisy aggregates, not per-user browsing or conversion trails
+- principle: use-limitation
+  rationale: >-
+    the APIs expose only what is needed for measurement and relevance use cases, not general-purpose tracking
+technologies:
+- browser-and-android-apis-attribution-reporting-api
+- tee-based-aggregation-service
+- differential-privacy
+techniques:
+- event-level-and-aggregate-level-reporting-with-calibrated-noise
+- per-user-contribution-budgeting
+- randomized
+- delayed-report-scheduling-to-break-timing-correlation

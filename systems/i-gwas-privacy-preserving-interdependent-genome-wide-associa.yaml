@@ -1,0 +1,31 @@
+name: 'I-GWAS: Privacy-Preserving Interdependent Genome-Wide Association Studies'
+developer: Pascoal et al.
+status: research
+analysis_status: complete
+date: 2023 (PoPETs)
+source: https://petsymposium.org/popets/2023/popets-2023-0026.php
+description: >-
+  A novel framework that securely computes and releases the results of multiple possibly interdependent
+  genome-wide association studies, addressing a gap in prior work where overlapping study populations
+  allowed an adversary to reconstruct the genomic variations of up to 28.6% of participants even using
+  state-of-the-art privacy techniques.
+hoepman:
+- strategy: hide
+  rationale: >-
+    protects participants' genomic variations even when multiple genome-wide association studies with
+    overlapping populations are released — closing an attack that reconstructed up to 28.6% of participants'
+    variations from interdependent releases
+- strategy: abstract
+  rationale: >-
+    study results are released as safeguarded aggregate statistics whose interdependencies are accounted
+    for
+oecd:
+- principle: security-safeguards
+  rationale: >-
+    release conditions are computed across studies jointly, so guarantees hold against adversaries combining
+    multiple published results
+technologies:
+- secure-computation-framework-for-interdependent-gwas-releases
+techniques:
+- interdependence-aware-release-conditions
+- overlapping-population-reconstruction-attack-mitigation

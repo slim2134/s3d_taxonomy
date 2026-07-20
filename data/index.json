@@ -1,0 +1,1372 @@
+{
+ "by_strategy": {
+  "abstract": [
+   "anonymous-complaint-aggregation",
+   "apple-differential-privacy",
+   "differential-privacy-library",
+   "differentially-private-ad-conversion",
+   "differentially-private-data-release",
+   "differentially-private-speaker-anonymization",
+   "elastic-sensitivity-chorus-sql-differential-privacy",
+   "epioracle-privacy-preserving-cross-facility-early-warning-fo",
+   "gboard-federated-oov-word-discovery",
+   "i-gwas-privacy-preserving-interdependent-genome-wide-associa",
+   "microsecagg",
+   "multi-party-private-set-union",
+   "multiparty-psi-cardinality",
+   "per-record-differential-privacy",
+   "plan-variance-aware-private-mean-estimation",
+   "plume",
+   "prio",
+   "privacy-preserving-humanitarian-aid-distribution",
+   "privacy-sandbox-attribution-reporting-api",
+   "privacy-sandbox-attribution-reporting-summary-reports-optimi",
+   "private-analytics-via-zero-trust-aggregation-willow",
+   "rappor-randomized-aggregatable-privacy-preserving-ordinal-re",
+   "secure-vertical-federated-learning",
+   "star-secret-sharing-for-private-threshold-aggregation-report",
+   "statistics-friendly-confidentiality-protection-for-establish",
+   "tensorflow-privacy",
+   "tracs",
+   "vaultgemma"
+  ],
+  "control": [
+   "apple-differential-privacy",
+   "xray-cloud-iam-access-auditing"
+  ],
+  "demonstrate": [
+   "confidential-federated-computations",
+   "janus-fast-privacy-preserving-data-provenance-for-tls",
+   "private-analytics-via-zero-trust-aggregation-willow",
+   "private-cloud-compute-pcc",
+   "pvc-private-and-verifiable-computing",
+   "seed",
+   "tee-based-private-federated-learning-with-client-auditing",
+   "whatsapp-key-transparency-auditable-key-directory"
+  ],
+  "enforce": [
+   "policy-zones",
+   "privacy-aware-infrastructure-pai",
+   "whatsapp-key-transparency-auditable-key-directory"
+  ],
+  "hide": [
+   "advanced-browsing-protection",
+   "anonymous-complaint-aggregation",
+   "confidential-federated-computations",
+   "cure",
+   "delegated-private-matching-for-compute",
+   "differentially-private-ad-conversion",
+   "differentially-private-data-release",
+   "differentially-private-speaker-anonymization",
+   "dp-fednew-communication-efficient-differentially-private-fed",
+   "epioracle-privacy-preserving-cross-facility-early-warning-fo",
+   "fl-dp-federated-learning-differential-privacy-for-mobile",
+   "frodopir-simple-scalable-single-server-private-information-r",
+   "gboard-federated-learning-with-dp-fl-dp-ftrl",
+   "gboard-federated-oov-word-discovery",
+   "hawk",
+   "helayers-a-tile-tensors-framework-for-large-neural-networks",
+   "i-gwas-privacy-preserving-interdependent-genome-wide-associa",
+   "icloud-private-relay",
+   "janus-fast-privacy-preserving-data-provenance-for-tls",
+   "joint-randomized-response-jrr",
+   "lox-protecting-the-social-graph-in-bridge-distribution",
+   "microsecagg",
+   "multi-party-private-join",
+   "multi-party-private-set-union",
+   "multiparty-psi-cardinality",
+   "password-monitoring-icloud-keychain-private-set-intersection",
+   "per-record-differential-privacy",
+   "pirouette",
+   "plan-variance-aware-private-mean-estimation",
+   "plasma",
+   "plume",
+   "prepams-privacy-preserving-participant-management-system",
+   "prio",
+   "privacy-lens",
+   "privacy-preserving-humanitarian-aid-distribution",
+   "private-analytics-via-zero-trust-aggregation-willow",
+   "private-segmented-membership-test-threshold-fhe",
+   "pysyft",
+   "rappor-randomized-aggregatable-privacy-preserving-ordinal-re",
+   "scalable-metadata-hiding-for-privacy-preserving-iot",
+   "secure-vertical-federated-learning",
+   "seed",
+   "sprint",
+   "statistics-friendly-confidentiality-protection-for-establish",
+   "styleid-identity-disentanglement-for-anonymizing-faces",
+   "tee-based-private-federated-learning-with-client-auditing",
+   "tensorflow-privacy",
+   "tracs"
+  ],
+  "inform": [
+   "privacy-nutrition-label"
+  ],
+  "minimise": [
+   "apple-differential-privacy",
+   "fl-dp-federated-learning-differential-privacy-for-mobile",
+   "gboard-federated-learning-with-dp-fl-dp-ftrl",
+   "lox-protecting-the-social-graph-in-bridge-distribution",
+   "password-monitoring-icloud-keychain-private-set-intersection",
+   "prepams-privacy-preserving-participant-management-system",
+   "privacy-lens",
+   "privacy-sandbox-attribution-reporting-api",
+   "xray-cloud-iam-access-auditing"
+  ],
+  "separate": [
+   "advanced-browsing-protection",
+   "cure",
+   "delegated-private-matching-for-compute",
+   "hawk",
+   "icloud-private-relay",
+   "joint-randomized-response-jrr",
+   "multi-party-private-join",
+   "plasma",
+   "prio",
+   "privacy-aware-infrastructure-pai",
+   "private-cloud-compute-pcc",
+   "pvc-private-and-verifiable-computing",
+   "pysyft",
+   "scalable-metadata-hiding-for-privacy-preserving-iot",
+   "secure-vertical-federated-learning",
+   "sprint",
+   "star-secret-sharing-for-private-threshold-aggregation-report"
+  ]
+ },
+ "by_principle": {
+  "accountability": [
+   "anonymous-complaint-aggregation",
+   "confidential-federated-computations",
+   "tee-based-private-federated-learning-with-client-auditing",
+   "whatsapp-key-transparency-auditable-key-directory",
+   "xray-cloud-iam-access-auditing"
+  ],
+  "collection-limitation": [
+   "anonymous-complaint-aggregation",
+   "apple-differential-privacy",
+   "cure",
+   "delegated-private-matching-for-compute",
+   "differentially-private-data-release",
+   "epioracle-privacy-preserving-cross-facility-early-warning-fo",
+   "fl-dp-federated-learning-differential-privacy-for-mobile",
+   "frodopir-simple-scalable-single-server-private-information-r",
+   "gboard-federated-learning-with-dp-fl-dp-ftrl",
+   "gboard-federated-oov-word-discovery",
+   "hawk",
+   "helayers-a-tile-tensors-framework-for-large-neural-networks",
+   "icloud-private-relay",
+   "joint-randomized-response-jrr",
+   "lox-protecting-the-social-graph-in-bridge-distribution",
+   "microsecagg",
+   "multi-party-private-join",
+   "multi-party-private-set-union",
+   "multiparty-psi-cardinality",
+   "password-monitoring-icloud-keychain-private-set-intersection",
+   "pirouette",
+   "plasma",
+   "prepams-privacy-preserving-participant-management-system",
+   "prio",
+   "privacy-lens",
+   "privacy-sandbox-attribution-reporting-api",
+   "private-analytics-via-zero-trust-aggregation-willow",
+   "private-segmented-membership-test-threshold-fhe",
+   "pysyft",
+   "rappor-randomized-aggregatable-privacy-preserving-ordinal-re",
+   "scalable-metadata-hiding-for-privacy-preserving-iot",
+   "secure-vertical-federated-learning",
+   "sprint",
+   "star-secret-sharing-for-private-threshold-aggregation-report",
+   "tensorflow-privacy",
+   "tracs"
+  ],
+  "data-quality": [
+   "janus-fast-privacy-preserving-data-provenance-for-tls",
+   "per-record-differential-privacy",
+   "plan-variance-aware-private-mean-estimation",
+   "plasma",
+   "privacy-sandbox-attribution-reporting-summary-reports-optimi",
+   "statistics-friendly-confidentiality-protection-for-establish",
+   "styleid-identity-disentanglement-for-anonymizing-faces"
+  ],
+  "individual-participation": [
+   "privacy-nutrition-label"
+  ],
+  "openness": [
+   "apple-differential-privacy",
+   "privacy-nutrition-label"
+  ],
+  "purpose-specification": [
+   "privacy-aware-infrastructure-pai"
+  ],
+  "security-safeguards": [
+   "confidential-federated-computations",
+   "cure",
+   "differentially-private-data-release",
+   "differentially-private-speaker-anonymization",
+   "dp-fednew-communication-efficient-differentially-private-fed",
+   "epioracle-privacy-preserving-cross-facility-early-warning-fo",
+   "fl-dp-federated-learning-differential-privacy-for-mobile",
+   "gboard-federated-learning-with-dp-fl-dp-ftrl",
+   "hawk",
+   "helayers-a-tile-tensors-framework-for-large-neural-networks",
+   "i-gwas-privacy-preserving-interdependent-genome-wide-associa",
+   "icloud-private-relay",
+   "janus-fast-privacy-preserving-data-provenance-for-tls",
+   "joint-randomized-response-jrr",
+   "lox-protecting-the-social-graph-in-bridge-distribution",
+   "password-monitoring-icloud-keychain-private-set-intersection",
+   "per-record-differential-privacy",
+   "plan-variance-aware-private-mean-estimation",
+   "plume",
+   "prepams-privacy-preserving-participant-management-system",
+   "privacy-preserving-humanitarian-aid-distribution",
+   "privacy-sandbox-attribution-reporting-summary-reports-optimi",
+   "private-analytics-via-zero-trust-aggregation-willow",
+   "pysyft",
+   "secure-vertical-federated-learning",
+   "seed",
+   "sprint",
+   "statistics-friendly-confidentiality-protection-for-establish",
+   "styleid-identity-disentanglement-for-anonymizing-faces",
+   "tee-based-private-federated-learning-with-client-auditing",
+   "tensorflow-privacy",
+   "whatsapp-key-transparency-auditable-key-directory",
+   "xray-cloud-iam-access-auditing"
+  ],
+  "use-limitation": [
+   "advanced-browsing-protection",
+   "delegated-private-matching-for-compute",
+   "differential-privacy-library",
+   "elastic-sensitivity-chorus-sql-differential-privacy",
+   "multi-party-private-join",
+   "policy-zones",
+   "prio",
+   "privacy-aware-infrastructure-pai",
+   "privacy-preserving-humanitarian-aid-distribution",
+   "privacy-sandbox-attribution-reporting-api",
+   "private-cloud-compute-pcc",
+   "pvc-private-and-verifiable-computing",
+   "vaultgemma"
+  ]
+ },
+ "by_technology": {
+  "additive-secret-sharing": [
+   "prio"
+  ],
+  "amd-sev-snp-trusted-enclaves": [
+   "seed"
+  ],
+  "anonymous-aggregation-infrastructure": [
+   "gboard-federated-oov-word-discovery"
+  ],
+  "anonymous-credentials": [
+   "lox-protecting-the-social-graph-in-bridge-distribution",
+   "prepams-privacy-preserving-participant-management-system"
+  ],
+  "app-store-questionnaire": [
+   "privacy-nutrition-label"
+  ],
+  "apple-silicon-server-chips": [
+   "private-cloud-compute-pcc"
+  ],
+  "autoencoder-automatic-speech-recognizer-pipeline": [
+   "differentially-private-speaker-anonymization"
+  ],
+  "back-end-aggregation-servers-in-house-fl-library-scalable-to-millions-of-devices": [
+   "fl-dp-federated-learning-differential-privacy-for-mobile"
+  ],
+  "bigquery": [
+   "xray-cloud-iam-access-auditing"
+  ],
+  "browser-and-android-apis-attribution-reporting-api": [
+   "privacy-sandbox-attribution-reporting-api"
+  ],
+  "central-differential-privacy": [
+   "differential-privacy-library",
+   "differentially-private-data-release",
+   "elastic-sensitivity-chorus-sql-differential-privacy",
+   "plume"
+  ],
+  "central-differential-privacy-applied-to-conversion-measurement": [
+   "differentially-private-ad-conversion"
+  ],
+  "chorus-query-rewriting": [
+   "elastic-sensitivity-chorus-sql-differential-privacy"
+  ],
+  "client-side-chrome-deployment": [
+   "rappor-randomized-aggregatable-privacy-preserving-ordinal-re"
+  ],
+  "client-side-ios-deployment": [
+   "apple-differential-privacy"
+  ],
+  "cloud-iam": [
+   "xray-cloud-iam-access-auditing"
+  ],
+  "cloud-transformer-inference": [
+   "sprint"
+  ],
+  "containerized-microservices-running-real-workloads-tensorflow-pytorch-redis-nginx-within-5-of-native-speed": [
+   "seed"
+  ],
+  "cross-device-federated-learning-deployed-in-gboard": [
+   "gboard-federated-learning-with-dp-fl-dp-ftrl"
+  ],
+  "cryptographic-hash-functions": [
+   "epioracle-privacy-preserving-cross-facility-early-warning-fo"
+  ],
+  "cryptographic-tallying-integrated-with-secure-messaging": [
+   "anonymous-complaint-aggregation"
+  ],
+  "data-lineage": [
+   "privacy-aware-infrastructure-pai"
+  ],
+  "dataswarm-job-scheduler": [
+   "policy-zones"
+  ],
+  "dbms-agnostic-design": [
+   "elastic-sensitivity-chorus-sql-differential-privacy"
+  ],
+  "delegated-private-record-matching-private-id-lineage": [
+   "delegated-private-matching-for-compute"
+  ],
+  "differential-privacy": [
+   "privacy-sandbox-attribution-reporting-api",
+   "pysyft"
+  ],
+  "differential-privacy-budgeting": [
+   "privacy-sandbox-attribution-reporting-summary-reports-optimi"
+  ],
+  "differential-privacy-on-the-final-model": [
+   "secure-vertical-federated-learning"
+  ],
+  "differentially-private-feature-extractors": [
+   "differentially-private-speaker-anonymization"
+  ],
+  "differentially-private-federated-learning": [
+   "dp-fednew-communication-efficient-differentially-private-fed"
+  ],
+  "differentially-private-fine-tuning": [
+   "sprint"
+  ],
+  "differentially-private-mean-estimation-framework": [
+   "plan-variance-aware-private-mean-estimation"
+  ],
+  "differentially-private-sgd": [
+   "tensorflow-privacy"
+  ],
+  "distributed-data-processing-pipelines": [
+   "plume"
+  ],
+  "dp-ftrl-differentially-private-federated-learning": [
+   "tee-based-private-federated-learning-with-client-auditing"
+  ],
+  "dp-ftrl-tree-aggregation-based-differentially-private-follow-the-regularized-leader": [
+   "gboard-federated-learning-with-dp-fl-dp-ftrl"
+  ],
+  "dp-scaling-laws": [
+   "vaultgemma"
+  ],
+  "dp-sgd-model-training": [
+   "vaultgemma"
+  ],
+  "end-to-end-encrypted-icloud-keychain": [
+   "password-monitoring-icloud-keychain-private-set-intersection"
+  ],
+  "federated-learning": [
+   "pysyft"
+  ],
+  "firefox-telemetry": [
+   "differentially-private-data-release"
+  ],
+  "first-deployed-in-android-safetycore": [
+   "private-analytics-via-zero-trust-aggregation-willow"
+  ],
+  "formal-confidentiality-framework-for-establishment-statistics": [
+   "statistics-friendly-confidentiality-protection-for-establish"
+  ],
+  "functional-encryption": [
+   "privacy-preserving-humanitarian-aid-distribution"
+  ],
+  "homomorphic-encryption": [
+   "cure",
+   "helayers-a-tile-tensors-framework-for-large-neural-networks",
+   "pysyft"
+  ],
+  "honest-verifier-zero-knowledge-proof-system": [
+   "janus-fast-privacy-preserving-data-provenance-for-tls"
+  ],
+  "hybrid-rgb-thermal-camera-sensing": [
+   "privacy-lens"
+  ],
+  "information-flow-control": [
+   "privacy-aware-infrastructure-pai"
+  ],
+  "integration-with-existing-privacy-preserving-aid-distribution-systems-built-with-the-red-cross": [
+   "privacy-preserving-humanitarian-aid-distribution"
+  ],
+  "latent-space-identity-disentanglement": [
+   "styleid-identity-disentanglement-for-anonymizing-faces"
+  ],
+  "lattice-based-single-message-aggregation-protocol": [
+   "private-analytics-via-zero-trust-aggregation-willow"
+  ],
+  "local-differential-privacy": [
+   "apple-differential-privacy",
+   "joint-randomized-response-jrr",
+   "rappor-randomized-aggregatable-privacy-preserving-ordinal-re"
+  ],
+  "local-differential-privacy-collection-in-gboard": [
+   "gboard-federated-oov-word-discovery"
+  ],
+  "local-differential-privacy-for-trajectory-data": [
+   "tracs"
+  ],
+  "masque-quic-based-encrypted-proxying": [
+   "icloud-private-relay"
+  ],
+  "merkle-tree-directory": [
+   "whatsapp-key-transparency-auditable-key-directory"
+  ],
+  "metadata-protecting-communication-infrastructure-for-iot": [
+   "scalable-metadata-hiding-for-privacy-preserving-iot"
+  ],
+  "ml-based-data-classification": [
+   "privacy-aware-infrastructure-pai"
+  ],
+  "multi-party-secure-computation-for-set-union": [
+   "multi-party-private-set-union"
+  ],
+  "multi-server-architecture": [
+   "prio"
+  ],
+  "oblivious-dns-over-https": [
+   "icloud-private-relay"
+  ],
+  "oblivious-helper-architecture": [
+   "multi-party-private-join"
+  ],
+  "oblivious-http": [
+   "advanced-browsing-protection"
+  ],
+  "oblivious-pseudorandom-functions": [
+   "star-secret-sharing-for-private-threshold-aggregation-report"
+  ],
+  "on-device-image-processing": [
+   "privacy-lens"
+  ],
+  "on-device-training-runtime-across-facebook-instagram-mobile-apps": [
+   "fl-dp-federated-learning-differential-privacy-for-mobile"
+  ],
+  "open-source-implementation": [
+   "prio"
+  ],
+  "open-source-implementation-facebookresearch-private-id": [
+   "delegated-private-matching-for-compute"
+  ],
+  "open-source-python-library": [
+   "pysyft"
+  ],
+  "open-source-rust-implementation": [
+   "lox-protecting-the-social-graph-in-bridge-distribution"
+  ],
+  "open-source-rust-library": [
+   "whatsapp-key-transparency-auditable-key-directory"
+  ],
+  "open-sourced-confidential-computing-stack": [
+   "confidential-federated-computations"
+  ],
+  "open-weight-release": [
+   "vaultgemma"
+  ],
+  "optional-server-aided-deployment-variant": [
+   "multiparty-psi-cardinality"
+  ],
+  "path-oram": [
+   "advanced-browsing-protection"
+  ],
+  "per-record-differential-privacy": [
+   "per-record-differential-privacy"
+  ],
+  "platform-level-policy-mandate": [
+   "privacy-nutrition-label"
+  ],
+  "pre-trained-stylegan-generative-model": [
+   "styleid-identity-disentanglement-for-anonymizing-faces"
+  ],
+  "presto": [
+   "policy-zones"
+  ],
+  "presto-spark-integration": [
+   "privacy-aware-infrastructure-pai"
+  ],
+  "privacy-on-beam-pipeline-framework": [
+   "differential-privacy-library"
+  ],
+  "privacy-sandbox-attribution-reporting-api-summary-reports": [
+   "privacy-sandbox-attribution-reporting-summary-reports-optimi"
+  ],
+  "private-information-retrieval": [
+   "advanced-browsing-protection"
+  ],
+  "private-information-retrieval-over-public-databases": [
+   "pirouette"
+  ],
+  "private-set-intersection-protocol": [
+   "password-monitoring-icloud-keychain-private-set-intersection"
+  ],
+  "prototype-evaluated-on-real-world-symptom-lists": [
+   "epioracle-privacy-preserving-cross-facility-early-warning-fo"
+  ],
+  "remote-attestation": [
+   "confidential-federated-computations",
+   "pvc-private-and-verifiable-computing"
+  ],
+  "rust-prototype-implementation": [
+   "frodopir-simple-scalable-single-server-private-information-r"
+  ],
+  "scribe-message-queue": [
+   "policy-zones"
+  ],
+  "second-order-optimization": [
+   "dp-fednew-communication-efficient-differentially-private-fed"
+  ],
+  "secure-boot": [
+   "private-cloud-compute-pcc"
+  ],
+  "secure-computation-framework-for-interdependent-gwas-releases": [
+   "i-gwas-privacy-preserving-interdependent-genome-wide-associa"
+  ],
+  "secure-enclave": [
+   "private-cloud-compute-pcc"
+  ],
+  "secure-lookup-table-computation": [
+   "hawk"
+  ],
+  "secure-multi-party-computation": [
+   "hawk",
+   "multi-party-private-join",
+   "pysyft"
+  ],
+  "secure-multi-party-computation-across-providers": [
+   "sprint"
+  ],
+  "secure-multiparty-computation": [
+   "secure-vertical-federated-learning"
+  ],
+  "server-side-trusted-execution-environments": [
+   "confidential-federated-computations"
+  ],
+  "single-server-architecture": [
+   "star-secret-sharing-for-private-threshold-aggregation-report"
+  ],
+  "single-server-private-information-retrieval-lattice-lwe-based": [
+   "frodopir-simple-scalable-single-server-private-information-r"
+  ],
+  "single-server-secure-aggregation": [
+   "microsecagg"
+  ],
+  "small-ephemeral-server-side-tee": [
+   "tee-based-private-federated-learning-with-client-auditing"
+  ],
+  "split-learning-between-client-and-cloud-server": [
+   "cure"
+  ],
+  "standardized-disclosure-schema": [
+   "privacy-nutrition-label"
+  ],
+  "symmetric-key-encryption": [
+   "epioracle-privacy-preserving-cross-facility-early-warning-fo"
+  ],
+  "symmetric-key-multi-party-psi-ca-protocols": [
+   "multiparty-psi-cardinality"
+  ],
+  "tee-based-aggregation-service": [
+   "privacy-sandbox-attribution-reporting-api"
+  ],
+  "three-server-secure-computation-architecture": [
+   "plasma"
+  ],
+  "threshold-aggregation-via-secret-sharing": [
+   "star-secret-sharing-for-private-threshold-aggregation-report"
+  ],
+  "threshold-fully-homomorphic-encryption": [
+   "private-segmented-membership-test-threshold-fhe"
+  ],
+  "tile-tensors-data-packing-framework": [
+   "helayers-a-tile-tensors-framework-for-large-neural-networks"
+  ],
+  "tls-oracle-protocol": [
+   "janus-fast-privacy-preserving-data-provenance-for-tls"
+  ],
+  "trusted-execution-environment": [
+   "advanced-browsing-protection",
+   "private-cloud-compute-pcc",
+   "pvc-private-and-verifiable-computing"
+  ],
+  "trusted-execution-environment-with-remote-attestation": [
+   "private-analytics-via-zero-trust-aggregation-willow"
+  ],
+  "trusted-execution-environments": [
+   "fl-dp-federated-learning-differential-privacy-for-mobile"
+  ],
+  "two-hop-proxy-architecture-apple-ingress-independent-third-party-egress": [
+   "icloud-private-relay"
+  ],
+  "vertical-federated-learning": [
+   "secure-vertical-federated-learning"
+  ],
+  "zero-knowledge-proofs": [
+   "prepams-privacy-preserving-participant-management-system"
+  ],
+  "zoncolan-static-analysis": [
+   "privacy-aware-infrastructure-pai"
+  ]
+ },
+ "by_technique": {
+  "access-path-tracing": [
+   "xray-cloud-iam-access-auditing"
+  ],
+  "accuracy-preserving-privacy-preserving-ml-training-and-inference": [
+   "hawk"
+  ],
+  "aggregate-only-statistical-release-over-aid-records": [
+   "privacy-preserving-humanitarian-aid-distribution"
+  ],
+  "amortized-server-cost-optimization": [
+   "frodopir-simple-scalable-single-server-private-information-r"
+  ],
+  "anonymization-based-privacy-amplification-from-local-to-central-dp": [
+   "gboard-federated-oov-word-discovery"
+  ],
+  "anonymous-complaint-submission": [
+   "anonymous-complaint-aggregation"
+  ],
+  "asymmetric-privacy-proof-optimization": [
+   "janus-fast-privacy-preserving-data-provenance-for-tls"
+  ],
+  "at-capture-pii-removal-from-images": [
+   "privacy-lens"
+  ],
+  "attested-aggregation-pipelines": [
+   "confidential-federated-computations"
+  ],
+  "attested-confidential-ai-inference": [
+   "pvc-private-and-verifiable-computing"
+  ],
+  "automated-packing-layout-optimization": [
+   "helayers-a-tile-tensors-framework-for-large-neural-networks"
+  ],
+  "blinded-authentication-tokens": [
+   "icloud-private-relay"
+  ],
+  "bloom-filter-encoding": [
+   "rappor-randomized-aggregatable-privacy-preserving-ordinal-re"
+  ],
+  "bucketized-breach-corpus-lookup": [
+   "password-monitoring-icloud-keychain-private-set-intersection"
+  ],
+  "calibrated-gaussian-noise-on-aggregated-gradients": [
+   "vaultgemma"
+  ],
+  "calibration-for-heavy-tailed": [
+   "statistics-friendly-confidentiality-protection-for-establish"
+  ],
+  "client-dropout-handling-with-a-minimal-trusted-base": [
+   "tee-based-private-federated-learning-with-client-auditing"
+  ],
+  "client-independent-offline-preprocessing-phase": [
+   "frodopir-simple-scalable-single-server-private-information-r"
+  ],
+  "client-subset-auditing-at-minor-added-cost": [
+   "tee-based-private-federated-learning-with-client-auditing"
+  ],
+  "co-design-with-humanitarian-operations": [
+   "privacy-preserving-humanitarian-aid-distribution"
+  ],
+  "coarse": [
+   "icloud-private-relay"
+  ],
+  "code-signing": [
+   "private-cloud-compute-pcc"
+  ],
+  "common-coin-group-coordination": [
+   "joint-randomized-response-jrr"
+  ],
+  "communication-efficient-dp-convergence": [
+   "dp-fednew-communication-efficient-differentially-private-fed"
+  ],
+  "communication-efficient-protocol-design": [
+   "plasma"
+  ],
+  "complaint-unlinkability": [
+   "anonymous-complaint-aggregation"
+  ],
+  "continuous-in-enclave-attestation": [
+   "seed"
+  ],
+  "continuous-trajectory-collection-under-ldp": [
+   "tracs"
+  ],
+  "contribution-blurring-in-place-of-membership-hiding": [
+   "statistics-friendly-confidentiality-protection-for-establish"
+  ],
+  "contribution-budget-allocation-optimization": [
+   "privacy-sandbox-attribution-reporting-summary-reports-optimi"
+  ],
+  "contribution-hiding-union-assembly": [
+   "multi-party-private-set-union"
+  ],
+  "coordinate-perturbation-variant": [
+   "tracs"
+  ],
+  "correlated-data-perturbation": [
+   "joint-randomized-response-jrr"
+  ],
+  "correlated-noise-via-tree-aggregation": [
+   "gboard-federated-learning-with-dp-fl-dp-ftrl"
+  ],
+  "count-mean-sketch": [
+   "apple-differential-privacy"
+  ],
+  "cryptographic-key-transparency": [
+   "whatsapp-key-transparency-auditable-key-directory"
+  ],
+  "data-annotation": [
+   "privacy-aware-infrastructure-pai"
+  ],
+  "deep-framework-integration": [
+   "privacy-aware-infrastructure-pai"
+  ],
+  "delayed-report-scheduling-to-break-timing-correlation": [
+   "privacy-sandbox-attribution-reporting-api"
+  ],
+  "delayed-sampled-transmission": [
+   "apple-differential-privacy"
+  ],
+  "demonstrated-at-16-parties-with-2-20-item-sets-7-71-s": [
+   "multiparty-psi-cardinality"
+  ],
+  "deterministic-key-derivation-from-data-value": [
+   "star-secret-sharing-for-private-threshold-aggregation-report"
+  ],
+  "device-endpoint-unlinkability": [
+   "scalable-metadata-hiding-for-privacy-preserving-iot"
+  ],
+  "downstream-restrictiveness-invariant": [
+   "policy-zones"
+  ],
+  "dp-feature-extraction-over-speech": [
+   "differentially-private-speaker-anonymization"
+  ],
+  "dp-fine-tuning-bounding-training-data-leakage": [
+   "sprint"
+  ],
+  "dp-ftrl-tree-aggregation-based-differentially-private-follow-the-regularized-leader-per-user-update-clipping": [
+   "gboard-federated-learning-with-dp-fl-dp-ftrl"
+  ],
+  "dp-noise-added-during-aggregation": [
+   "private-analytics-via-zero-trust-aggregation-willow"
+  ],
+  "dp-noise-added-inside-the-trusted-boundary": [
+   "confidential-federated-computations"
+  ],
+  "dp-noise-injection-on-aggregated-updates": [
+   "fl-dp-federated-learning-differential-privacy-for-mobile"
+  ],
+  "dropout-resilience-across-aggregation-rounds": [
+   "microsecagg"
+  ],
+  "dual-hop-knowledge-separation": [
+   "icloud-private-relay"
+  ],
+  "elastic-sensitivity-bounding-from-query-structure": [
+   "elastic-sensitivity-chorus-sql-differential-privacy"
+  ],
+  "encrypted-computation-over-distributed-datasets": [
+   "pysyft"
+  ],
+  "encrypted-cross-facility-syndrome-matching": [
+   "epioracle-privacy-preserving-cross-facility-early-warning-fo"
+  ],
+  "encrypted-large-network-inference": [
+   "helayers-a-tile-tensors-framework-for-large-neural-networks"
+  ],
+  "encrypted-query-evaluation-end-to-end": [
+   "private-segmented-membership-test-threshold-fhe"
+  ],
+  "encrypted-server-side-layer-computation": [
+   "cure"
+  ],
+  "enumeration-resistant-bridge-distribution": [
+   "lox-protecting-the-social-graph-in-bridge-distribution"
+  ],
+  "error-optimized-estimation-for-heterogeneous-variance-data": [
+   "plan-variance-aware-private-mean-estimation"
+  ],
+  "event-level-and-aggregate-level-reporting-with-calibrated-noise": [
+   "privacy-sandbox-attribution-reporting-api"
+  ],
+  "extreme-query-compression-36-byte-queries": [
+   "pirouette"
+  ],
+  "far-cheaper-than-general-purpose-mpc": [
+   "multi-party-private-join"
+  ],
+  "federated-discovery-of-out-of-vocabulary-words": [
+   "gboard-federated-oov-word-discovery"
+  ],
+  "first-protocol-purpose-built-for-many-party-private-joins": [
+   "multi-party-private-join"
+  ],
+  "formal-security-proofs": [
+   "epioracle-privacy-preserving-cross-facility-early-warning-fo"
+  ],
+  "formalization-of-attribution-rules-under-dp": [
+   "differentially-private-ad-conversion"
+  ],
+  "frequency-estimation-under-ldp": [
+   "joint-randomized-response-jrr"
+  ],
+  "full-stack-in-enclave-execution-with-a-minimized-22-mb-trusted-computing-base": [
+   "seed"
+  ],
+  "gaussian-mechanism": [
+   "differential-privacy-library"
+  ],
+  "gaussian-noise-injection": [
+   "tensorflow-privacy"
+  ],
+  "gboard": [
+   "gboard-federated-learning-with-dp-fl-dp-ftrl"
+  ],
+  "geo-preserving-egress-ip-assignment": [
+   "icloud-private-relay"
+  ],
+  "glanceable-visual-standardization": [
+   "privacy-nutrition-label"
+  ],
+  "governable-data-annotations": [
+   "policy-zones"
+  ],
+  "gradient-clipping": [
+   "vaultgemma"
+  ],
+  "hardware-attested-trusted-execution": [
+   "private-cloud-compute-pcc"
+  ],
+  "heavy-tailed-data-calibration": [
+   "per-record-differential-privacy"
+  ],
+  "helper-accelerated-oblivious-computation": [
+   "multi-party-private-join"
+  ],
+  "histogram-configuration-tuning-for-error-minimization-under-fixed-epsilon": [
+   "privacy-sandbox-attribution-reporting-summary-reports-optimi"
+  ],
+  "identifier-and-timestamp-removal": [
+   "apple-differential-privacy"
+  ],
+  "identity-feature-manipulation-with-attribute-preservation": [
+   "styleid-identity-disentanglement-for-anonymizing-faces"
+  ],
+  "identity-linguistic-content-separation": [
+   "differentially-private-speaker-anonymization"
+  ],
+  "input-and-output-dual-protection": [
+   "secure-vertical-federated-learning"
+  ],
+  "input-validity-verification-without-learning-values": [
+   "prio"
+  ],
+  "interdependence-aware-release-conditions": [
+   "i-gwas-privacy-preserving-interdependent-genome-wide-associa"
+  ],
+  "ip-stripping": [
+   "apple-differential-privacy"
+  ],
+  "item-frequency-distribution-reporting": [
+   "differentially-private-data-release"
+  ],
+  "joint-randomized-response": [
+   "joint-randomized-response-jrr"
+  ],
+  "joint-training-over-vertically-partitioned-features-without-raw-data-exchange": [
+   "secure-vertical-federated-learning"
+  ],
+  "k-anonymity-threshold": [
+   "star-secret-sharing-for-private-threshold-aggregation-report"
+  ],
+  "laplace-mechanism": [
+   "differential-privacy-library"
+  ],
+  "large-scale-dp-algorithm-engineering": [
+   "plume"
+  ],
+  "latent-space-projection-of-face-images": [
+   "styleid-identity-disentanglement-for-anonymizing-faces"
+  ],
+  "lightweight-primitive-only-design-no-public-key-crypto": [
+   "epioracle-privacy-preserving-cross-facility-early-warning-fo"
+  ],
+  "local-training-with-update-only-transmission": [
+   "fl-dp-federated-learning-differential-privacy-for-mobile"
+  ],
+  "low-bandwidth-device-friendly-protocol-design": [
+   "pirouette"
+  ],
+  "malicious-adversary-secure-design": [
+   "janus-fast-privacy-preserving-data-provenance-for-tls"
+  ],
+  "malicious-client-and-malicious-server-robustness-checks": [
+   "plasma"
+  ],
+  "masked-value-summation": [
+   "microsecagg"
+  ],
+  "mechanism-selection-and-tuning": [
+   "differentially-private-data-release"
+  ],
+  "memory-access-pattern-hiding": [
+   "advanced-browsing-protection"
+  ],
+  "mpc-friendly-transformer-optimizations-for-speed-and-accuracy": [
+   "sprint"
+  ],
+  "multi-identifier-record-linkage-without-identifier-disclosure": [
+   "delegated-private-matching-for-compute"
+  ],
+  "multi-record-user-contribution-bounding": [
+   "plume"
+  ],
+  "multi-server-aggregator-splitting": [
+   "secure-vertical-federated-learning"
+  ],
+  "nested-role-and-inherited-permission-analysis": [
+   "xray-cloud-iam-access-auditing"
+  ],
+  "noise-batch-ratio-optimization": [
+   "vaultgemma"
+  ],
+  "noise-calibration-for-measurement-accuracy": [
+   "differentially-private-ad-conversion"
+  ],
+  "non-collusion-assumption-design-avoiding-expensive-public-key-operations": [
+   "multiparty-psi-cardinality"
+  ],
+  "oblivious-delegated-matching": [
+   "delegated-private-matching-for-compute"
+  ],
+  "oblivious-element-mixing-shuffling": [
+   "multi-party-private-set-union"
+  ],
+  "on-device-direction-distance-perturbation": [
+   "tracs"
+  ],
+  "on-device-ldp-randomization-of-candidate-words": [
+   "gboard-federated-oov-word-discovery"
+  ],
+  "on-device-match-determination": [
+   "password-monitoring-icloud-keychain-private-set-intersection"
+  ],
+  "on-device-next-word-prediction-training": [
+   "gboard-federated-learning-with-dp-fl-dp-ftrl"
+  ],
+  "one-shot-encrypted-client-submissions-single-message-per-device": [
+   "private-analytics-via-zero-trust-aggregation-willow"
+  ],
+  "oprf-bucketed-membership": [
+   "advanced-browsing-protection"
+  ],
+  "oprf-style-blinding-of-password-derived-values": [
+   "password-monitoring-icloud-keychain-private-set-intersection"
+  ],
+  "outlier-dominated-data": [
+   "statistics-friendly-confidentiality-protection-for-establish"
+  ],
+  "overlapping-population-reconstruction-attack-mitigation": [
+   "i-gwas-privacy-preserving-interdependent-genome-wide-associa"
+  ],
+  "overprovisioned-access-remediation": [
+   "xray-cloud-iam-access-auditing"
+  ],
+  "partial-information-methodology": [
+   "differentially-private-data-release"
+  ],
+  "per-example-gradient-clipping": [
+   "tensorflow-privacy"
+  ],
+  "per-user-contribution-bounding-across-conversions": [
+   "differentially-private-ad-conversion"
+  ],
+  "per-user-contribution-budgeting": [
+   "privacy-sandbox-attribution-reporting-api"
+  ],
+  "performance-optimizations-delivering-up-to-210x-speedup": [
+   "cure"
+  ],
+  "policy-lattice-of-data-flow-rules": [
+   "privacy-aware-infrastructure-pai"
+  ],
+  "practicality-focused-protocol-engineering": [
+   "multi-party-private-set-union"
+  ],
+  "pre-execution-query-rewriting-with-inline-noise": [
+   "elastic-sensitivity-chorus-sql-differential-privacy"
+  ],
+  "prerequisite-checks-proven-as-zk-predicates": [
+   "prepams-privacy-preserving-participant-management-system"
+  ],
+  "privacy-budget-accounting": [
+   "tensorflow-privacy"
+  ],
+  "privacy-budget-limited-queries": [
+   "pysyft"
+  ],
+  "privacy-preserving-reward-payoff": [
+   "prepams-privacy-preserving-participant-management-system"
+  ],
+  "public-auditability-of-key-distribution-logs": [
+   "whatsapp-key-transparency-auditable-key-directory"
+  ],
+  "randomized": [
+   "privacy-sandbox-attribution-reporting-api"
+  ],
+  "randomized-response": [
+   "rappor-randomized-aggregatable-privacy-preserving-ordinal-re"
+  ],
+  "remote-attestation": [
+   "advanced-browsing-protection"
+  ],
+  "remote-data-science-via-pointer-abstraction-compute-sent-to-data-not-data-to-compute": [
+   "pysyft"
+  ],
+  "reusable-one-time-setup-with-lightweight-per-round-masking": [
+   "microsecagg"
+  ],
+  "scalable-metadata-hiding-protocol-design-for-high-volume-event-streams": [
+   "scalable-metadata-hiding-for-privacy-preserving-iot"
+  ],
+  "second-order-curvature-informed-private-updates": [
+   "dp-fednew-communication-efficient-differentially-private-fed"
+  ],
+  "secret-shared-heavy-hitters-computation": [
+   "plasma"
+  ],
+  "secret-shared-non-interactive-proofs": [
+   "prio"
+  ],
+  "secure-dot-product-based-cardinality-computation": [
+   "multiparty-psi-cardinality"
+  ],
+  "segmented-set-partitioning-for-scalability": [
+   "private-segmented-membership-test-threshold-fhe"
+  ],
+  "selective-disclosure-over-tls-session-contents": [
+   "janus-fast-privacy-preserving-data-provenance-for-tls"
+  ],
+  "server-side-statistical-decoding": [
+   "rappor-randomized-aggregatable-privacy-preserving-ordinal-re"
+  ],
+  "shamir-secret-sharing": [
+   "star-secret-sharing-for-private-threshold-aggregation-report"
+  ],
+  "sliding-scale-privacy-guarantees": [
+   "per-record-differential-privacy"
+  ],
+  "social-graph-protecting-invitation-flow": [
+   "lox-protecting-the-social-graph-in-bridge-distribution"
+  ],
+  "split-network-architecture-tuned-for-encrypted-execution": [
+   "cure"
+  ],
+  "split-trust-deployment-across-non-colluding-providers": [
+   "sprint"
+  ],
+  "stateful-query-design": [
+   "frodopir-simple-scalable-single-server-private-information-r"
+  ],
+  "stateless-processing-via-ephemeral-keys": [
+   "private-cloud-compute-pcc"
+  ],
+  "structured-self-attestation": [
+   "privacy-nutrition-label"
+  ],
+  "summation-based-membership-testing": [
+   "private-segmented-membership-test-threshold-fhe"
+  ],
+  "table-based-evaluation-of-nonlinear-activation-functions": [
+   "hawk"
+  ],
+  "target-diffusion": [
+   "private-cloud-compute-pcc"
+  ],
+  "tee-protected-aggregation": [
+   "fl-dp-federated-learning-differential-privacy-for-mobile"
+  ],
+  "thermally-guided-person-detection": [
+   "privacy-lens"
+  ],
+  "threat-model-adaptive-protection-for-volatile-field-conditions": [
+   "privacy-preserving-humanitarian-aid-distribution"
+  ],
+  "threshold-revealed-tallies": [
+   "anonymous-complaint-aggregation"
+  ],
+  "trust-level-escalation-scheme": [
+   "lox-protecting-the-social-graph-in-bridge-distribution"
+  ],
+  "tunable-privacy-utility-control": [
+   "styleid-identity-disentanglement-for-anonymizing-faces"
+  ],
+  "unknown-domain-differential-privacy": [
+   "plume"
+  ],
+  "unlinkable-participation-records-across-studies": [
+   "prepams-privacy-preserving-participant-management-system"
+  ],
+  "utility-preserving-anonymized-speech-synthesis": [
+   "differentially-private-speaker-anonymization"
+  ],
+  "variance-aware-privacy-budget-allocation-per-coordinate": [
+   "plan-variance-aware-private-mean-estimation"
+  ],
+  "verifiable-key-history-proofs": [
+   "whatsapp-key-transparency-auditable-key-directory"
+  ],
+  "verifiable-proofs-of-tee-actions": [
+   "tee-based-private-federated-learning-with-client-auditing"
+  ],
+  "verifiable-transparency": [
+   "pvc-private-and-verifiable-computing"
+  ],
+  "workload-identity-hiding": [
+   "seed"
+  ],
+  "zero-trust-layering": [
+   "private-analytics-via-zero-trust-aggregation-willow"
+  ]
+ },
+ "by_developer": {
+  "Aharoni et al.": [
+   "helayers-a-tile-tensors-framework-for-large-neural-networks"
+  ],
+  "Apple": [
+   "apple-differential-privacy",
+   "icloud-private-relay",
+   "password-monitoring-icloud-keychain-private-set-intersection",
+   "privacy-nutrition-label",
+   "private-cloud-compute-pcc"
+  ],
+  "Arizona State": [
+   "multi-party-private-set-union",
+   "multiparty-psi-cardinality"
+  ],
+  "Brave": [
+   "star-secret-sharing-for-private-threshold-aggregation-report"
+  ],
+  "Cruise": [
+   "xray-cloud-iam-access-auditing"
+  ],
+  "Davidson et al.": [
+   "frodopir-simple-scalable-single-server-private-information-r"
+  ],
+  "Google": [
+   "confidential-federated-computations",
+   "differential-privacy-library",
+   "differentially-private-ad-conversion",
+   "gboard-federated-learning-with-dp-fl-dp-ftrl",
+   "gboard-federated-oov-word-discovery",
+   "plume",
+   "privacy-sandbox-attribution-reporting-api",
+   "privacy-sandbox-attribution-reporting-summary-reports-optimi",
+   "private-analytics-via-zero-trust-aggregation-willow",
+   "rappor-randomized-aggregatable-privacy-preserving-ordinal-re",
+   "vaultgemma"
+  ],
+  "Google (Alex Kulesza)": [
+   "practical-considerations-for-differential-privacy"
+  ],
+  "Google Brain": [
+   "tensorflow-privacy"
+  ],
+  "Hasso Plattner Institute": [
+   "multi-party-private-join"
+  ],
+  "ICRC / EPFL": [
+   "privacy-preserving-humanitarian-aid-distribution"
+  ],
+  "IT University of Copenhagen": [
+   "plan-variance-aware-private-mean-estimation"
+  ],
+  "J.P. Morgan AI Research": [
+   "microsecagg"
+  ],
+  "KU Leuven": [
+   "pirouette"
+  ],
+  "Koc University / Bilkent University": [
+   "cure"
+  ],
+  "Krouka et al. (University of Oulu, Nokia Bell Labs)": [
+   "dp-fednew-communication-efficient-differentially-private-fed"
+  ],
+  "LY Corporation": [
+   "tee-based-private-federated-learning-with-client-auditing"
+  ],
+  "Lauinger et al.": [
+   "janus-fast-privacy-preserving-data-provenance-for-tls"
+  ],
+  "Le & Carlsson (Linkoping University)": [
+   "styleid-identity-disentanglement-for-anonymizing-faces"
+  ],
+  "Li et al.": [
+   "epioracle-privacy-preserving-cross-facility-early-warning-fo"
+  ],
+  "Meissner et al.": [
+   "prepams-privacy-preserving-participant-management-system"
+  ],
+  "Meta": [
+   "advanced-browsing-protection",
+   "fl-dp-federated-learning-differential-privacy-for-mobile",
+   "policy-zones",
+   "privacy-aware-infrastructure-pai"
+  ],
+  "Meta (WhatsApp)": [
+   "whatsapp-key-transparency-auditable-key-directory"
+  ],
+  "Mozilla": [
+   "differentially-private-data-release"
+  ],
+  "Notre Dame": [
+   "private-segmented-membership-test-threshold-fhe"
+  ],
+  "OpenMined": [
+   "pysyft"
+  ],
+  "Pascoal et al.": [
+   "i-gwas-privacy-preserving-interdependent-genome-wide-associa"
+  ],
+  "Penn State / NISS": [
+   "statistics-friendly-confidentiality-protection-for-establish"
+  ],
+  "Rochester Institute of Technology": [
+   "tracs"
+  ],
+  "SAP SE": [
+   "sprint"
+  ],
+  "Shamsabadi et al. (Alan Turing Institute, INRIA, Vector Institute)": [
+   "differentially-private-speaker-anonymization"
+  ],
+  "Stanford": [
+   "prio"
+  ],
+  "TikTok": [
+   "pvc-private-and-verifiable-computing"
+  ],
+  "Tulloch & Goldberg (University of Waterloo)": [
+   "lox-protecting-the-social-graph-in-bridge-distribution"
+  ],
+  "U.S. Census Bureau / Tumult Labs": [
+   "per-record-differential-privacy"
+  ],
+  "UNC Chapel Hill": [
+   "anonymous-complaint-aggregation"
+  ],
+  "USC": [
+   "hawk"
+  ],
+  "UW-Madison / UCSD": [
+   "scalable-metadata-hiding-for-privacy-preserving-iot"
+  ],
+  "Uber": [
+   "elastic-sensitivity-chorus-sql-differential-privacy"
+  ],
+  "University of Delaware": [
+   "plasma"
+  ],
+  "University of Michigan": [
+   "privacy-lens"
+  ],
+  "University of Queensland": [
+   "seed"
+  ],
+  "University of Rochester (Zheng et al.)": [
+   "joint-randomized-response-jrr"
+  ],
+  "Visa Research": [
+   "secure-vertical-federated-learning"
+  ]
+ },
+ "by_status": {
+  "deployed": [
+   "advanced-browsing-protection",
+   "apple-differential-privacy",
+   "differential-privacy-library",
+   "differentially-private-data-release",
+   "elastic-sensitivity-chorus-sql-differential-privacy",
+   "per-record-differential-privacy",
+   "plume",
+   "policy-zones",
+   "prio",
+   "privacy-aware-infrastructure-pai",
+   "privacy-nutrition-label",
+   "private-cloud-compute-pcc",
+   "pvc-private-and-verifiable-computing",
+   "pysyft",
+   "rappor-randomized-aggregatable-privacy-preserving-ordinal-re",
+   "star-secret-sharing-for-private-threshold-aggregation-report",
+   "tensorflow-privacy",
+   "vaultgemma",
+   "whatsapp-key-transparency-auditable-key-directory",
+   "xray-cloud-iam-access-auditing"
+  ],
+  "research": [
+   "anonymous-complaint-aggregation",
+   "confidential-federated-computations",
+   "cure",
+   "delegated-private-matching-for-compute",
+   "differentially-private-ad-conversion",
+   "differentially-private-speaker-anonymization",
+   "dp-fednew-communication-efficient-differentially-private-fed",
+   "epioracle-privacy-preserving-cross-facility-early-warning-fo",
+   "fl-dp-federated-learning-differential-privacy-for-mobile",
+   "frodopir-simple-scalable-single-server-private-information-r",
+   "gboard-federated-learning-with-dp-fl-dp-ftrl",
+   "gboard-federated-oov-word-discovery",
+   "hawk",
+   "helayers-a-tile-tensors-framework-for-large-neural-networks",
+   "i-gwas-privacy-preserving-interdependent-genome-wide-associa",
+   "icloud-private-relay",
+   "janus-fast-privacy-preserving-data-provenance-for-tls",
+   "joint-randomized-response-jrr",
+   "lox-protecting-the-social-graph-in-bridge-distribution",
+   "microsecagg",
+   "multi-party-private-join",
+   "multi-party-private-set-union",
+   "multiparty-psi-cardinality",
+   "password-monitoring-icloud-keychain-private-set-intersection",
+   "pirouette",
+   "plan-variance-aware-private-mean-estimation",
+   "plasma",
+   "prepams-privacy-preserving-participant-management-system",
+   "privacy-lens",
+   "privacy-preserving-humanitarian-aid-distribution",
+   "privacy-sandbox-attribution-reporting-api",
+   "privacy-sandbox-attribution-reporting-summary-reports-optimi",
+   "private-analytics-via-zero-trust-aggregation-willow",
+   "private-segmented-membership-test-threshold-fhe",
+   "scalable-metadata-hiding-for-privacy-preserving-iot",
+   "secure-vertical-federated-learning",
+   "seed",
+   "sprint",
+   "statistics-friendly-confidentiality-protection-for-establish",
+   "styleid-identity-disentanglement-for-anonymizing-faces",
+   "tee-based-private-federated-learning-with-client-auditing",
+   "tracs"
+  ],
+  "talk": [
+   "practical-considerations-for-differential-privacy"
+  ]
+ }
+}

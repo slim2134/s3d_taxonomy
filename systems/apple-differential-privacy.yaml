@@ -1,0 +1,32 @@
+name: Apple Differential Privacy
+developer: Apple
+status: deployed
+analysis_status: complete
+date: December 2017
+source: https://machinelearning.apple.com/research/learning-with-privacy-at-scale
+description: >-
+  A local differential privacy system that masks a user's data with calibrated noise on-device before
+  transmission, so that when many users submit data the noise averages out and population-level information
+  emerges.
+hoepman:
+- strategy: abstract
+  rationale: On-device randomization coarsens each value before it leaves the device.
+- strategy: minimise
+  rationale: A daily cap limits the number of privatized records transmitted per use case.
+- strategy: control
+  rationale: >-
+    The system is opt-in, the user explicitly chooses to share data, and submitted records are inspectable
+    in settings.
+oecd:
+- principle: collection-limitation
+  rationale: Data is randomized on-device, so the server never receives raw values.
+- principle: openness
+  rationale: No data is recorded or transmitted before the user explicitly opts in.
+technologies:
+- local-differential-privacy
+- client-side-ios-deployment
+techniques:
+- count-mean-sketch
+- delayed-sampled-transmission
+- ip-stripping
+- identifier-and-timestamp-removal

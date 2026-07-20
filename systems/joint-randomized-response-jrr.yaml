@@ -1,0 +1,32 @@
+name: Joint Randomized Response (JRR)
+developer: University of Rochester (Zheng et al.)
+status: research
+analysis_status: complete
+date: '2025.0'
+source: https://petsymposium.org/popets/2025/popets-2025-0097.php
+description: >-
+  A Joint Randomized Response mechanism that divides data contributors into disjoint pairs who jointly
+  perturb their binary data, improving frequency-estimation accuracy while achieving the same privacy
+  level as classical randomized response by hiding group membership information.
+hoepman:
+- strategy: hide
+  rationale: >-
+    Data is perturbed on the contributor's device before transmission, with correlated perturbations between
+    paired contributors improving the mechanism.
+- strategy: separate
+  rationale: >-
+    Contributors are split into disjoint pairs independent of all other pairs, preserving the local model's
+    structural separation between contributor and collector.
+oecd:
+- principle: security-safeguards
+  rationale: >-
+    Addresses the poor privacy-utility tradeoff of classical LDP while achieving the same formal guarantee.
+- principle: collection-limitation
+  rationale: The collector only ever receives perturbed values, never raw ones.
+technologies:
+- local-differential-privacy
+techniques:
+- joint-randomized-response
+- correlated-data-perturbation
+- common-coin-group-coordination
+- frequency-estimation-under-ldp

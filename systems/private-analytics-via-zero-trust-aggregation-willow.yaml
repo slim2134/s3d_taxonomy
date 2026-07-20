@@ -1,0 +1,41 @@
+name: Private Analytics via Zero-Trust Aggregation (Willow)
+developer: Google
+status: research
+analysis_status: complete
+date: '2025.0'
+source: https://research.google/blog/private-analytics-via-zero-trust-aggregation/
+description: >-
+  Confidentiality no longer relies entirely on hardware protection; the cryptographic layer ensures that
+  individual raw data is never exposed or reconstructed in any server memory — not even within hardware-protected
+  perimeters. The only time unencrypted data is ever processed off-device is at the final stage, when
+  the data has already been aggregated and anonymized
+hoepman:
+- strategy: hide
+  rationale: >-
+    a lattice-based cryptographic layer ensures individual raw data is never exposed or reconstructed
+    in any server memory — not even inside hardware-protected perimeters
+- strategy: abstract
+  rationale: >-
+    unencrypted data is only ever processed after it has been aggregated and anonymized, so servers touch
+    population-level data only
+- strategy: demonstrate
+  rationale: a TEE with attestation proves the aggregation code ran as published
+oecd:
+- principle: security-safeguards
+  rationale: confidentiality is layered — cryptography protects data even if the hardware perimeter fails
+- principle: collection-limitation
+  rationale: the provider never collects reconstructable individual submissions
+technologies:
+- lattice-based-single-message-aggregation-protocol
+- trusted-execution-environment-with-remote-attestation
+- first-deployed-in-android-safetycore
+techniques:
+- one-shot-encrypted-client-submissions-single-message-per-device
+- dp-noise-added-during-aggregation
+- zero-trust-layering
+notes: >-
+  The source sheet listed this system twice ('Willow' and 'Zero-Trust Aggregation for Private Analytics
+  (multi-layer TEE + crypto)'); both rows reference the same Google blog post. Second row's description:
+  Federated on-device analytics that layers crypto and hardware: a lattice-based protocol lets each device
+  submit data in one message, aggregated (with DP noise) so raw data is never reconstructed server-side,
+  while a TEE with attestation proves the code ran as published. First deployed in Android SafetyCore.

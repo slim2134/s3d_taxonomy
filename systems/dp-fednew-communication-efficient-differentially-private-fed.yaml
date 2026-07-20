@@ -1,0 +1,28 @@
+name: 'DP-FedNew: Communication-Efficient Differentially Private Federated Learning'
+developer: Krouka et al. (University of Oulu, Nokia Bell Labs)
+status: research
+analysis_status: complete
+date: 2025 (PoPETs)
+source: https://petsymposium.org/popets/2025/popets-2025-0032.php
+description: >-
+  A differentially private federated learning method that uses second-order optimization information to
+  achieve faster convergence than standard DP-SGD while maintaining per-iteration communication cost comparable
+  to first-order methods, addressing the excessive communication overhead that makes existing second-order
+  DP methods impractical for federated settings.
+hoepman:
+- strategy: hide
+  rationale: >-
+    client updates in federated learning are protected by differential privacy, using second-order optimization
+    information to converge faster than DP-SGD — so the privacy guarantee costs fewer rounds — while keeping
+    per-iteration communication comparable to first-order methods
+oecd:
+- principle: security-safeguards
+  rationale: >-
+    formal DP protection on the federated training process, made practical by removing the communication
+    overhead that made prior second-order DP methods unusable
+technologies:
+- differentially-private-federated-learning
+- second-order-optimization
+techniques:
+- second-order-curvature-informed-private-updates
+- communication-efficient-dp-convergence

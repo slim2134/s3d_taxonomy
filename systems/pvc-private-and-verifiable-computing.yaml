@@ -1,0 +1,24 @@
+name: PVC (Private and Verifiable Computing)
+developer: TikTok
+status: deployed
+analysis_status: complete
+date: '2026.0'
+source: https://www.usenix.org/conference/pepr26/presentation/sun
+description: >-
+  A confidential-computing environment for context-aware AI processing that lets a user route requests
+  with sensitive data into a private, verifiable enclave that the service provider cannot access.
+hoepman:
+- strategy: separate
+  rationale: Isolates user data inside an environment the operator cannot see, similar to Apple PCC.
+- strategy: demonstrate
+  rationale: Clients can cryptographically verify what code is running before trusting the environment.
+oecd:
+- principle: use-limitation
+  rationale: Data is used only for the user's request, and the operator cannot access it.
+technologies:
+- trusted-execution-environment
+- remote-attestation
+techniques:
+- attested-confidential-ai-inference
+- verifiable-transparency
+notes: Limited public information; analysis based primarily on the abstract.

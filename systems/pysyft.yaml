@@ -1,0 +1,37 @@
+name: PySyft
+developer: OpenMined
+status: deployed
+analysis_status: complete
+date: '2018.0'
+source: https://openmined.org/blog/remote-data-science-part-2-introduction-to-pysyft-and-pygrid/
+description: >-
+  An open-source library that decouples private data from model training using federated learning, differential
+  privacy, and encrypted computation such as secure multi-party computation and homomorphic encryption.
+  **Composite toolkit with multiplle primitives**
+hoepman:
+- strategy: separate
+  rationale: >-
+    data stays with its owner while computation is dispatched to it — pointer-based remote execution decouples
+    the data scientist from the raw data
+- strategy: hide
+  rationale: >-
+    differential privacy, secure multi-party computation, and homomorphic encryption keep individual data
+    concealed during training and inference
+oecd:
+- principle: collection-limitation
+  rationale: >-
+    the data scientist never collects raw data — only permitted computation results leave the owner's
+    boundary
+- principle: security-safeguards
+  rationale: layered cryptographic protections plus DP protect data even during joint computation
+technologies:
+- federated-learning
+- differential-privacy
+- secure-multi-party-computation
+- homomorphic-encryption
+- open-source-python-library
+techniques:
+- remote-data-science-via-pointer-abstraction-compute-sent-to-data-not-data-to-compute
+- privacy-budget-limited-queries
+- encrypted-computation-over-distributed-datasets
+notes: Composite toolkit with multiple primitives; per-strategy analysis pending.

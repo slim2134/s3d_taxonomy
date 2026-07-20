@@ -1,0 +1,26 @@
+name: PIrouette
+developer: KU Leuven
+status: research
+analysis_status: complete
+date: 2026 (PoPETs)
+source: https://petsymposium.org/popets/2026/popets-2026-0045.php
+description: >-
+  Lets a client look up a record from a public database without the server learning which one it asked
+  for. Its trick is shrinking the query to just 36 bytes — hundreds of times smaller than before — so
+  it works well on low-bandwidth devices.
+hoepman:
+- strategy: hide
+  rationale: >-
+    private information retrieval guarantees the server learns nothing about which record the client looked
+    up, and the query is compressed to just 36 bytes — hundreds of times smaller than prior schemes —
+    so the guarantee is practical even on low-bandwidth devices
+oecd:
+- principle: collection-limitation
+  rationale: >-
+    the server cannot collect query patterns or interest profiles, because queries are information-theoretically
+    uninformative to it
+technologies:
+- private-information-retrieval-over-public-databases
+techniques:
+- extreme-query-compression-36-byte-queries
+- low-bandwidth-device-friendly-protocol-design

@@ -1,0 +1,31 @@
+name: Multiparty PSI Cardinality
+developer: Arizona State
+status: research
+analysis_status: complete
+date: 2024 (PoPets)
+source: https://petsymposium.org/popets/2024/popets-2024-0041.php
+description: >-
+  Lets n parties compute the size of their datasets' intersection without revealing any elements or other
+  information, using symmetric-key techniques under a non-collusion assumption (16 parties with 2^20-item
+  sets in 7-71 seconds).
+hoepman:
+- strategy: hide
+  rationale: >-
+    n parties learn the size of their datasets' intersection without revealing any elements or any other
+    information to each other
+- strategy: abstract
+  rationale: >-
+    the protocol's only output is a single coarse statistic — the cardinality — rather than the intersection
+    contents
+oecd:
+- principle: collection-limitation
+  rationale: >-
+    no party collects any other party's set elements; avoiding public-key operations, the protocol runs
+    on symmetric-key techniques under a non-collusion assumption
+technologies:
+- symmetric-key-multi-party-psi-ca-protocols
+- optional-server-aided-deployment-variant
+techniques:
+- secure-dot-product-based-cardinality-computation
+- non-collusion-assumption-design-avoiding-expensive-public-key-operations
+- demonstrated-at-16-parties-with-2-20-item-sets-7-71-s

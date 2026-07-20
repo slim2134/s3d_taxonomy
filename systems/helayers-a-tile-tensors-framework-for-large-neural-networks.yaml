@@ -1,0 +1,29 @@
+name: 'HeLayers: A Tile Tensors Framework for Large Neural Networks on Encrypted Data'
+developer: Aharoni et al.
+status: research
+analysis_status: complete
+date: 2023 (PoPETs)
+source: https://petsymposium.org/popets/2023/popets-2023-0020.php
+description: >-
+  A framework that abstracts homomorphic encryption data packing decisions for the user via an automated
+  optimizer, used to implement inference over an encrypted AlexNet neural network that runs in approximately
+  five minutes, several orders of magnitude faster than prior non-interactive homomorphic encryption solutions.
+hoepman:
+- strategy: hide
+  rationale: >-
+    neural network inference runs entirely over homomorphically encrypted data, so the server computing
+    the inference never sees the input — with an automated optimizer making the packing decisions that
+    previously required experts
+oecd:
+- principle: collection-limitation
+  rationale: the inference provider never collects plaintext inputs
+- principle: security-safeguards
+  rationale: >-
+    encrypted AlexNet inference in ~5 minutes, orders of magnitude faster than prior non-interactive HE,
+    makes the guarantee deployable
+technologies:
+- homomorphic-encryption
+- tile-tensors-data-packing-framework
+techniques:
+- automated-packing-layout-optimization
+- encrypted-large-network-inference

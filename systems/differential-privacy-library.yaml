@@ -1,0 +1,26 @@
+name: Differential Privacy Library
+developer: Google
+status: deployed
+analysis_status: complete
+date: June 2020
+source: https://opensource.googleblog.com/2020/06/expanding-our-differential-privacy.html
+description: >-
+  An open-source library that lets organizations derive insights from data while ensuring results do not
+  allow any individual's data to be distinguished or re-identified, supporting counts, sums, and averages
+  across C++, Java, Go, and Python.
+hoepman:
+- strategy: abstract
+  rationale: >-
+    Adds calibrated noise so organizations can derive aggregate insights while no individual's data can
+    be distinguished or identified in the output.
+oecd:
+- principle: use-limitation
+  rationale: >-
+    Organizations can publish results without exposing individuals, keeping data use from leaking beyond
+    its intended purpose.
+technologies:
+- central-differential-privacy
+- privacy-on-beam-pipeline-framework
+techniques:
+- laplace-mechanism
+- gaussian-mechanism

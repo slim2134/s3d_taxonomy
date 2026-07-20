@@ -1,0 +1,31 @@
+name: 'StyleID: Identity Disentanglement for Anonymizing Faces'
+developer: Le & Carlsson (Linkoping University)
+status: research
+analysis_status: complete
+date: 2023 (PoPETs)
+source: https://petsymposium.org/popets/2023/popets-2023-0016.php
+description: >-
+  A feature-preserving anonymization framework that projects facial images into the latent space of a
+  pre-trained StyleGAN model and manipulates identity-specific features while preserving non-identity
+  attributes, providing tunable privacy with low computational complexity and outperforming prior state-of-the-art
+  face anonymization solutions.
+hoepman:
+- strategy: hide
+  rationale: >-
+    facial images are projected into a pre-trained StyleGAN's latent space where identity-specific features
+    are manipulated away, anonymizing the face while non-identity attributes (expression, pose, lighting)
+    are preserved — with tunable privacy strength
+oecd:
+- principle: security-safeguards
+  rationale: >-
+    feature-level disentanglement provides anonymization that outperforms prior state of the art at low
+    computational cost
+- principle: data-quality
+  rationale: preserving non-identity attributes keeps anonymized images useful for downstream tasks
+technologies:
+- pre-trained-stylegan-generative-model
+- latent-space-identity-disentanglement
+techniques:
+- latent-space-projection-of-face-images
+- identity-feature-manipulation-with-attribute-preservation
+- tunable-privacy-utility-control

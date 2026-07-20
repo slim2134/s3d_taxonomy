@@ -1,0 +1,33 @@
+name: TEE-Based Private Federated Learning with Client Auditing
+developer: LY Corporation
+status: research
+analysis_status: complete
+date: 2026 (PoPETs)
+source: https://petsymposium.org/popets/2026/popets-2026-0025.php
+description: >-
+  Makes differentially private federated learning (DP-FTRL) secure even against a malicious server, not
+  just an honest-but-curious one. A small ephemeral TEE on the server produces verifiable proofs of its
+  actions, and a subset of selected clients audit those proofs with only minor added cost — keeping the
+  trusted base small while preserving scalability and handling client dropouts. Backed by formal privacy
+  proofs and shown to add only small constant overhead.
+hoepman:
+- strategy: hide
+  rationale: >-
+    DP-FTRL protects individual client updates, with guarantees that now hold even against a malicious
+    server rather than only an honest-but-curious one
+- strategy: demonstrate
+  rationale: >-
+    a small ephemeral TEE produces verifiable proofs of the server's actions, and a rotating subset of
+    clients audits those proofs
+oecd:
+- principle: security-safeguards
+  rationale: formal privacy proofs cover the malicious-server threat model with only small constant overhead
+- principle: accountability
+  rationale: client auditing makes the server's correct behavior checkable by the participants themselves
+technologies:
+- small-ephemeral-server-side-tee
+- dp-ftrl-differentially-private-federated-learning
+techniques:
+- verifiable-proofs-of-tee-actions
+- client-subset-auditing-at-minor-added-cost
+- client-dropout-handling-with-a-minimal-trusted-base

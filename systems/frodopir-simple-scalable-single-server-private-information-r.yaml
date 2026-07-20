@@ -1,0 +1,27 @@
+name: 'FrodoPIR: Simple, Scalable, Single-Server Private Information Retrieval'
+developer: Davidson et al.
+status: research
+analysis_status: complete
+date: 2023 (PoPETs)
+source: https://petsymposium.org/popets/2023/popets-2023-0022.php
+description: >-
+  A highly configurable, stateful, single-server Private Information Retrieval scheme with a client-independent
+  offline phase that achieves under one second response time on a database of one million elements, with
+  amortized server costs of approximately one dollar per 100,000 queries, demonstrated via a non-optimized
+  Rust prototype.
+hoepman:
+- strategy: hide
+  rationale: >-
+    single-server private information retrieval — the server cannot learn which database element the client
+    fetched, with a client-independent offline phase making it practical (sub-second responses on a million-element
+    database, ~$1 per 100,000 queries)
+oecd:
+- principle: collection-limitation
+  rationale: query patterns are never observable to the server, so no interest profile can be collected
+technologies:
+- single-server-private-information-retrieval-lattice-lwe-based
+- rust-prototype-implementation
+techniques:
+- client-independent-offline-preprocessing-phase
+- amortized-server-cost-optimization
+- stateful-query-design

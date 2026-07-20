@@ -1,0 +1,26 @@
+name: Differentially Private Ad Conversion
+developer: Google
+status: research
+analysis_status: needs-analysis
+date: '2024.0'
+source: https://petsymposium.org/popets/2024/popets-2024-0044.php
+description: >-
+  Formalizes ad conversion measurement under differential privacy, with attribution rules and per-user
+  contribution bounding so advertisers receive noise-protected reports rather than individual conversion
+  trails.
+hoepman:
+- strategy: hide
+  rationale: >-
+    per-user contribution bounding plus calibrated noise prevents any individual's conversions from being
+    identifiable in reports
+- strategy: abstract
+  rationale: >-
+    ad conversion measurement is formalized under differential privacy, so advertisers receive noise-protected
+    measurement rather than individual conversion trails
+oecd: []
+technologies:
+- central-differential-privacy-applied-to-conversion-measurement
+techniques:
+- formalization-of-attribution-rules-under-dp
+- per-user-contribution-bounding-across-conversions
+- noise-calibration-for-measurement-accuracy

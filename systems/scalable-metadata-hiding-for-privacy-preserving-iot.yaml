@@ -1,0 +1,27 @@
+name: Scalable Metadata-Hiding for Privacy-Preserving IoT
+developer: UW-Madison / UCSD
+status: research
+analysis_status: complete
+date: '2024.0'
+source: https://petsymposium.org/popets/2024/popets-2024-0135.php
+description: >-
+  Conceals communication metadata in IoT systems, hiding which device is talking to which service, with
+  protocols that scale to high-volume event streams.
+hoepman:
+- strategy: hide
+  rationale: >-
+    conceals communication metadata in IoT systems — which device is talking to which service and when
+    — from network observers and infrastructure
+- strategy: separate
+  rationale: routing infrastructure unlinks device identity from service endpoint so no intermediary holds
+    both
+oecd:
+- principle: collection-limitation
+  rationale: >-
+    observers cannot collect device-to-service communication patterns, which are often as sensitive as
+    content in smart homes
+technologies:
+- metadata-protecting-communication-infrastructure-for-iot
+techniques:
+- scalable-metadata-hiding-protocol-design-for-high-volume-event-streams
+- device-endpoint-unlinkability

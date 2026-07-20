@@ -1,0 +1,30 @@
+name: Privacy Lens
+developer: University of Michigan
+status: research
+analysis_status: complete
+date: '2024.0'
+source: https://petsymposium.org/popets/2024/popets-2024-0146.php
+description: >-
+  Removes personally identifiable information from RGB images on-device at capture time, using thermal
+  sensing to reliably locate people so identifying regions can be removed before images are stored or
+  transmitted.
+hoepman:
+- strategy: minimise
+  rationale: >-
+    personally identifiable information is removed from RGB images on-device, at capture time, before
+    images are ever stored or transmitted
+- strategy: hide
+  rationale: >-
+    thermal sensing reliably locates people in frame so their identifying regions can be removed even
+    in conditions where RGB-only detection fails
+oecd:
+- principle: collection-limitation
+  rationale: >-
+    downstream systems only ever receive PII-scrubbed imagery; identifiable data is eliminated at the
+    sensor boundary
+technologies:
+- hybrid-rgb-thermal-camera-sensing
+- on-device-image-processing
+techniques:
+- thermally-guided-person-detection
+- at-capture-pii-removal-from-images

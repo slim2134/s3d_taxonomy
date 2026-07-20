@@ -1,0 +1,29 @@
+name: Gboard Federated OOV Word Discovery
+developer: Google
+status: research
+analysis_status: complete
+date: April 2024
+source: https://arxiv.org/abs/2404.11607
+description: >-
+  Discovers frequently typed words missing from Gboard's vocabulary without exposing individual input:
+  words are collected under local differential privacy, then anonymously aggregated so the released result
+  meets central DP (ε=0.315).
+hoepman:
+- strategy: hide
+  rationale: >-
+    each typed word is randomized under local differential privacy on-device, so the server cannot attribute
+    any submitted word to a user
+- strategy: abstract
+  rationale: >-
+    only anonymously aggregated word frequencies satisfying central DP (epsilon = 0.315) are released,
+    a population-level vocabulary rather than anyone's typing
+oecd:
+- principle: collection-limitation
+  rationale: identifiable input never leaves the device; the collector receives only LDP-randomized reports
+technologies:
+- local-differential-privacy-collection-in-gboard
+- anonymous-aggregation-infrastructure
+techniques:
+- on-device-ldp-randomization-of-candidate-words
+- anonymization-based-privacy-amplification-from-local-to-central-dp
+- federated-discovery-of-out-of-vocabulary-words

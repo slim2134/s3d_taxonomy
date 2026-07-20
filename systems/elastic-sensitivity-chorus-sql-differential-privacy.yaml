@@ -1,0 +1,27 @@
+name: Elastic Sensitivity / CHORUS (SQL Differential Privacy)
+developer: Uber
+status: deployed
+analysis_status: complete
+date: July 2017
+source: https://medium.com/uber-security-privacy/uber-open-source-differential-privacy-57f31e85c57a
+description: >-
+  A query-rewriting framework that embeds a differential privacy mechanism directly into SQL queries before
+  execution, so queries enforce differential privacy on their own output without modifications to the
+  underlying database engine.
+hoepman:
+- strategy: abstract
+  rationale: >-
+    Calibrated noise added to query outputs means analysts see population-level results in which individuals
+    cannot be distinguished.
+oecd:
+- principle: use-limitation
+  rationale: >-
+    Internal analysts can use data without leaking individuals, protecting user privacy throughout the
+    business.
+technologies:
+- central-differential-privacy
+- chorus-query-rewriting
+- dbms-agnostic-design
+techniques:
+- elastic-sensitivity-bounding-from-query-structure
+- pre-execution-query-rewriting-with-inline-noise

@@ -1,0 +1,30 @@
+name: Differentially Private Data Release
+developer: Mozilla
+status: deployed
+analysis_status: complete
+date: '2019.0'
+source: https://www.usenix.org/conference/pepr19/presentation/zeber
+description: >-
+  A methodology for selecting and tuning differential privacy mechanisms to release aggregate statistics
+  about user behavior in Firefox when only partial information about the underlying dataset is available.
+hoepman:
+- strategy: abstract
+  rationale: >-
+    Usage data is released only as a frequency distribution across all users, a population-level picture
+    that cannot be traced back to a specific Firefox user.
+- strategy: hide
+  rationale: >-
+    Noise is added to the frequency distribution before release, so even the aggregate output does not
+    precisely reveal true counts.
+oecd:
+- principle: collection-limitation
+  rationale: Only privacy-protected aggregate outputs are released instead of raw user data.
+- principle: security-safeguards
+  rationale: Differential privacy guarantees a formal bound on information exposure.
+technologies:
+- central-differential-privacy
+- firefox-telemetry
+techniques:
+- mechanism-selection-and-tuning
+- partial-information-methodology
+- item-frequency-distribution-reporting

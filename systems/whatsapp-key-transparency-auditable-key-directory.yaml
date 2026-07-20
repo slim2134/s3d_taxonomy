@@ -1,0 +1,28 @@
+name: WhatsApp Key Transparency (Auditable Key Directory)
+developer: Meta (WhatsApp)
+status: deployed
+analysis_status: complete
+date: April 2023
+source: https://www.usenix.org/conference/pepr23/presentation/lewi
+description: >-
+  An open-source library that strengthens end-to-end encryption for WhatsApp by allowing users to transparently
+  and automatically verify their contacts' public keys, deployed at WhatsApp scale.
+hoepman:
+- strategy: demonstrate
+  rationale: >-
+    Makes WhatsApp's key management auditable and verifiable, so anyone can check that distributed keys
+    match what is publicly logged.
+- strategy: enforce
+  rationale: The Merkle-tree-based directory prevents the server from silently swapping out a user's key.
+oecd:
+- principle: security-safeguards
+  rationale: Protects the integrity of the cryptographic key material that underpins message confidentiality.
+- principle: accountability
+  rationale: The auditable key directory holds Meta to a verifiable standard.
+technologies:
+- open-source-rust-library
+- merkle-tree-directory
+techniques:
+- cryptographic-key-transparency
+- public-auditability-of-key-distribution-logs
+- verifiable-key-history-proofs

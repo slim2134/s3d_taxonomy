@@ -1,0 +1,29 @@
+name: Per-Record Differential Privacy
+developer: U.S. Census Bureau / Tumult Labs
+status: deployed
+analysis_status: complete
+date: '2023.0'
+source: https://www.usenix.org/conference/pepr23/presentation/sexton
+description: >-
+  A formal privacy framework for the Census Bureau's economic data products that provides sliding-scale
+  privacy guarantees, giving small establishments stronger protection and large establishments weaker
+  protection to handle highly skewed economic data.
+hoepman:
+- strategy: hide
+  rationale: >-
+    Tunes hiding strength per record rather than uniformly, since standard DP either over- or under-protects
+    each record in skewed data.
+- strategy: abstract
+  rationale: >-
+    Released aggregates are calibrated so a huge outlier neither destroys data utility nor leaks its individual
+    contribution.
+oecd:
+- principle: data-quality
+  rationale: Fundamentally about preserving statistical accuracy and utility of published economic statistics.
+- principle: security-safeguards
+  rationale: Small establishments, which are more re-identifiable, still receive a strong formal guarantee.
+technologies:
+- per-record-differential-privacy
+techniques:
+- sliding-scale-privacy-guarantees
+- heavy-tailed-data-calibration

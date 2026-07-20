@@ -1,0 +1,36 @@
+name: Prio
+developer: Stanford
+status: deployed
+analysis_status: complete
+date: March 2017
+source: https://www.usenix.org/conference/nsdi17/technical-sessions/presentation/corrigan-gibbs
+description: >-
+  A private-aggregation system where clients secret-share their data across a small set of servers that
+  compute aggregate statistics without learning any individual value as long as one server is honest,
+  using secret-shared non-interactive proofs (SNIPs) to reject malformed inputs; the basis for Mozilla,
+  Apple, and Google telemetry.
+hoepman:
+- strategy: separate
+  rationale: >-
+    Each client's value is split across non-colluding servers, so no single party ever sees any individual
+    value.
+- strategy: abstract
+  rationale: >-
+    Servers learn only the combined aggregate statistics, so only coarse population-level output is revealed.
+- strategy: hide
+  rationale: Secret sharing makes each individual value unobservable to any single server.
+oecd:
+- principle: collection-limitation
+  rationale: No individual value is ever collected in the clear by any party.
+- principle: use-limitation
+  rationale: Only the agreed aggregate function is computed.
+technologies:
+- additive-secret-sharing
+- multi-server-architecture
+- open-source-implementation
+techniques:
+- secret-shared-non-interactive-proofs
+- input-validity-verification-without-learning-values
+notes: >-
+  SNIPs yield roughly hundred-fold performance improvement over zero-knowledge approaches, making deployment
+  practical; supports Mozilla's deployment and the Privacy Preserving Measurement standard.

@@ -1,0 +1,32 @@
+name: CURE
+developer: Koc University / Bilkent University
+status: research
+analysis_status: complete
+date: 2026 (PoPETs)
+source: https://petsymposium.org/popets/2026/popets-2026-0047.php
+description: >-
+  Lets a client train a neural network with a cloud server without exposing its private data. The model
+  is split between client and server, and CURE encrypts the server's side (and optionally the data) so
+  the server never sees anything usable — while running up to 210× faster than earlier encrypted approaches,
+  with accuracy matching normal training.
+hoepman:
+- strategy: hide
+  rationale: >-
+    the server's share of the model (and optionally the data) is encrypted, so the server never sees anything
+    usable — while running up to 210x faster than earlier encrypted approaches
+- strategy: separate
+  rationale: >-
+    the neural network is split between client and server, so training is distributed across the trust
+    boundary by construction
+oecd:
+- principle: collection-limitation
+  rationale: the cloud never collects the client's training data in usable form
+- principle: security-safeguards
+  rationale: encryption protects the computation itself with accuracy matching normal training
+technologies:
+- homomorphic-encryption
+- split-learning-between-client-and-cloud-server
+techniques:
+- encrypted-server-side-layer-computation
+- split-network-architecture-tuned-for-encrypted-execution
+- performance-optimizations-delivering-up-to-210x-speedup
