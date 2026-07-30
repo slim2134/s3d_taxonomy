@@ -50,9 +50,9 @@ deployed_dp = [s["name"] for s in systems if s["status"] == "deployed"
 
 ## Credits
 
-Created and maintained by **Sean Lim** (Carnegie Mellon University).
-
-- **Eva Li** — contributor
+Created and maintained by:
+- **Sean Lim** (Carnegie Mellon University) - contributor.
+- **Eva Li** (Carnegie Mellon University) — contributor
 - **Dr. Hana Habib** (Carnegie Mellon University) — faculty advisor
 
 Community contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
