@@ -23,10 +23,10 @@ The YAML files are compiled into machine-readable formats in [`data/`](data/):
 - **`data/index.json`** — system ids grouped by strategy, principle, technology, technique, developer, and status
 - **`data/systems.db`** — SQLite database with `systems`, `hoepman`, `oecd`, `technologies`, and `techniques` tables
 
-Fetch the JSON directly from GitHub (replace OWNER with the repo owner):
+Fetch the JSON directly from GitHub:
 
 ```bash
-curl -s https://raw.githubusercontent.com/OWNER/s3d-taxonomy/main/data/systems.json \
+curl -s https://raw.githubusercontent.com/slim2134/s3d_taxonomy/main/data/systems.json \
   | jq '.[] | select(.hoepman[]?.strategy == "demonstrate") | .name'
 ```
 
@@ -42,7 +42,7 @@ Or in Python:
 
 ```python
 import json, urllib.request
-url = "https://raw.githubusercontent.com/OWNER/s3d-taxonomy/main/data/systems.json"
+url = "https://raw.githubusercontent.com/slim2134/s3d_taxonomy/main/data/systems.json"
 systems = json.load(urllib.request.urlopen(url))
 deployed_dp = [s["name"] for s in systems if s["status"] == "deployed"
                and any("differential-privacy" in t for t in s["technologies"])]
@@ -50,10 +50,10 @@ deployed_dp = [s["name"] for s in systems if s["status"] == "deployed"
 
 ## Credits
 
-Created and maintained by 
-- **Sean Lim** (Carnegie Mellon University)
-- **Eva Li** (Carnegie Mellon University)
-- **Dr. Hana Habib** (Carnegie Mellon University)
+Created and maintained by **Sean Lim** (Carnegie Mellon University).
+
+- **Eva Li** — contributor
+- **Dr. Hana Habib** (Carnegie Mellon University) — faculty advisor
 
 Community contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 Contributors are recognized through the repository's commit history and pull requests.
@@ -133,3 +133,16 @@ Contributors are recognized through the repository's commit history and pull req
 |---|---|---|
 | [Differentially Private Ad Conversion](systems/differentially-private-ad-conversion.yaml) | Google | [link](https://petsymposium.org/popets/2024/popets-2024-0044.php) |
 | [Practical Considerations for Differential Privacy](systems/practical-considerations-for-differential-privacy.yaml) | Google (Alex Kulesza) | [link](https://www.usenix.org/conference/pepr25/presentation/kulesza) |
+
+## Strategy coverage
+
+| Hoepman strategy | Systems |
+|---|---|
+| minimise | Apple Differential Privacy, FL-DP (Federated Learning + Differential Privacy for Mobile), Gboard Federated Learning with DP (FL + DP-FTRL), Lox: Protecting the Social Graph in Bridge Distribution, Password Monitoring / iCloud Keychain (Private Set Intersection), PrePaMS: Privacy-Preserving Participant Management System, Privacy Lens, Privacy Sandbox / Attribution Reporting API, xray (Cloud IAM Access Auditing) |
+| hide | Advanced Browsing Protection, Anonymous Complaint Aggregation, Confidential Federated Computations, CURE, Delegated Private Matching for Compute, Differentially Private Data Release, Differentially Private Speaker Anonymization, DP-FedNew: Communication-Efficient Differentially Private Federated Learning, EpiOracle: Privacy-Preserving Cross-Facility Early Warning for Unknown Epidemics, FL-DP (Federated Learning + Differential Privacy for Mobile), FrodoPIR: Simple, Scalable, Single-Server Private Information Retrieval, Gboard Federated Learning with DP (FL + DP-FTRL), Gboard Federated OOV Word Discovery, Hawk, HeLayers: A Tile Tensors Framework for Large Neural Networks on Encrypted Data, I-GWAS: Privacy-Preserving Interdependent Genome-Wide Association Studies, iCloud Private Relay, Janus: Fast Privacy-Preserving Data Provenance for TLS, Joint Randomized Response (JRR), Lox: Protecting the Social Graph in Bridge Distribution, MicroSecAgg, Multi-Party Private Join, Multi-Party Private Set Union, Multiparty PSI Cardinality, Password Monitoring / iCloud Keychain (Private Set Intersection), Per-Record Differential Privacy, PIrouette, PLAN (Variance-Aware Private Mean Estimation), PLASMA, Plume, PrePaMS: Privacy-Preserving Participant Management System, Prio, Privacy Lens, Privacy-Preserving Humanitarian Aid Distribution, Private Analytics via Zero-Trust Aggregation (Willow), Private Segmented Membership Test (Threshold-FHE), PySyft, RAPPOR (Randomized Aggregatable Privacy-Preserving Ordinal Response), Scalable Metadata-Hiding for Privacy-Preserving IoT, Secure Vertical Federated Learning, SEED, SPRINT, Statistics-Friendly Confidentiality Protection for Establishment Data, StyleID: Identity Disentanglement for Anonymizing Faces, TEE-Based Private Federated Learning with Client Auditing, TensorFlow Privacy, TraCS |
+| separate | Advanced Browsing Protection, CURE, Delegated Private Matching for Compute, Hawk, iCloud Private Relay, Joint Randomized Response (JRR), Multi-Party Private Join, PLASMA, Prio, Privacy Aware Infrastructure (PAI), Private Cloud Compute (PCC), PVC (Private and Verifiable Computing), PySyft, Scalable Metadata-Hiding for Privacy-Preserving IoT, Secure Vertical Federated Learning, SPRINT, STAR (Secret Sharing for Private Threshold Aggregation Reporting) |
+| abstract | Anonymous Complaint Aggregation, Apple Differential Privacy, Differential Privacy Library, Differentially Private Data Release, Differentially Private Speaker Anonymization, Elastic Sensitivity / CHORUS (SQL Differential Privacy), EpiOracle: Privacy-Preserving Cross-Facility Early Warning for Unknown Epidemics, Gboard Federated OOV Word Discovery, I-GWAS: Privacy-Preserving Interdependent Genome-Wide Association Studies, MicroSecAgg, Multi-Party Private Set Union, Multiparty PSI Cardinality, Per-Record Differential Privacy, PLAN (Variance-Aware Private Mean Estimation), Plume, Prio, Privacy-Preserving Humanitarian Aid Distribution, Privacy Sandbox / Attribution Reporting API, Privacy Sandbox Attribution Reporting: Summary Reports Optimization, Private Analytics via Zero-Trust Aggregation (Willow), RAPPOR (Randomized Aggregatable Privacy-Preserving Ordinal Response), Secure Vertical Federated Learning, STAR (Secret Sharing for Private Threshold Aggregation Reporting), Statistics-Friendly Confidentiality Protection for Establishment Data, TensorFlow Privacy, TraCS, VaultGemma |
+| inform | Privacy Nutrition Label |
+| control | Apple Differential Privacy, xray (Cloud IAM Access Auditing) |
+| enforce | Policy Zones, Privacy Aware Infrastructure (PAI), WhatsApp Key Transparency (Auditable Key Directory) |
+| demonstrate | Confidential Federated Computations, Janus: Fast Privacy-Preserving Data Provenance for TLS, Private Analytics via Zero-Trust Aggregation (Willow), Private Cloud Compute (PCC), PVC (Private and Verifiable Computing), SEED, TEE-Based Private Federated Learning with Client Auditing, WhatsApp Key Transparency (Auditable Key Directory) |

@@ -35,10 +35,10 @@ The YAML files are compiled into machine-readable formats in [`data/`](data/):
 - **`data/index.json`** — system ids grouped by strategy, principle, technology, technique, developer, and status
 - **`data/systems.db`** — SQLite database with `systems`, `hoepman`, `oecd`, `technologies`, and `techniques` tables
 
-Fetch the JSON directly from GitHub (replace OWNER with the repo owner):
+Fetch the JSON directly from GitHub:
 
 ```bash
-curl -s https://raw.githubusercontent.com/OWNER/s3d-taxonomy/main/data/systems.json \\
+curl -s https://raw.githubusercontent.com/slim2134/s3d_taxonomy/main/data/systems.json \\
   | jq '.[] | select(.hoepman[]?.strategy == "demonstrate") | .name'
 ```
 
@@ -54,7 +54,7 @@ Or in Python:
 
 ```python
 import json, urllib.request
-url = "https://raw.githubusercontent.com/OWNER/s3d-taxonomy/main/data/systems.json"
+url = "https://raw.githubusercontent.com/slim2134/s3d_taxonomy/main/data/systems.json"
 systems = json.load(urllib.request.urlopen(url))
 deployed_dp = [s["name"] for s in systems if s["status"] == "deployed"
                and any("differential-privacy" in t for t in s["technologies"])]
